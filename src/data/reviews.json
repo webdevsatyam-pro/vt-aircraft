@@ -1,0 +1,46 @@
+[
+  {
+    "id": "rev-101",
+    "productId": "vt-simple-trainer-rtf",
+    "author": "Robert M.",
+    "rating": 5,
+    "title": "Absolutely the best investment for a rookie pilot!",
+    "comment": "I crashed my first two planes from another brand within 30 seconds of takeoff years ago. The VT-Simple Trainer changed everything! The Beginner Mode gyro kept the wings level, and I completed 3 full battery flights on day one without a scratch.",
+    "date": "2026-07-15",
+    "verified": true,
+    "likes": 24
+  },
+  {
+    "id": "rev-102",
+    "productId": "vt-simple-trainer-rtf",
+    "author": "Samantha L.",
+    "rating": 5,
+    "title": "Built like a tank & so easy to assemble",
+    "comment": "Took me 7 minutes to assemble at the field. The thumb screws for the wing are super convenient. Flight time is easily 14 minutes if you fly at half throttle. Highly recommend buying an extra battery!",
+    "date": "2026-07-02",
+    "verified": true,
+    "likes": 18
+  },
+  {
+    "id": "rev-103",
+    "productId": "vt-simple-trainer-pnp",
+    "author": "Jason P.",
+    "rating": 5,
+    "title": "Great PNP aircraft for club instructors",
+    "comment": "Bound it with my existing Spektrum transmitter in 2 minutes. The VT-Stabilize gyro works smoothly. Perfect for teaching my club students or relaxing flying after work.",
+    "date": "2026-06-20",
+    "verified": true,
+    "likes": 12
+  },
+  {
+    "id": "rev-104",
+    "productId": "vt-simple-trainer-rtf",
+    "author": "Greg S.",
+    "rating": 5,
+    "title": "Panic switch is a lifesaver",
+    "comment": "A sudden wind gust pushed me towards a tree line. I hit the Panic Switch, the plane instantly leveled out, and I throttled up to climb safely. Saved the airplane!",
+    "date": "2026-06-11",
+    "verified": true,
+    "likes": 31
+  }
+]

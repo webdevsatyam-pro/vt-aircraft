@@ -1,0 +1,35 @@
+[
+  {
+    "id": "test-1",
+    "name": "Captain Marcus Vance",
+    "role": "Commercial Pilot & AMA Flight Instructor",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "quote": "In 15 years of teaching newcomer pilots at our club air field, the VT-Simple Trainer is hands-down the most forgiving aircraft I have introduced. The stabilization system works like a charm without taking away the real feel of aerodynamics.",
+    "date": "2026-06-12",
+    "verified": true,
+    "location": "Dallas, TX"
+  },
+  {
+    "id": "test-2",
+    "name": "David K. & Leo (Son)",
+    "role": "First-Time RC Flying Duo",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "quote": "Bought this for my 12-year-old son's birthday. Neither of us had ever flown an RC plane before. We followed the beginner checklist, took off on grass, and had an absolute blast! The panic recovery switch saved us twice when wind picked up.",
+    "date": "2026-07-01",
+    "verified": true,
+    "location": "Seattle, WA"
+  },
+  {
+    "id": "test-3",
+    "name": "Elena Rostova",
+    "role": "Aerospace Student & Hobbyist",
+    "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    "rating": 5,
+    "quote": "The engineering details on the VT-Simple Trainer are impressive. The wing loading, airframe geometry, and brushless thrust-to-weight ratio provide smooth glide ratios and stable stall characteristics. Worth every penny.",
+    "date": "2026-05-28",
+    "verified": true,
+    "location": "Chicago, IL"
+  }
+]

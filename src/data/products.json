@@ -1,0 +1,215 @@
+[
+  {
+    "id": "vt-simple-trainer-rtf",
+    "slug": "vt-simple-trainer-rtf",
+    "name": "VT-Simple Trainer EPP RTF (Ready-To-Fly)",
+    "tagline": "Durable Full-EPP beginners trainer with Carbon Fiber reinforcement.",
+    "price": 249.99,
+    "originalPrice": 289.99,
+    "badge": "Best Seller",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 128,
+    "sku": "VT-ST-RTF-01",
+    "summary": "Made of full EPP, reinforced with Carbon Fiber, this ultra lightweight Trainer plane is an ideal Trainer or Beginners RC plane.",
+    "description": "The Super Trainer EPP is designed specifically for first-time builders and flyers. Constructed from highly impact-resistant EPP foam and reinforced with structural carbon fiber strips, this plane can survive crashes that would destroy conventional balsa or EPO models. Its high-wing configuration makes it extremely stable and self-righting in flight, giving beginners the confidence they need to learn aeromodelling.",
+    "features": [
+      "Full EPP Foam Construction - Highly Crash Resistant & Easy to Repair",
+      "Carbon Fiber reinforced Wing Spars and Fuselage",
+      "Easy Build Level - Ideal for first time builders",
+      "Stable High-Wing configuration with dihedral self-righting physics",
+      "Laser-cut Aeroply internal structural parts",
+      "Complete hardware pack including pushrods, linkages, landing gear, and EPP wheels"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
+      "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+      "/src/assets/images/vt_trainer_action_1784882915807.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1200 mm",
+      "Flying Weight": "~500 g",
+      "CG Location": "60 mm from Leading Edge (at Spar)",
+      "Build Level": "EASY",
+      "Flying Level": "EASY",
+      "Material": "Full EPP Foam"
+    },
+    "whatsInTheBox": [
+      "EPP Fuselage Middle Section & 2x Printed Side Walls",
+      "2x 600mm EPP Wing Panels with carbon slotting",
+      "EPP Printed Horizontal and Vertical Stabilizers",
+      "2mm & 3mm Laser Cut Aeroply internal parts",
+      "2x 600mm Carbon Fiber Strips (5x1mm)",
+      "Pushrods (2x 600mm each) with 5x Guides & 2x Linkage Connectors",
+      "Landing Gear Wire with 2x EPP Wheels & 4x Collars",
+      "Velcro, Bamboo Skewers, and Rubber Bands"
+    ]
+  },
+  {
+    "id": "vt-simple-trainer-pnp",
+    "slug": "vt-simple-trainer-pnp",
+    "name": "VT-Simple Trainer PNP (Plug-N-Play)",
+    "tagline": "Use your own transmitter, receiver, battery, and charger.",
+    "price": 179.99,
+    "originalPrice": 199.99,
+    "badge": "Pro Pilot",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.8,
+    "reviewCount": 64,
+    "sku": "VT-ST-PNP-01",
+    "summary": "For experienced pilots with their own radio system. Includes factory-installed motor, ESC, digital servos, and VT-Stabilize flight board.",
+    "description": "The PNP edition of the VT-Simple Trainer is built for experienced pilots or club flyers who already own a 2.4GHz transmitter and receiver system. It ships fully assembled with motor, ESC, servos, and gyro stabilization pre-installed. Just plug in your 4+ channel receiver and 3S LiPo battery to take off.",
+    "features": [
+      "Factory installed 2212 1400KV Brushless Motor & 20A ESC",
+      "4x 9g Digital Micro Servos pre-wired",
+      "Integrated VT-Stabilize Flight Controller (PWM/S.BUS compatible)",
+      "Quick-assembly wings with thumb thumbscrews",
+      "Reinforced fuselage and carbon-fiber spar"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+      "/src/assets/images/vt_trainer_hero_1784882888882.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1100 mm (43.3 in)",
+      "Flying Weight": "510 g (18.0 oz)",
+      "Motor": "2212 1400KV Brushless",
+      "ESC": "20A Brushless ESC",
+      "Servos": "4x 9g Digital Micro",
+      "Recommended Battery": "3S 1300-1500mAh LiPo"
+    },
+    "whatsInTheBox": [
+      "VT-Simple Trainer Airframe (assembled with ESC, Motor, Servos)",
+      "VT-Stabilize Flight Controller",
+      "Spare Propeller",
+      "Manual"
+    ]
+  },
+  {
+    "id": "vt-lipo-battery-3s",
+    "slug": "vt-lipo-battery-3s",
+    "name": "VT High-Capacity 3S 1300mAh LiPo Battery",
+    "tagline": "Extended flight times with reliable 30C discharge performance.",
+    "price": 24.99,
+    "originalPrice": 29.99,
+    "badge": "Essential Accessory",
+    "category": "Accessories",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 89,
+    "sku": "VT-BAT-3S1300",
+    "summary": "High performance 11.1V 1300mAh 30C LiPo battery tailored for perfect center-of-gravity balance in the VT-Simple Trainer.",
+    "description": "Never cut a flying session short. Stock up on spare genuine VT LiPo batteries. Features gold-plated XT60 connectors and JST-XH balance leads for safe charging.",
+    "features": [
+      "11.1V 3S1P 1300mAh High Output",
+      "30C Continuous Discharge / 60C Burst",
+      "Pre-installed XT60 Connector",
+      "Fits perfectly in the VT-Simple Trainer battery bay"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_details_1784882902062.jpg"
+    ],
+    "specHighlights": {
+      "Voltage": "11.1V (3S)",
+      "Capacity": "1300mAh",
+      "Discharge Rate": "30C",
+      "Weight": "112g",
+      "Dimensions": "74 x 35 x 21 mm"
+    },
+    "whatsInTheBox": ["1x 11.1V 1300mAh LiPo Battery"]
+  },
+  {
+    "id": "vt-6x-transmitter",
+    "slug": "vt-6x-transmitter",
+    "name": "VT-6X 2.4GHz 6-Channel Digital Radio Transmitter",
+    "tagline": "Ergonomic control with precision ball-bearing gimbals.",
+    "price": 69.99,
+    "originalPrice": 79.99,
+    "badge": "Radio System",
+    "category": "Accessories",
+    "inStock": true,
+    "rating": 4.8,
+    "reviewCount": 42,
+    "sku": "VT-TX-6X",
+    "summary": "Advanced 2.4GHz FHSS transmitter with telemetry feed, trainer port, and dual-rate switches.",
+    "description": "Ergonomically contoured rubberized side grips, high-accuracy quad-bearing gimbals, and intuitive flight mode toggle switches give you crisp command of your aircraft.",
+    "features": [
+      "2.4GHz FHSS Frequency Hopping anti-interference technology",
+      "Integrated LCD Screen showing battery voltage and trim levels",
+      "3-Position Flight Mode Switch (Beginner / Intermediate / Expert)",
+      "Wireless Trainer Mode capability for dual-instructor setups"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+    ],
+    "specHighlights": {
+      "Channels": "6 Channels",
+      "Protocol": "2.4GHz FHSS",
+      "Range": "> 1200 meters line-of-sight",
+      "Power Supply": "4x AA Batteries (included)"
+    },
+    "whatsInTheBox": ["VT-6X Transmitter", "4x AA Alkaline Batteries", "Neck Lanyard"]
+  },
+  {
+    "id": "vt-trainer-spare-wing",
+    "slug": "vt-trainer-spare-wing",
+    "name": "VT-Simple Trainer Replacement Wing Assembly",
+    "tagline": "Factory original main wing set with carbon spars.",
+    "price": 39.99,
+    "originalPrice": 44.99,
+    "badge": "Spare Part",
+    "category": "Accessories",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 31,
+    "sku": "VT-SP-WING",
+    "summary": "Complete replacement main wing with factory pre-cut decals and pre-installed carbon fiber reinforcement.",
+    "description": "Accidents happen during training. Keep flying with genuine factory replacement main wings engineered to match original aerodynamic specs.",
+    "features": [
+      "Durable EPO High-Density Foam",
+      "Pre-installed internal dual carbon fiber spars",
+      "Pre-hinged control surfaces"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+    ],
+    "specHighlights": {
+      "Span": "1100 mm",
+      "Weight": "180g",
+      "Material": "EPO Foam"
+    },
+    "whatsInTheBox": ["Left & Right Wing Halves", "Carbon Joining Rod", "Thumb Screws"]
+  },
+  {
+    "id": "vt-flight-sim-dongle",
+    "slug": "vt-flight-sim-dongle",
+    "name": "VT Wireless RC Flight Simulator USB Dongle",
+    "tagline": "Practice in virtual skies on your PC or Mac before real-world flight.",
+    "price": 29.99,
+    "originalPrice": 34.99,
+    "badge": "Training Tool",
+    "category": "Accessories",
+    "inStock": true,
+    "rating": 5.0,
+    "reviewCount": 77,
+    "sku": "VT-SIM-USB",
+    "summary": "Connect your VT-6X transmitter wirelessly to your computer to master landings and maneuvers in RealFlight and Phoenix simulators.",
+    "description": "Build muscle memory risk-free. Plugs into any USB-A or USB-C port and binds seamlessly with your radio.",
+    "features": [
+      "Zero latency 2.4GHz receiver inside USB stick",
+      "Plug & Play compatibility with Windows 10/11 and macOS",
+      "Compatible with major simulator software"
+    ],
+    "images": [
+      "/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+    ],
+    "specHighlights": {
+      "Interface": "USB 2.0 / USB-C",
+      "Protocol": "2.4GHz VT-FHSS",
+      "OS Support": "Windows 10/11, macOS 12+"
+    },
+    "whatsInTheBox": ["USB Simulator Dongle", "Software Setup Card"]
+  }
+]

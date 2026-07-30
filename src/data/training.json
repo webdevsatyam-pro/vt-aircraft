@@ -1,0 +1,68 @@
+{
+  "title": "VT Aircraft Flight Academy",
+  "subtitle": "Master the art of RC aviation step-by-step.",
+  "modules": [
+    {
+      "id": "mod-1",
+      "step": "Level 1",
+      "title": "Ground Control & Pre-Flight Verification",
+      "duration": "15 Mins",
+      "summary": "Essential safety routines, battery voltage checks, CG balancing, and radio range testing.",
+      "topics": [
+        "Transmitter power sequence (Radio ON first, then connect battery)",
+        "Control surface direction check (Aileron, Elevator, Rudder)",
+        "Finding center of gravity at 65mm from wing leading edge",
+        "Assessing wind speed (< 12 mph recommended for first flights)"
+      ]
+    },
+    {
+      "id": "mod-2",
+      "step": "Level 2",
+      "title": "First Takeoff & Trim Control",
+      "duration": "20 Mins",
+      "summary": "Hand-launch vs ground takeoff, smooth throttle ramp up, and setting flight trims.",
+      "topics": [
+        "Hand launching directly into the wind at 75% throttle",
+        "Smooth climb out at 15-degree pitch angle",
+        "Trimming elevator for level cruise at 50% throttle",
+        "Understanding airspeed vs stall threshold"
+      ]
+    },
+    {
+      "id": "mod-3",
+      "step": "Level 3",
+      "title": "Basic Flying Patterns & Orientation",
+      "duration": "25 Mins",
+      "summary": "Flying the 'Figure 8' pattern, handling head-on orientation, and altitude control.",
+      "topics": [
+        "Gentle coordinated turns with rudder and aileron",
+        "Maintaining constant 100 ft altitude during banking turns",
+        "Overcoming reverse control instinct when flying towards yourself",
+        "Utilizing the 1-Click Panic Switch when disoriented"
+      ]
+    },
+    {
+      "id": "mod-4",
+      "step": "Level 4",
+      "title": "Approach & Touchdown Precision",
+      "duration": "30 Mins",
+      "summary": "Setting up the final landing pattern, throttling down, flare mechanics, and grass rollouts.",
+      "topics": [
+        "Downwind, base, and final approach legs",
+        "Throttling back to 25% for a steady glide slope",
+        "Gentle elevator flare 1 foot above runway surface",
+        "Crosswind landing compensation techniques"
+      ]
+    }
+  ],
+  "preflightChecklist": [
+    "Transmitter battery voltage above 5.2V",
+    "Flight battery fully charged (12.6V total for 3S)",
+    "Radio transmitter ON before connecting aircraft LiPo",
+    "VT-Stabilize gyro calibration complete (aircraft held still on flat ground for 5 sec)",
+    "Control surfaces move in correct direction (Ailerons bank left/right, Elevator pitches up/down)",
+    "Propeller nut securely tightened",
+    "Battery hatch magnetically latched and locked",
+    "Wind direction identified (Always take off and land directly into the wind)"
+  ]
+}

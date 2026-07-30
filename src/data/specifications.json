@@ -1,0 +1,80 @@
+{
+  "productName": "VT-Simple Trainer",
+  "tagline": "Learn to Fly with Confidence",
+  "overview": "Engineered specifically for beginner and intermediate pilots, the VT-Simple Trainer combines high-lift aerodynamic profiles, durable high-density EPO foam, and the VT-Stabilize gyro system.",
+  "categories": [
+    {
+      "name": "Airframe & Dynamics",
+      "specs": [
+        { "label": "Wingspan", "value": "1100 mm (43.3 in)" },
+        { "label": "Overall Length", "value": "860 mm (33.8 in)" },
+        { "label": "Wing Area", "value": "22.5 dm² (348.7 sq in)" },
+        { "label": "Wing Loading", "value": "23.1 g/dm²" },
+        { "label": "Flying Weight", "value": "520 g (18.3 oz) with 1300mAh 3S" },
+        { "label": "Material", "value": "High-Density EPO Foam with Carbon Spars" },
+        { "label": "Airfoil Section", "value": "High-Lift Semi-Symmetrical Flat Bottom" }
+      ]
+    },
+    {
+      "name": "Power System & Electronics",
+      "specs": [
+        { "label": "Motor", "value": "VT 2212-1400KV Brushless Outrunner" },
+        { "label": "Speed Controller (ESC)", "value": "VT 20A Brushless ESC with 5V/2A BEC" },
+        { "label": "Propeller", "value": "8x4.5 High-Efficiency 2-Blade Propeller" },
+        { "label": "Servos", "value": "4x 9g Micro Digital Nylon-Gear Servos" },
+        { "label": "Stabilizer Board", "value": "VT-Stabilize 6-Axis MEMS Gyro System" }
+      ]
+    },
+    {
+      "name": "Radio & Battery",
+      "specs": [
+        { "label": "Transmitter", "value": "VT-6X 2.4GHz 6-Channel Digital System" },
+        { "label": "Control Range", "value": "> 1200 m (3,937 ft) line of sight" },
+        { "label": "Battery Required", "value": "11.1V 1300mAh 3S 30C LiPo with XT60" },
+        { "label": "Flight Time", "value": "12–15 Minutes average cruising flight" },
+        { "label": "Charger Included", "value": "USB 3S LiPo Balance Charger (1.5A Output)" }
+      ]
+    },
+    {
+      "name": "Operational Requirements",
+      "specs": [
+        { "label": "Assembly Time", "value": "< 10 Minutes (No glue required)" },
+        { "label": "Skill Level", "value": "Beginner to Intermediate (Ages 14+)" },
+        { "label": "Recommended Wind Limit", "value": "< 12 mph (19 km/h)" },
+        { "label": "Minimum Flying Field", "value": "100m x 100m open grass field" }
+      ]
+    }
+  ],
+  "comparisonTable": [
+    {
+      "feature": "VT-Stabilize 6-Axis Gyro",
+      "vtSimpleTrainer": "Yes (3 Modes)",
+      "competitorA": "Basic 3-Axis",
+      "competitorB": "None"
+    },
+    {
+      "feature": "Panic Recovery Switch",
+      "vtSimpleTrainer": "Instant 1-Click",
+      "competitorA": "Slow Auto-level",
+      "competitorB": "None"
+    },
+    {
+      "feature": "Tool-Free Wing Assembly",
+      "vtSimpleTrainer": "Quick Thumb Screws",
+      "competitorA": "Rubber Bands",
+      "competitorB": "Glued/Permanent"
+    },
+    {
+      "feature": "Durable EPO Airframe",
+      "vtSimpleTrainer": "High Density EPO",
+      "competitorA": "Brittle EPS Foam",
+      "competitorB": "Thin Plastic"
+    },
+    {
+      "feature": "Flight Time",
+      "vtSimpleTrainer": "12-15 Mins",
+      "competitorA": "6-8 Mins",
+      "competitorB": "8-10 Mins"
+    }
+  ]
+}

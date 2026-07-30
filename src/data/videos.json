@@ -1,0 +1,38 @@
+[
+  {
+    "id": "vid-1",
+    "title": "VT-Simple Trainer Maiden Flight & Full Flight Overview",
+    "category": "Flight Demos",
+    "duration": "04:15",
+    "thumbnail": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "description": "Watch our lead pilot showcase takeoff, basic maneuvers, panic recovery function, and landings in 10 mph winds."
+  },
+  {
+    "id": "vid-2",
+    "title": "Unboxing & 8-Minute Tool-Free Assembly Guide",
+    "category": "Tutorials",
+    "duration": "08:30",
+    "thumbnail": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "description": "Step-by-step unboxing, wing mounting, battery connection, and transmitter binding tutorial."
+  },
+  {
+    "id": "vid-3",
+    "title": "Understanding VT-Stabilize Gyro & Flight Modes",
+    "category": "Training",
+    "duration": "06:12",
+    "thumbnail": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "description": "Learn how Beginner, Intermediate, and Expert flight modes work and when to transition as your skill progresses."
+  },
+  {
+    "id": "vid-4",
+    "title": "First Flight Field Preparation & Wind Safety",
+    "category": "Training",
+    "duration": "05:45",
+    "thumbnail": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
+    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    "description": "Pre-flight control surface checks, checking Center of Gravity (CG), and assessing wind conditions before takeoff."
+  }
+]

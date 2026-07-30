@@ -1,0 +1,44 @@
+[
+  {
+    "id": "gal-1",
+    "title": "Clear Sky In-Flight Stability",
+    "category": "In-Flight",
+    "image": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
+    "caption": "The VT-Simple Trainer maintaining level cruise with VT-Stabilize auto-gyro active."
+  },
+  {
+    "id": "gal-2",
+    "title": "Sleek Aerodynamic Airframe",
+    "category": "Studio",
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "caption": "Precision-molded EPO foam body with high-contrast cobalt decals for maximum orientation visibility."
+  },
+  {
+    "id": "gal-3",
+    "title": "High Angle Bank Turn",
+    "category": "Action",
+    "image": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "caption": "Smooth roll authority powered by pre-wired digital 9g micro servos."
+  },
+  {
+    "id": "gal-4",
+    "title": "Sunset Touch-And-Go Practice",
+    "category": "In-Flight",
+    "image": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
+    "caption": "Durable tricycle landing gear engineered for soft grass field touch-and-go drills."
+  },
+  {
+    "id": "gal-5",
+    "title": "Top-Loading Battery Compartment",
+    "category": "Details",
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "caption": "Magnetic hatch release for swift battery swaps between flights."
+  },
+  {
+    "id": "gal-6",
+    "title": "Low Altitude Aerobatic Loop",
+    "category": "Action",
+    "image": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "caption": "Expert Mode unlocks full acrobatic freedom for loops, rolls, and stall turns."
+  }
+]

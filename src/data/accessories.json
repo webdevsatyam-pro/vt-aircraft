@@ -1,0 +1,68 @@
+[
+  {
+    "id": "acc-1",
+    "name": "VT High-Capacity 3S 1300mAh LiPo Battery",
+    "category": "Batteries",
+    "price": 24.99,
+    "rating": 4.9,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-BAT-3S1300",
+    "inStock": true,
+    "description": "11.1V 1300mAh 30C LiPo pack with XT60 plug."
+  },
+  {
+    "id": "acc-2",
+    "name": "VT Dual-Port AC/DC Smart Charger",
+    "category": "Chargers",
+    "price": 49.99,
+    "rating": 4.8,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-CHG-DUAL",
+    "inStock": true,
+    "description": "50W x 2 dual balance charger for 2S-4S LiPo batteries with LCD screen."
+  },
+  {
+    "id": "acc-3",
+    "name": "Replacement Wing Assembly",
+    "category": "Spare Parts",
+    "price": 39.99,
+    "rating": 4.9,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-SP-WING",
+    "inStock": true,
+    "description": "Main wing halves with pre-applied decals and internal carbon spars."
+  },
+  {
+    "id": "acc-4",
+    "name": "High-Efficiency 8x4.5 Propeller (3-Pack)",
+    "category": "Spare Parts",
+    "price": 12.99,
+    "rating": 4.9,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-SP-PROP3",
+    "inStock": true,
+    "description": "Balanced high-thrust composite propellers matching factory stock."
+  },
+  {
+    "id": "acc-5",
+    "name": "Tricycle Landing Gear Set with Steerable Nose Wheel",
+    "category": "Spare Parts",
+    "price": 18.99,
+    "rating": 4.7,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-SP-GEAR",
+    "inStock": true,
+    "description": "Spring steel landing struts with lightweight EVA foam wheels."
+  },
+  {
+    "id": "acc-6",
+    "name": "VT Padded Weatherproof Travel Soft Case",
+    "category": "Cases",
+    "price": 59.99,
+    "rating": 5.0,
+    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "sku": "VT-CASE-01",
+    "inStock": true,
+    "description": "Custom molded interior foam slots for wings, fuselage, transmitter, and 4 batteries."
+  }
+]

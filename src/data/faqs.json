@@ -1,0 +1,44 @@
+[
+  {
+    "id": "faq-1",
+    "category": "Getting Started",
+    "question": "Is the VT-Simple Trainer suitable for complete beginners who have never flown RC planes?",
+    "answer": "Yes! The VT-Simple Trainer was specifically created for absolute beginners. With its high-wing self-righting design and built-in VT-Stabilize 6-axis gyro, the aircraft automatically level-corrects the moment you release the control sticks. If you ever feel disoriented, simply press the Panic Button on the transmitter to restore level flight instantly."
+  },
+  {
+    "id": "faq-2",
+    "category": "Getting Started",
+    "question": "How long does it take to assemble out of the box?",
+    "answer": "Assembly takes under 10 minutes and requires zero glue. The main wing attaches with quick-thumb screws, and the tail control surfaces slide and click into place. Everything is pre-wired at the factory."
+  },
+  {
+    "id": "faq-3",
+    "category": "Flight Operations",
+    "question": "What are the 3 Flight Modes on the VT-Stabilize gyro?",
+    "answer": "1. Beginner Mode: Bank and pitch angles are capped at 30 degrees to prevent accidental flips or stalls. Auto-leveling is active when sticks are centered.\n2. Intermediate Mode: Allows up to 60-degree pitch/bank for sharper turns while keeping gyro wind correction active.\n3. Expert Mode: All angle limits are removed, allowing full aerobatics (loops, rolls, inverted flight) while gyro continues suppressing wind turbulence."
+  },
+  {
+    "id": "faq-4",
+    "category": "Flight Operations",
+    "question": "How long is the battery flight time and recharge time?",
+    "answer": "The included 11.1V 1300mAh LiPo battery yields 12 to 15 minutes of continuous flying time at half throttle. Using the included USB Balance Charger, a full recharge takes approximately 45-50 minutes."
+  },
+  {
+    "id": "faq-5",
+    "category": "Maintenance & Repairs",
+    "question": "What happens if I crash? Is EPO foam easy to repair?",
+    "answer": "EPO (Expanded Polyolefin) foam is exceptionally tough and resilient to impact. If a wing or nose suffers a break, it can easily be glued back together in minutes using regular Foam-Safe CA glue or Odorless Medium CA."
+  },
+  {
+    "id": "faq-6",
+    "category": "Shipping & Warranty",
+    "question": "What warranty and support comes with my VT-Simple Trainer?",
+    "answer": "Every VT Aircraft product comes backed by a 1-Year Limited Manufacturer Warranty covering defects in materials and craftsmanship, plus our Lifetime Flight Support guarantee. Our pilot technicians offer free troubleshooting via phone, chat, or email."
+  },
+  {
+    "id": "faq-7",
+    "category": "Shipping & Warranty",
+    "question": "How fast is shipping and where do you ship from?",
+    "answer": "We ship directly from our primary distribution hubs in the US and Europe. Express orders ship within 24 hours with typical delivery in 2-4 business days. Standard ground shipping takes 3-5 business days."
+  }
+]
