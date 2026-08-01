@@ -21,8 +21,9 @@ export default function ProductDetailsPage() {
     Array.isArray(product.images) ? product.images[0] : (product.image || '/src/assets/images/vt_trainer_hero_1784882888882.jpg')
   );
   const [activeTab, setActiveTab] = useState('description');
-  const [powerPack, setPowerPack] = useState(null);
-  const [quantity, setQuantity] = useState(2);
+  const [kitOption, setKitOption] = useState(null); // 'starter' or 'airframe'
+  const [electronicsOption, setElectronicsOption] = useState(null); // 'no-electronics' or 'with-electronics'
+  const [quantity, setQuantity] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
 
   const [zoomPos, setZoomPos] = useState({ x: 0, y: 0 });
@@ -188,38 +189,79 @@ export default function ProductDetailsPage() {
               {displayDesc}
             </p>
 
-            {/* ELECTRONICS selector (specifically for Aircraft category) */}
+            {/* KIT OPTION selector (specifically for Aircraft category) */}
             {isAircraft && (
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-gray-900 tracking-wider">ELECTRONICS:</span>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setPowerPack('no-power')}
-                      className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
-                        powerPack === 'no-power'
-                          ? 'bg-[#22252a] text-white'
-                          : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
-                      }`}
-                    >
-                      No Electronics
-                    </button>
-                    <button
-                      onClick={() => setPowerPack('viggen')}
-                      className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
-                        powerPack === 'viggen'
-                          ? 'bg-[#22252a] text-white'
-                          : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
-                      }`}
-                    >
-                      With Electronics
-                    </button>
+              <div className="space-y-4 pt-2">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900 tracking-wider">KIT OPTION:</span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => {
+                          setKitOption('starter');
+                          setElectronicsOption(null);
+                        }}
+                        className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
+                          kitOption === 'starter'
+                            ? 'bg-[#22252a] text-white'
+                            : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
+                        }`}
+                      >
+                        Starter Kit
+                      </button>
+                      <button
+                        onClick={() => {
+                          setKitOption('airframe');
+                          setElectronicsOption(null);
+                        }}
+                        className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
+                          kitOption === 'airframe'
+                            ? 'bg-[#22252a] text-white'
+                            : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
+                        }`}
+                      >
+                        Airframe Kit
+                      </button>
+                    </div>
                   </div>
                 </div>
-                {powerPack && (
+
+                {/* Sub-options for Airframe Kit */}
+                {kitOption === 'airframe' && (
+                  <div className="flex items-center gap-2 pl-4 border-l-2 border-gray-200 py-1 transition-all duration-200">
+                    <span className="text-xs font-bold text-gray-700 tracking-wider">ELECTRONICS:</span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setElectronicsOption('no-electronics')}
+                        className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
+                          electronicsOption === 'no-electronics'
+                            ? 'bg-[#22252a] text-white'
+                            : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
+                        }`}
+                      >
+                        No Electronics
+                      </button>
+                      <button
+                        onClick={() => setElectronicsOption('with-electronics')}
+                        className={`px-3 py-2 text-xs font-semibold uppercase transition-all duration-200 ${
+                          electronicsOption === 'with-electronics'
+                            ? 'bg-[#22252a] text-white'
+                            : 'bg-white text-gray-700 border border-gray-200 hover:border-gray-400'
+                        }`}
+                      >
+                        With Electronics
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {(kitOption || electronicsOption) && (
                   <div>
                     <button
-                      onClick={() => setPowerPack(null)}
+                      onClick={() => {
+                        setKitOption(null);
+                        setElectronicsOption(null);
+                      }}
                       className="text-[10px] text-gray-400 hover:text-gray-900 uppercase font-semibold underline tracking-wider"
                     >
                       Clear Choice
@@ -229,8 +271,26 @@ export default function ProductDetailsPage() {
               </div>
             )}
 
-            {/* Electronics Package list if Power Pack is selected */}
-            {isAircraft && powerPack === 'viggen' && (
+            {/* Starter Kit Details */}
+            {isAircraft && kitOption === 'starter' && (
+              <div className="pt-4 space-y-2 border-t border-gray-100">
+                <p className="font-bold text-[#e03a3a] text-xs sm:text-sm">Starter Kit Contents (Everything you need to fly):</p>
+                <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
+                  <li>High-Strength EPP Airframe Kit (Reinforced with Carbon Fiber)</li>
+                  <li>DYS 2826 1400kv Brushless Motor</li>
+                  <li>30A Electronic Speed Controller (ESC)</li>
+                  <li>3 Nos. TowerPro 9g Metal Gear Servos</li>
+                  <li>2.4GHz 6-Channel Radio Transmitter & Receiver</li>
+                  <li>11.1V 3S 1300mAh LiPo Battery</li>
+                  <li>3S LiPo Balance Charger</li>
+                  <li>2x 8x4.7 Propellers</li>
+                  <li>Complete hardware pack (pushrods, landing gear, wheels, servo extensions, connectors)</li>
+                </ul>
+              </div>
+            )}
+
+            {/* Electronics Package list if Airframe + With Electronics is selected */}
+            {isAircraft && kitOption === 'airframe' && electronicsOption === 'with-electronics' && (
               <div className="pt-4 space-y-2 border-t border-gray-100">
                 <p className="font-bold text-[#e03a3a] text-xs sm:text-sm">Optional Electronics Pack Contents (Included with "With Electronics" option):</p>
                 <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
@@ -251,22 +311,31 @@ export default function ProductDetailsPage() {
             {/* Selected Price Display below options */}
             <div className="pt-4 border-t border-gray-100">
               {isAircraft ? (
-                powerPack ? (
-                  <div className="flex items-baseline gap-2">
-                    {powerPack === 'no-power' ? (
-                      <>
-                        <span className="text-sm text-gray-400 line-through">{currentBaseOriginalPriceStr}</span>
-                        <span className="text-2xl font-bold text-gray-900">{currentBasePriceStr}</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-sm text-gray-400 line-through">{currentPackOriginalPriceStr}</span>
-                        <span className="text-2xl font-bold text-gray-900">{currentPackPriceStr}</span>
-                      </>
-                    )}
-                  </div>
+                kitOption ? (
+                  kitOption === 'starter' ? (
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-sm text-gray-400 line-through">{currentPackOriginalPriceStr}</span>
+                      <span className="text-2xl font-bold text-gray-900">{currentPackPriceStr}</span>
+                    </div>
+                  ) : electronicsOption ? (
+                    <div className="flex items-baseline gap-2">
+                      {electronicsOption === 'no-electronics' ? (
+                        <>
+                          <span className="text-sm text-gray-400 line-through">{currentBaseOriginalPriceStr}</span>
+                          <span className="text-2xl font-bold text-gray-900">{currentBasePriceStr}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-sm text-gray-400 line-through">{currentPackOriginalPriceStr}</span>
+                          <span className="text-2xl font-bold text-gray-900">{currentPackPriceStr}</span>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="text-xs text-gray-400 italic">Please select an electronics option to view the final price.</div>
+                  )
                 ) : (
-                  <div className="text-xs text-gray-400 italic">Please select a Power Pack option to view the final price.</div>
+                  <div className="text-xs text-gray-400 italic">Please select a Kit Option to view the final price.</div>
                 )
               ) : (
                 <div className="flex items-baseline gap-2">
@@ -307,15 +376,13 @@ export default function ProductDetailsPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => {
-                  if (isAircraft && !powerPack) {
-                    e.preventDefault();
-                    const withElectronics = window.confirm(
-                      "Would you like to order WITH Electronics (Power Pack)?\n\nClick 'OK' for WITH Electronics.\nClick 'Cancel' for WITHOUT Electronics."
-                    );
-                    if (withElectronics) {
-                      setPowerPack('viggen');
-                    } else {
-                      setPowerPack('no-power');
+                  if (isAircraft) {
+                    if (!kitOption) {
+                      e.preventDefault();
+                      alert("Please select a Kit Option (Starter Kit or Airframe Kit) to proceed.");
+                    } else if (kitOption === 'airframe' && !electronicsOption) {
+                      e.preventDefault();
+                      alert("Please select an Electronics option (No Electronics or With Electronics) to proceed.");
                     }
                   }
                 }}
