@@ -182,7 +182,7 @@ export default function ProductDetailsPage() {
             
             {/* Top Pricing Display */}
             <div className="text-xl font-bold text-gray-900">
-               {isAircraft ? currentPriceRangeStr : `$${((product.price || 0) * quantity)?.toFixed(2)}`}
+               {isAircraft ? currentPriceRangeStr : `₹${Math.round((product.price || 0) * quantity * 80).toLocaleString('en-IN')}.00`}
             </div>
 
             <p className="text-sm text-gray-700 leading-relaxed font-normal">
@@ -339,9 +339,9 @@ export default function ProductDetailsPage() {
                 )
               ) : (
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold text-[#1F3A5F]">${((product.price || 0) * quantity)?.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-[#1F3A5F]">₹{Math.round((product.price || 0) * quantity * 80).toLocaleString('en-IN')}.00</span>
                   {product.originalPrice && (
-                    <span className="text-sm text-gray-400 line-through">${((product.originalPrice || 0) * quantity)?.toFixed(2)}</span>
+                    <span className="text-sm text-gray-400 line-through">₹{Math.round((product.originalPrice || 0) * quantity * 80).toLocaleString('en-IN')}.00</span>
                   )}
                 </div>
               )}
@@ -739,11 +739,11 @@ export default function ProductDetailsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-4 bg-gray-50 rounded-2xl">
                     <h4 className="font-bold text-gray-900 text-xs uppercase mb-1">Standard Shipping</h4>
-                    <p className="text-xs text-gray-500">3-5 Business Days ($15 or FREE on orders &gt; $150)</p>
+                    <p className="text-xs text-gray-500">3-5 Business Days (₹1,200 or FREE on orders &gt; ₹12,000)</p>
                   </div>
                   <div className="p-4 bg-gray-50 rounded-2xl">
                     <h4 className="font-bold text-gray-900 text-xs uppercase mb-1">Express Priority Air</h4>
-                    <p className="text-xs text-gray-500">1-2 Business Days ($29.99)</p>
+                    <p className="text-xs text-gray-500">1-2 Business Days (₹2,400.00)</p>
                   </div>
                 </div>
               </div>

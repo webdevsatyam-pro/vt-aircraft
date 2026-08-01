@@ -17,7 +17,7 @@ import faqsData from '../data/faqs.json';
 export default function Home() {
   useSEO({
     title: 'VT Aircraft | Premium RC Aircraft & VT-Simple Trainer',
-    description: 'Learn to fly with confidence. The VT-Simple Trainer features 6-Axis VT-Stabilize auto-gyro, crash-resistant EPO foam, and instant 1-click panic recovery.'
+    description: 'Explore high-performance, crash-resistant RC planes, trainer aircraft, accessories, and replacement parts. Shop premium RC gear engineered for everyone.'
   });
 
   const [activeVideo, setActiveVideo] = useState(null);
@@ -43,8 +43,8 @@ export default function Home() {
                 <Plane className="w-4 h-4" /> Next-Gen RC Flight Platform
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111827] leading-[1.1]">
-                Learn to Fly <br />
-                <span className="text-gradient">With Confidence.</span>
+                Fly Premium RC <br />
+                <span className="text-gradient">Planes & Gear.</span>
               </h1>
             </motion.div>
 
@@ -54,7 +54,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl"
             >
-              The <strong>VT-Simple Trainer</strong> combines 6-Axis auto-level stabilization with ultra-durable EPO foam construction. Built specifically for first-time pilots to master takeoff, cruising, and soft grass landings without fear.
+              Discover high-performance, ultra-durable RC planes and accessories. Engineered for ultimate stability, crash resistance, and premium flight experience right out of the box.
             </motion.p>
 
             {/* Quick Hero Value Points */}
@@ -133,7 +133,7 @@ export default function Home() {
                 <span className="text-xs font-semibold text-blue-300 uppercase tracking-widest">Flagship RC Aircraft</span>
                 <h2 className="text-2xl font-bold">VT-Simple Trainer RTF</h2>
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-xl font-extrabold">$249.99 <span className="text-xs text-gray-300 line-through font-normal">$289.99</span></span>
+                  <span className="text-xl font-extrabold">₹4,699.00 <span className="text-xs text-gray-300 line-through font-normal">₹4,899.00</span></span>
                   <Link
                     to="/product/vt-simple-trainer-rtf"
                     className="px-4 py-2 bg-[#2563EB] text-white text-xs font-semibold rounded-xl hover:bg-blue-600 transition"

@@ -71,7 +71,7 @@ export default function Navbar() {
                 VT <span className="text-[#2563EB]">AIRCRAFT</span>
               </span>
               <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase mt-0.5 hidden sm:block">
-                Learn to Fly with Confidence
+                Premium RC Planes & Gear
               </span>
             </div>
           </Link>

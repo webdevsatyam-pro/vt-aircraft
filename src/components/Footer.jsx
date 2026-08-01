@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="font-semibold text-white text-sm">Free Express Shipping</h4>
-            <p className="text-xs text-gray-400 mt-0.5">On all orders over $150</p>
+            <p className="text-xs text-gray-400 mt-0.5">On all orders over ₹12,000</p>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default function Footer() {
             </span>
           </Link>
           <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
-            Architecting high-performance, crash-resistant trainer aircraft for first-time pilots. Learn to fly with confidence using our 6-Axis VT-Stabilize auto-gyro technology.
+            Offering high-performance, crash-resistant trainer RC aircraft and premium accessories. Experience ultimate flight control and stability with our next-gen aviation technology.
           </p>
           <div className="text-xs text-gray-400 space-y-1.5 pt-2">
             <div className="flex items-center gap-2">

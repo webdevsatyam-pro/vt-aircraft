@@ -41,9 +41,17 @@ export default function ProductCard({ product }) {
         {/* Pricing & Add to Cart */}
         <div className="pt-3 border-t border-gray-100 flex items-center justify-between mt-auto">
           <div>
-            <span className="text-lg font-bold text-gray-900">${product.price?.toFixed(2)}</span>
+            <span className="text-lg font-bold text-gray-900">
+              {product.category === 'Aircraft'
+                ? (product.id?.includes('pnp') ? '₹1,799.00' : '₹4,699.00')
+                : `₹${Math.round(product.price * 80).toLocaleString('en-IN')}.00`}
+            </span>
             {product.originalPrice && (
-              <span className="text-xs text-gray-400 line-through ml-2">${product.originalPrice?.toFixed(2)}</span>
+              <span className="text-xs text-gray-400 line-through ml-2">
+                {product.category === 'Aircraft'
+                  ? (product.id?.includes('pnp') ? '₹1,999.00' : '₹4,899.00')
+                  : `₹${Math.round(product.originalPrice * 80).toLocaleString('en-IN')}.00`}
+              </span>
             )}
           </div>
 
