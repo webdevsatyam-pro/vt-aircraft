@@ -13,11 +13,11 @@ export const generateProductSchema = (product) => {
     "sku": product.sku || product.id,
     "brand": {
       "@type": "Brand",
-      "name": "VT Aircraft"
+      "name": "Rc Flight Zone"
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://vtaircraft.com/product/${product.slug || product.id}`,
+      "url": `https://rcflightzone.com/product/${product.slug || product.id}`,
       "priceCurrency": "USD",
       "price": product.price,
       "priceValidUntil": "2028-12-31",
@@ -25,7 +25,7 @@ export const generateProductSchema = (product) => {
       "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       "seller": {
         "@type": "Organization",
-        "name": "VT Aircraft"
+        "name": "Rc Flight Zone"
       }
     },
     "aggregateRating": {
@@ -44,7 +44,7 @@ export const generateBreadcrumbSchema = (items) => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://vtaircraft.com${item.url}`
+      "item": `https://rcflightzone.com${item.url}`
     }))
   };
 };
@@ -69,15 +69,15 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "VT Aircraft",
-    "url": "https://vtaircraft.com",
-    "logo": "https://vtaircraft.com/images/logo.png",
+    "name": "Rc Flight Zone",
+    "url": "https://rcflightzone.com",
+    "logo": "https://rcflightzone.com/images/logo.png",
     "slogan": "Learn to Fly with Confidence",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-800-555-0199",
       "contactType": "customer service",
-      "email": "support@vtaircraft.com"
+      "email": "support@rcflightzone.com"
     }
   };
 };

@@ -10,14 +10,14 @@
     "id": "gal-2",
     "title": "Sleek Aerodynamic Airframe",
     "category": "Studio",
-    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "image": "/src/assets/images/trainer_ground.jpg",
     "caption": "Precision-molded EPO foam body with high-contrast cobalt decals for maximum orientation visibility."
   },
   {
     "id": "gal-3",
     "title": "High Angle Bank Turn",
     "category": "Action",
-    "image": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "image": "/src/assets/images/trainer_sky.jpg",
     "caption": "Smooth roll authority powered by pre-wired digital 9g micro servos."
   },
   {
@@ -31,14 +31,14 @@
     "id": "gal-5",
     "title": "Top-Loading Battery Compartment",
     "category": "Details",
-    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
+    "image": "/src/assets/images/gallery_spitfire.jpg",
     "caption": "Magnetic hatch release for swift battery swaps between flights."
   },
   {
     "id": "gal-6",
     "title": "Low Altitude Aerobatic Loop",
     "category": "Action",
-    "image": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "image": "/src/assets/images/gallery_jet.jpg",
     "caption": "Expert Mode unlocks full acrobatic freedom for loops, rolls, and stall turns."
   }
 ]

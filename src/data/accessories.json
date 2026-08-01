@@ -1,16 +1,5 @@
 [
   {
-    "id": "acc-1",
-    "name": "VT High-Capacity 3S 1300mAh LiPo Battery",
-    "category": "Batteries",
-    "price": 24.99,
-    "rating": 4.9,
-    "image": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
-    "sku": "VT-BAT-3S1300",
-    "inStock": true,
-    "description": "11.1V 1300mAh 30C LiPo pack with XT60 plug."
-  },
-  {
     "id": "acc-2",
     "name": "VT Dual-Port AC/DC Smart Charger",
     "category": "Chargers",

@@ -10,6 +10,11 @@ import ProductCard from '../components/ProductCard';
 import productsData from '../data/products.json';
 import accessoriesData from '../data/accessories.json';
 import reviewsData from '../data/reviews.json';
+import videosData from '../data/videos.json';
+
+import eppKitContents from '../assets/images/epp_trainer_kit_contents.png';
+import trainerSky from '../assets/images/trainer_sky.jpg';
+import trainerGround from '../assets/images/trainer_ground.jpg';
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -56,7 +61,7 @@ export default function ProductDetailsPage() {
   const currentPriceRangeStr = `${formatINR(basePriceVal * quantity)} – ${formatINR(packPriceVal * quantity)}`;
 
   useSEO({
-    title: `${displayName} | VT Aircraft`,
+    title: `${displayName} | Rc Flight Zone`,
     description: product.summary || product.description,
     image: selectedImage,
     jsonLd: generateProductSchema(product)
@@ -273,38 +278,48 @@ export default function ProductDetailsPage() {
 
             {/* Starter Kit Details */}
             {isAircraft && kitOption === 'starter' && (
-              <div className="pt-4 space-y-2 border-t border-gray-100">
+              <div className="pt-4 space-y-3 border-t border-gray-100">
                 <p className="font-bold text-[#e03a3a] text-xs sm:text-sm">Starter Kit Contents (Everything you need to fly):</p>
-                <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
-                  <li>High-Strength EPP Airframe Kit (Reinforced with Carbon Fiber)</li>
-                  <li>DYS 2826 1400kv Brushless Motor</li>
-                  <li>30A Electronic Speed Controller (ESC)</li>
-                  <li>3 Nos. TowerPro 9g Metal Gear Servos</li>
-                  <li>2.4GHz 6-Channel Radio Transmitter & Receiver</li>
-                  <li>11.1V 3S 1300mAh LiPo Battery</li>
-                  <li>3S LiPo Balance Charger</li>
-                  <li>2x 8x4.7 Propellers</li>
-                  <li>Complete hardware pack (pushrods, landing gear, wheels, servo extensions, connectors)</li>
-                </ul>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                  <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
+                    <li>High-Strength EPP Airframe Kit (Reinforced with Carbon Fiber)</li>
+                    <li>DYS 2826 1400kv Brushless Motor</li>
+                    <li>30A Electronic Speed Controller (ESC)</li>
+                    <li>3 Nos. TowerPro 9g Metal Gear Servos</li>
+                    <li>2.4GHz 6-Channel Radio Transmitter & Receiver</li>
+                    <li>11.1V 3S 1300mAh LiPo Battery</li>
+                    <li>3S LiPo Balance Charger</li>
+                    <li>2x 8x4.7 Propellers</li>
+                    <li>Complete hardware pack (pushrods, landing gear, wheels, servo extensions, connectors)</li>
+                  </ul>
+                  <div className="rounded-xl overflow-hidden border border-gray-200 shadow-xs bg-gray-50 aspect-video flex items-center justify-center p-1">
+                    <img src="/src/assets/images/starter_kit_components.jpg" alt="Starter Kit Components" className="w-full h-full object-contain" />
+                  </div>
+                </div>
               </div>
             )}
 
             {/* Electronics Package list if Airframe + With Electronics is selected */}
             {isAircraft && kitOption === 'airframe' && electronicsOption === 'with-electronics' && (
-              <div className="pt-4 space-y-2 border-t border-gray-100">
+              <div className="pt-4 space-y-3 border-t border-gray-100">
                 <p className="font-bold text-[#e03a3a] text-xs sm:text-sm">Optional Electronics Pack Contents (Included with "With Electronics" option):</p>
-                <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
-                  <li>DYS 2826 1400kv Brushless Outrunner Motor</li>
-                  <li>30A Electronic Speed Controller</li>
-                  <li>3 Nos. TowerPro 9Gm Metal Gear Servos</li>
-                  <li>3X 30cm Servo Extension Cable</li>
-                  <li>0.5 Meter Red (32 Strands/0.2mm Tinned copper ) Silicone Wire.</li>
-                  <li>0.5 Meter Black (32 Strands/0.2mm Tinned copper ) Silicone Wire</li>
-                  <li>Propellor: 8×4.7</li>
-                  <li>1 Male XT60 Connector</li>
-                  <li>4MM Heatshrink Tube Piece Red</li>
-                  <li>4MM Heatshrink Tube Piece Black</li>
-                </ul>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                  <ul className="list-disc pl-5 space-y-1 text-xs text-gray-700 font-medium">
+                    <li>DYS 2826 1400kv Brushless Outrunner Motor</li>
+                    <li>30A Electronic Speed Controller</li>
+                    <li>3 Nos. TowerPro 9Gm Metal Gear Servos</li>
+                    <li>3X 30cm Servo Extension Cable</li>
+                    <li>0.5 Meter Red (32 Strands/0.2mm Tinned copper ) Silicone Wire.</li>
+                    <li>0.5 Meter Black (32 Strands/0.2mm Tinned copper ) Silicone Wire</li>
+                    <li>Propellor: 8×4.7</li>
+                    <li>1 Male XT60 Connector</li>
+                    <li>4MM Heatshrink Tube Piece Red</li>
+                    <li>4MM Heatshrink Tube Piece Black</li>
+                  </ul>
+                  <div className="rounded-xl overflow-hidden border border-gray-200 shadow-xs bg-gray-50 aspect-video flex items-center justify-center p-1">
+                    <img src="/src/assets/images/epp_trainer_electronics.png" alt="Optional electronics package" className="w-full h-full object-contain" />
+                  </div>
+                </div>
               </div>
             )}
 
@@ -427,7 +442,7 @@ export default function ProductDetailsPage() {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="mailto:support@vtaircraft.com" 
+                href="mailto:support@rcflightzone.com" 
                 className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-900 hover:text-gray-900 transition"
               >
                 <Mail className="w-4 h-4" />
@@ -752,7 +767,7 @@ export default function ProductDetailsPage() {
             {activeTab === 'warranty' && (
               <div className="space-y-3">
                 <h3 className="text-base font-bold text-gray-900">1-Year Factory Limited Warranty</h3>
-                <p>Every VT Aircraft product is covered against manufacturer defects in electronics, servos, brushless motor, ESC, and radio transmitter for 12 months from delivery.</p>
+                <p>Every Rc Flight Zone product is covered against manufacturer defects in electronics, servos, brushless motor, ESC, and radio transmitter for 12 months from delivery.</p>
                 <p>In addition, our <strong>Lifetime Flight Support</strong> grants you free telephone or chat consultation with master RC technicians to troubleshoot setup or repairs.</p>
               </div>
             )}
@@ -785,6 +800,90 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </section>
+
+      {/* Build & Assembly Video Section */}
+      {product.category === 'Aircraft' && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 pt-6">
+          <div className="border-t border-gray-200 pt-10">
+            <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
+              <span className="text-xs font-bold text-[#2563EB] uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">
+                Step-by-Step Assembly
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                How to Build & Assemble
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-500">
+                Follow our master builder's video guide to assemble the {product.name} airframe step-by-step in under 10 minutes.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-white border border-gray-150 rounded-3xl p-6 lg:p-8 shadow-md">
+              {/* Left Column: Premium Video Container */}
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <div className="relative rounded-2xl overflow-hidden bg-black border border-gray-100 shadow-sm aspect-video group">
+                  <video
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    poster="/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+                    controls
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              {/* Right Column: Build Chapters / Timestamps */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-6 bg-[#2563EB] rounded-full"></span>
+                    Assembly Chapters
+                  </h3>
+                  
+                  <div className="space-y-3.5">
+                    <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        1
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-xs text-gray-900">Unboxing & Inventory</h4>
+                        <p className="text-[11px] text-gray-500">Checking laser-cut EPP sheets and structural hardware (0:00 - 2:15)</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        2
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-xs text-gray-900">Fuselage & Wing Joinery</h4>
+                        <p className="text-[11px] text-gray-500">Inserting carbon spars and locking the main wing panels (2:15 - 5:45)</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 transition cursor-pointer">
+                      <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold text-xs flex-shrink-0">
+                        3
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-xs text-gray-900">Servos & Pushrods Linkage</h4>
+                        <p className="text-[11px] text-gray-500">Routing servo extensions and connecting control horn pushrods (5:45 - 8:30)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4" />
+                  </div>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    <strong>Need additional help?</strong> Download the full PDF instruction guide from the support page or connect with our pilot hotline.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Products */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">

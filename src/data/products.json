@@ -24,8 +24,8 @@
     ],
     "images": [
       "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
-      "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
-      "/src/assets/images/vt_trainer_action_1784882915807.jpg"
+      "/src/assets/images/trainer_sky.jpg",
+      "/src/assets/images/trainer_ground.jpg"
     ],
     "specHighlights": {
       "Wingspan": "1200 mm",
@@ -49,7 +49,7 @@
   {
     "id": "vt-simple-trainer-pnp",
     "slug": "vt-simple-trainer-pnp",
-    "name": "VT-Simple Trainer PNP (Plug-N-Play)",
+    "name": "FT-Viggen Aircraft",
     "tagline": "Use your own transmitter, receiver, battery, and charger.",
     "price": 179.99,
     "originalPrice": 199.99,
@@ -69,8 +69,7 @@
       "Reinforced fuselage and carbon-fiber spar"
     ],
     "images": [
-      "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
-      "/src/assets/images/vt_trainer_hero_1784882888882.jpg"
+      "/src/assets/images/ft_viggen.jpg"
     ],
     "specHighlights": {
       "Wingspan": "1100 mm (43.3 in)",
@@ -90,67 +89,70 @@
   {
     "id": "vt-lipo-battery-3s",
     "slug": "vt-lipo-battery-3s",
-    "name": "VT High-Capacity 3S 1300mAh LiPo Battery",
-    "tagline": "Extended flight times with reliable 30C discharge performance.",
-    "price": 24.99,
-    "originalPrice": 29.99,
-    "badge": "Essential Accessory",
-    "category": "Accessories",
+    "name": "P-51D Mustang",
+    "tagline": "Classic WWII fighter with scale details and superb sport flight performance.",
+    "price": 189.99,
+    "originalPrice": 219.99,
+    "badge": "Scale Warbird",
+    "category": "Aircraft",
     "inStock": true,
     "rating": 4.9,
     "reviewCount": 89,
-    "sku": "VT-BAT-3S1300",
-    "summary": "High performance 11.1V 1300mAh 30C LiPo battery tailored for perfect center-of-gravity balance in the VT-Simple Trainer.",
-    "description": "Never cut a flying session short. Stock up on spare genuine VT LiPo batteries. Features gold-plated XT60 connectors and JST-XH balance leads for safe charging.",
+    "sku": "VT-AC-P51D",
+    "summary": "Scale model of the legendary P-51D Mustang, built with durable EPP foam and high-performance brushless electronics.",
+    "description": "Take to the skies with the legendary P-51D Mustang. This model features scale lines, pre-installed motor, ESC, and servos. Perfect for pilots looking for a scale warbird with docile flight characteristics and high speed potential.",
     "features": [
-      "11.1V 3S1P 1300mAh High Output",
-      "30C Continuous Discharge / 60C Burst",
-      "Pre-installed XT60 Connector",
-      "Fits perfectly in the VT-Simple Trainer battery bay"
+      "Authentic scale WWII paint scheme and decals",
+      "Brushless motor & 30A ESC pre-installed",
+      "Robust EPP foam construction with carbon spars",
+      "Fully functional control surfaces (Ailerons, Elevator, Rudder)"
     ],
     "images": [
-      "/src/assets/images/vt_trainer_details_1784882902062.jpg"
+      "/src/assets/images/p51_mustang.jpg"
     ],
     "specHighlights": {
-      "Voltage": "11.1V (3S)",
-      "Capacity": "1300mAh",
-      "Discharge Rate": "30C",
-      "Weight": "112g",
-      "Dimensions": "74 x 35 x 21 mm"
+      "Wingspan": "980 mm (38.5 in)",
+      "Flying Weight": "450 g (15.9 oz)",
+      "Motor": "2212 Brushless Motor",
+      "ESC": "30A Brushless ESC",
+      "Servos": "4x 9g Micro Servos",
+      "Recommended Battery": "3S 1000-1300mAh LiPo"
     },
-    "whatsInTheBox": ["1x 11.1V 1300mAh LiPo Battery"]
+    "whatsInTheBox": ["1x P-51D Mustang Airframe", "Pre-installed Electronics (ESC, Motor, Servos)", "Propeller & Scale Spinner", "User Manual"]
   },
   {
     "id": "vt-6x-transmitter",
     "slug": "vt-6x-transmitter",
-    "name": "VT-6X 2.4GHz 6-Channel Digital Radio Transmitter",
-    "tagline": "Ergonomic control with precision ball-bearing gimbals.",
-    "price": 69.99,
-    "originalPrice": 79.99,
-    "badge": "Radio System",
-    "category": "Accessories",
+    "name": "Spitfire |  WW2 Fighter Aircraft | Britannica",
+    "tagline": "The legendary British fighter with elliptical wings and agile flight performance.",
+    "price": 199.99,
+    "originalPrice": 229.99,
+    "badge": "WW2 Classic",
+    "category": "Aircraft",
     "inStock": true,
     "rating": 4.8,
     "reviewCount": 42,
-    "sku": "VT-TX-6X",
-    "summary": "Advanced 2.4GHz FHSS transmitter with telemetry feed, trainer port, and dual-rate switches.",
-    "description": "Ergonomically contoured rubberized side grips, high-accuracy quad-bearing gimbals, and intuitive flight mode toggle switches give you crisp command of your aircraft.",
+    "sku": "VT-AC-SPITFIRE",
+    "summary": "High-fidelity replica of the Supermarine Spitfire, featuring authentic elliptical wings and responsive brushless power.",
+    "description": "Rule the skies with the iconic Supermarine Spitfire. Engineered with a scale elliptical wing profile and built from crash-resistant EPP foam, this model offers outstanding agility and speed for intermediate to advanced pilots.",
     "features": [
-      "2.4GHz FHSS Frequency Hopping anti-interference technology",
-      "Integrated LCD Screen showing battery voltage and trim levels",
-      "3-Position Flight Mode Switch (Beginner / Intermediate / Expert)",
-      "Wireless Trainer Mode capability for dual-instructor setups"
+      "Authentic scale elliptical wing design",
+      "Factory-installed brushless motor & 30A ESC",
+      "Durable EPP foam structure with carbon reinforcements",
+      "Full 4-channel control setup (Ailerons, Elevator, Rudder, Throttle)"
     ],
     "images": [
-      "/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+      "/src/assets/images/spitfire.jpg"
     ],
     "specHighlights": {
-      "Channels": "6 Channels",
-      "Protocol": "2.4GHz FHSS",
-      "Range": "> 1200 meters line-of-sight",
-      "Power Supply": "4x AA Batteries (included)"
+      "Wingspan": "1000 mm (39.4 in)",
+      "Flying Weight": "480 g (16.9 oz)",
+      "Motor": "2212 Brushless Motor",
+      "ESC": "30A Brushless ESC",
+      "Servos": "4x 9g Micro Servos",
+      "Recommended Battery": "3S 1000-1300mAh LiPo"
     },
-    "whatsInTheBox": ["VT-6X Transmitter", "4x AA Alkaline Batteries", "Neck Lanyard"]
+    "whatsInTheBox": ["1x Spitfire Airframe", "Pre-installed Electronics (ESC, Motor, Servos)", "Propeller & Spinner", "User Manual"]
   },
   {
     "id": "vt-trainer-spare-wing",

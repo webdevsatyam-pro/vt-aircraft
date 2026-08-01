@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function PrivacyPage() {
   useSEO({
-    title: 'Privacy Policy | VT Aircraft',
-    description: 'VT Aircraft Privacy Policy - Learn how we collect, protect, and handle your data.'
+    title: 'Privacy Policy | Rc Flight Zone',
+    description: 'Rc Flight Zone Privacy Policy - Learn how we collect, protect, and handle your data.'
   });
 
   return (
@@ -17,16 +17,16 @@ export default function PrivacyPage() {
         <p>Last Updated: January 2026</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">1. Information We Collect</h2>
-        <p>When you purchase from VT Aircraft or subscribe to our newsletter, we collect personal information such as your name, shipping address, email address, phone number, and payment information processed securely through 256-bit encrypted gateways.</p>
+        <p>When you purchase from Rc Flight Zone or subscribe to our newsletter, we collect personal information such as your name, shipping address, email address, phone number, and payment information processed securely through 256-bit encrypted gateways.</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">2. How We Use Your Data</h2>
         <p>Your information is strictly utilized for order fulfillment, shipment tracking updates, warranty registration, and optional promotional Flight Club updates. We never sell or share your personal information with third-party advertisers.</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">3. Security Standards</h2>
-        <p>VT Aircraft implements industry-standard Transport Layer Security (TLS/SSL) technology to protect transaction data during transmission.</p>
+        <p>Rc Flight Zone implements industry-standard Transport Layer Security (TLS/SSL) technology to protect transaction data during transmission.</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">4. Contacting Privacy Officers</h2>
-        <p>If you wish to access, correct, or delete your stored account data, please email privacy@vtaircraft.com.</p>
+        <p>If you wish to access, correct, or delete your stored account data, please email privacy@rcflightzone.com.</p>
       </section>
     </div>
   );

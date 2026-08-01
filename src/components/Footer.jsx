@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Plane, Mail, Phone, MapPin, ShieldCheck, Truck, Headphones, ArrowRight, Facebook, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 import { useToast } from '../context/ToastContext';
 import footerBg from '../assets/images/vt_trainer_action_1784882915807.jpg';
+import rcLogo from '../assets/images/rc-logo.jpg';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ export default function Footer() {
       addToast('Please enter a valid email address.', 'error');
       return;
     }
-    addToast('Thank you for subscribing to VT Aircraft Flight Club news!', 'success');
+    addToast('Thank you for subscribing to Rc Flight Zone Flight Club news!', 'success');
     setEmail('');
   };
 
@@ -73,12 +74,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
         {/* Brand Column */}
         <div className="lg:col-span-4 space-y-4">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white shadow-md">
-              <Plane className="w-5 h-5 transform -rotate-45" />
-            </div>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5">
+            <img src={rcLogo} alt="Rc Flight Zone Logo" className="w-9 h-9 rounded-xl object-cover shadow-md" />
             <span className="font-extrabold tracking-tight text-white text-xl">
-              VT <span className="text-[#2563EB]">AIRCRAFT</span>
+              RC <span className="text-[#2563EB]">FLIGHT ZONE</span>
             </span>
           </Link>
           <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
@@ -91,7 +90,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-[#2563EB]" />
-              <span>support@vtaircraft.com</span>
+              <span>support@rcflightzone.com</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
@@ -141,7 +140,7 @@ export default function Footer() {
             <li><Link to="/faq" className="hover:text-white transition">FAQs</Link></li>
             <li><Link to="/reviews" className="hover:text-white transition">Pilot Reviews</Link></li>
             <li><Link to="/contact" className="hover:text-white transition">Contact Us</Link></li>
-            <li><Link to="/about" className="hover:text-white transition">About VT Aircraft</Link></li>
+            <li><Link to="/about" className="hover:text-white transition">About Rc Flight Zone</Link></li>
             <li><Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
             <li><Link to="/terms" className="hover:text-white transition">Terms & Conditions</Link></li>
           </ul>
@@ -178,7 +177,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-6 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
         <div>
-          © {new Date().getFullYear()} VT Aircraft Inc. All rights reserved. "VT-Simple Trainer" and "VT-Stabilize" are registered trademarks.
+          © {new Date().getFullYear()} Rc Flight Zone. All rights reserved. "VT-Simple Trainer" and "VT-Stabilize" are registered trademarks.
         </div>
         <div className="flex items-center gap-4 text-xs">
           <Link to="/privacy" className="hover:text-gray-400 transition">Privacy</Link>

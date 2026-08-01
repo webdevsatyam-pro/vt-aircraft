@@ -7,7 +7,7 @@ import accessoriesData from '../data/accessories.json';
 
 export default function AccessoriesPage() {
   useSEO({
-    title: 'RC Accessories, Spare Parts & Batteries | VT Aircraft',
+    title: 'RC Accessories, Spare Parts & Batteries | Rc Flight Zone',
     description: 'Shop official VT-Simple Trainer accessories, high-capacity 3S LiPo batteries, replacement wings, chargers, and custom carrying cases.'
   });
 

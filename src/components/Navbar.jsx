@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Menu, X, Plane, ChevronRight } from 'lucide-react';
+import rcLogo from '../assets/images/rc-logo.jpg';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,23 +56,28 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Under Development Marquee Banner */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-amber-500 text-white text-center py-0.5 text-[9px] sm:text-xs font-bold tracking-wider uppercase shadow-xs overflow-hidden h-6 flex items-center">
+        <div className="whitespace-nowrap animate-marquee">
+          ⚠️ Website Under Development - Active Updates in Progress ⚠️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⚠️ Website Under Development - Active Updates in Progress ⚠️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⚠️ Website Under Development - Active Updates in Progress ⚠️
+        </div>
+      </div>
+
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'glass-nav shadow-sm border-b border-gray-200/80 py-3' : 'bg-white border-b border-gray-100 py-4'
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled ? 'glass-nav shadow-sm border-b border-gray-200/80 py-2.5 top-6' : 'bg-white border-b border-gray-100 py-3.5 top-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-[#1F3A5F] flex items-center justify-center text-white shadow-md group-hover:bg-[#2563EB] transition-colors duration-300">
-              <Plane className="w-5 h-5 transform -rotate-45" />
-            </div>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 group">
+            <img src={rcLogo} alt="Rc Flight Zone Logo" className="w-9 h-9 rounded-xl object-cover shadow-md group-hover:scale-105 transition-transform duration-300" />
             <div className="flex flex-col">
               <span className="font-extrabold tracking-tight text-gray-900 text-lg leading-none">
-                VT <span className="text-[#2563EB]">AIRCRAFT</span>
+                RC <span className="text-[#2563EB]">FLIGHT ZONE</span>
               </span>
               <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase mt-0.5 hidden sm:block">
-                Premium RC Planes & Gear
+                FLY MORE. BUILD MORE. EXPLORE MORE
               </span>
             </div>
           </Link>
@@ -168,12 +174,10 @@ export default function Navbar() {
         <nav className={`fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white z-10 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto transition-transform duration-300 ease-in-out transform ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-gray-100 mb-6">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-[#1F3A5F] flex items-center justify-center text-white">
-                  <Plane className="w-4 h-4 transform -rotate-45" />
-                </div>
-                <span className="font-bold text-gray-900 text-base">VT Aircraft</span>
-              </div>
+              <Link to="/" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-2">
+                <img src={rcLogo} alt="Rc Flight Zone Logo" className="w-8 h-8 rounded-lg object-cover" />
+                <span className="font-bold text-gray-900 text-base">Rc Flight Zone</span>
+              </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2 text-gray-400 hover:text-gray-600 rounded-lg"
@@ -217,7 +221,7 @@ export default function Navbar() {
       </div>
 
       {/* Header Spacer to prevent layout overlap */}
-      <div className="h-20" />
+      <div className="h-28" />
     </>
   );
 }

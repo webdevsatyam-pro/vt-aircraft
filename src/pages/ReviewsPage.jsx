@@ -8,7 +8,7 @@ import reviewsData from '../data/reviews.json';
 
 export default function ReviewsPage() {
   useSEO({
-    title: 'Customer Pilot Reviews | VT Aircraft',
+    title: 'Customer Pilot Reviews | Rc Flight Zone',
     description: 'Read real verified customer pilot reviews, instructor endorsements, and flight experiences with the VT-Simple Trainer.'
   });
 

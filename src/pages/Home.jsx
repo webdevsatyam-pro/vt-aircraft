@@ -16,7 +16,7 @@ import faqsData from '../data/faqs.json';
 
 export default function Home() {
   useSEO({
-    title: 'VT Aircraft | Premium RC Aircraft & VT-Simple Trainer',
+    title: 'Rc Flight Zone | Premium RC Aircraft & VT-Simple Trainer',
     description: 'Explore high-performance, crash-resistant RC planes, trainer aircraft, accessories, and replacement parts. Shop premium RC gear engineered for everyone.'
   });
 
@@ -124,15 +124,17 @@ export default function Home() {
             className="lg:col-span-6 relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 bg-white group">
-              <img
-                src="/src/assets/images/vt_trainer_hero_1784882888882.jpg"
-                alt="VT-Simple Trainer RC Airplane"
-                className="w-full h-[380px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+              <Link to="/product/vt-simple-trainer-rtf" className="block overflow-hidden">
+                <img
+                  src="/src/assets/images/vt_trainer_hero_1784882888882.jpg"
+                  alt="VT-Simple Trainer RC Airplane"
+                  className="w-full h-[380px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700 cursor-pointer"
+                />
+              </Link>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white pointer-events-none">
                 <span className="text-xs font-semibold text-blue-300 uppercase tracking-widest">Flagship RC Aircraft</span>
                 <h2 className="text-2xl font-bold">VT-Simple Trainer RTF</h2>
-                <div className="flex items-center justify-between mt-2">
+                <div className="flex items-center justify-between mt-2 pointer-events-auto">
                   <span className="text-xl font-extrabold">₹4,699.00 <span className="text-xs text-gray-300 line-through font-normal">₹4,899.00</span></span>
                   <Link
                     to="/product/vt-simple-trainer-rtf"
@@ -207,7 +209,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Engineered For Excellence</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Why Beginners Choose VT Aircraft</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Why Beginners Choose Rc Flight Zone</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

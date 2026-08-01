@@ -10,8 +10,8 @@ import accessoriesData from '../data/accessories.json';
 
 export default function ShopPage() {
   useSEO({
-    title: 'Shop RC Aircraft & Gear | VT Aircraft Store',
-    description: 'Browse the full store catalog of VT Aircraft: RTF planes, PNP packages, batteries, radios, replacement wings, and flight simulators.'
+    title: 'Shop RC Aircraft & Gear | Rc Flight Zone Store',
+    description: 'Browse the full store catalog of Rc Flight Zone: RTF planes, PNP packages, batteries, radios, replacement wings, and flight simulators.'
   });
 
   const [searchParams] = useSearchParams();
@@ -77,7 +77,7 @@ export default function ShopPage() {
 
         {/* Catalog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((item) => (
+          {items.slice(0, 8).map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
         </div>
