@@ -77,7 +77,7 @@ export default function ShopPage() {
 
         {/* Catalog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.slice(0, 8).map((item) => (
+          {items.slice(0, 4).map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
         </div>

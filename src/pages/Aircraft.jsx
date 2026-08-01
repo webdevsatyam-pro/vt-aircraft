@@ -82,7 +82,7 @@ export default function Aircraft() {
 
         <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-md">
           <img
-            src="/src/assets/images/vt_trainer_studio_1784882902062.jpg"
+            src="/src/assets/images/epo_foam_trainer.jpg"
             alt="VT-Simple Trainer Construction Detail"
             className="w-full h-80 object-cover"
           />

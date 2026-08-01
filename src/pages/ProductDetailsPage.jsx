@@ -68,7 +68,9 @@ export default function ProductDetailsPage() {
   });
 
   const productImages = Array.isArray(product.images) ? product.images : [selectedImage];
-  const relatedProducts = allCatalog.filter((p) => p.id !== product.id);
+  const relatedProducts = allCatalog.filter(
+    (p) => p.id !== product.id && p.id !== 'vt-trainer-spare-wing' && p.id !== 'vt-flight-sim-dongle'
+  );
   const productReviews = reviewsData.filter((r) => r.productId === product.id || product.id.includes('vt-simple-trainer'));
 
   const carouselRef = React.useRef(null);
