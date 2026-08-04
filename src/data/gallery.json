@@ -40,5 +40,33 @@
     "category": "Action",
     "image": "/src/assets/images/gallery_jet.jpg",
     "caption": "Expert Mode unlocks full acrobatic freedom for loops, rolls, and stall turns."
+  },
+  {
+    "id": "gal-7",
+    "title": "FT-Guinea Pig Cargo Utility",
+    "category": "Studio",
+    "image": "/src/assets/images/guinea_pig.jpg",
+    "caption": "Twin-motor cargo plane designed for high payload capacity and transport missions."
+  },
+  {
+    "id": "gal-8",
+    "title": "FT-Storch STOL Aircraft",
+    "category": "Action",
+    "image": "/src/assets/images/storch.jpg",
+    "caption": "Scale replica of the Fieseler Fi 156 Storch, optimized for short field takeoff and landing."
+  },
+  {
+    "id": "gal-9",
+    "title": "FT-Explorer Pusher Trainer",
+    "category": "Studio",
+    "image": "/src/assets/images/explorer.jpg",
+    "caption": "Rear-propeller pusher configuration shielding the motor and camera mount."
+  },
+  {
+    "id": "gal-10",
+    "title": "FT-Spear Flying Wing",
+    "category": "Action",
+    "image": "/src/assets/images/spear.jpg",
+    "caption": "High-speed delta wing FPV platform with cavernous electronics compartment."
   }
 ]

@@ -15,6 +15,42 @@ import videosData from '../data/videos.json';
 import eppKitContents from '../assets/images/epp_trainer_kit_contents.png';
 import trainerSky from '../assets/images/trainer_sky.jpg';
 import trainerGround from '../assets/images/trainer_ground.jpg';
+import superTrainerBanner from '../assets/images/super_trainer_banner.png';
+
+const ImagePlaceholder = ({ label, src, onClick }) => {
+  const [error, setError] = useState(false);
+  
+  if (error || !src) {
+    return (
+      <div className="flex flex-col items-center justify-center p-6 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl aspect-[4/3] text-center group hover:border-[#dd3333] transition-colors duration-250">
+        <svg className="w-8 h-8 text-gray-300 group-hover:text-[#dd3333] mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Photo Placeholder</span>
+        <span className="text-[11px] text-gray-700 font-extrabold mt-1 uppercase tracking-wide px-2">{label}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div 
+      onClick={onClick}
+      className="flex flex-col rounded-xl overflow-hidden border border-gray-200 shadow-xs bg-white group hover:border-[#dd3333] hover:shadow-md cursor-pointer transition-all duration-250"
+    >
+      <div className="aspect-[4/3] overflow-hidden bg-gray-50 flex items-center justify-center p-2">
+        <img 
+          src={src} 
+          alt={label} 
+          onError={() => setError(true)} 
+          className="max-w-full max-h-full object-contain group-hover:scale-102 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-3 border-t border-gray-100 bg-gray-50/50 text-center">
+        <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">{label}</span>
+      </div>
+    </div>
+  );
+};
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -30,6 +66,7 @@ export default function ProductDetailsPage() {
   const [electronicsOption, setElectronicsOption] = useState(null); // 'no-electronics' or 'with-electronics'
   const [quantity, setQuantity] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
+  const [lightbox, setLightbox] = useState(null); // { src, label }
 
   const [zoomPos, setZoomPos] = useState({ x: 0, y: 0 });
   const [isZoomed, setIsZoomed] = useState(false);
@@ -42,7 +79,10 @@ export default function ProductDetailsPage() {
   };
 
   const isAircraft = true;
-  const isViggen = product.id === 'vt-viggen';
+  const isViggen = product.id === 'vt-viggen' || product.id === 'vt-simple-trainer-pnp' || product.name.toLowerCase().includes('viggen') || product.name.toLowerCase().includes('vission');
+  const isMustang = product.id === 'vt-lipo-battery-3s' || product.name.toLowerCase().includes('mustang');
+  const isSpitfire = product.id === 'vt-6x-transmitter' || product.name.toLowerCase().includes('spitfire');
+  const isGuineaPig = product.id === 'vt-guinea-pig' || product.name.toLowerCase().includes('guinea');
   const displayName = product.name;
   const displayDesc = product.summary || product.description;
 
@@ -77,8 +117,50 @@ export default function ProductDetailsPage() {
   const [isHovered, setIsHovered] = useState(false);
 
   React.useEffect(() => {
+    if (product) {
+      setSelectedImage(Array.isArray(product.images) ? product.images[0] : (product.image || '/src/assets/images/vt_trainer_hero_1784882888882.jpg'));
+      setKitOption(null);
+      setElectronicsOption(null);
+      setQuantity(1);
+      setIsAdded(false);
+      setLightbox(null);
+      window.scrollTo(0, 0);
+    }
+  }, [id, product]);
+
+  React.useEffect(() => {
+    if (lightbox) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightbox]);
+
+  const [isCarouselInView, setIsCarouselInView] = useState(false);
+
+  React.useEffect(() => {
     const container = carouselRef.current;
     if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCarouselInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const container = carouselRef.current;
+    if (!container || !isCarouselInView) return;
 
     let intervalId;
 
@@ -92,7 +174,7 @@ export default function ProductDetailsPage() {
         } else {
           container.scrollBy({ left: 344, behavior: 'smooth' }); // w-80 (320px) + gap-6 (24px) = 344px
         }
-      }, 3000);
+      }, 1000); // Autoscroll every 1 second
     };
 
     startAutoScroll();
@@ -100,7 +182,7 @@ export default function ProductDetailsPage() {
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [isHovered, relatedProducts.length]);
+  }, [isHovered, isCarouselInView, relatedProducts.length]);
 
   const [animateProgress, setAnimateProgress] = useState(false);
 
@@ -493,14 +575,13 @@ export default function ProductDetailsPage() {
                   <p className="text-gray-700 text-sm font-medium leading-relaxed">{displayDesc}</p>
                   <div className="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
                     <img 
-                      src="/src/assets/images/super_trainer_banner.png" 
+                      src={superTrainerBanner} 
                       alt="Super Trainer EPP Banner" 
                       className="w-full h-auto object-cover max-h-[400px]"
                     />
                   </div>
                 </div>
-
-                {/* Specs and Recommended Equipment Grid */}
+                            {/* Specs and Recommended Equipment Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Left Column: Specifications */}
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-150 space-y-4">
@@ -508,51 +589,109 @@ export default function ProductDetailsPage() {
                     <ul className="space-y-3 text-xs sm:text-sm font-medium text-gray-700">
                       <li className="flex justify-between border-b pb-1">
                         <span>Wingspan:</span>
-                        <span className="font-bold text-gray-900">1200 mm</span>
+                        <span className="font-bold text-gray-900">{isViggen ? '1100 mm (43.3 in)' : isMustang ? '980 mm (38.5 in)' : isSpitfire ? '1000 mm (39.4 in)' : '1200 mm'}</span>
                       </li>
                       <li className="flex justify-between border-b pb-1">
                         <span>All-Up-Weight:</span>
-                        <span className="font-bold text-gray-900">~500 g</span>
+                        <span className="font-bold text-gray-900">{isViggen ? '510 g (18.0 oz)' : isMustang ? '450 g (15.9 oz)' : isSpitfire ? '480 g (16.9 oz)' : '~500 g'}</span>
                       </li>
                       <li className="flex justify-between pb-1">
                         <span>CG Location:</span>
-                        <span className="font-bold text-gray-900">60 mm from Leading Edge (at Spar)</span>
+                        <span className="font-bold text-gray-900">{isViggen ? 'Refer to Viggen Assembly Manual' : isMustang ? 'Refer to Mustang Assembly Manual' : isSpitfire ? 'Refer to Spitfire Assembly Manual' : '60 mm from Leading Edge (at Spar)'}</span>
                       </li>
                     </ul>
                   </div>
-
+ 
                   {/* Right Column: Recommended Equipment */}
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-150 space-y-4">
                     <h4 className="text-center font-bold text-[#dd3333] text-base uppercase tracking-wider border-b pb-2">Recommended Equipment</h4>
                     <ul className="space-y-2 text-xs sm:text-sm font-medium text-gray-700">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>4-6 Channel Programmable Radio (Tx-Rx)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>800-1500 mAh 2S/3S LiPo Battery</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>20-30 Amp Brushless ESC</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>2 Nos. 9g Servos</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>Brushless Motor 22XX or 28XX series</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#dd3333]">•</span>
-                        <span>6-9 inch Propeller</span>
-                      </li>
+                      {isViggen ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>4-6 Channel Radio System (Tx-Rx)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>3S 1300-1500mAh LiPo Battery</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>20A-30A Brushless ESC</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>4 Nos. 9g Digital Micro Servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>2212 1400KV Brushless Motor</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>6-9 inch Propeller</span>
+                          </li>
+                        </>
+                      ) : (isMustang || isSpitfire) ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>4+ Channel Radio Transmitter & Receiver</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>3S 1000-1300mAh LiPo Battery</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>30A Brushless ESC</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>4 Nos. 9g Micro Servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>2212 Brushless Motor</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>{isSpitfire ? 'Scale 3-Blade Propeller & Spinner' : 'Scale 2-Blade Propeller & Spinner'}</span>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>4-6 Channel Programmable Radio (Tx-Rx)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>800-1500 mAh 2S/3S LiPo Battery</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>20-30 Amp Brushless ESC</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>2 Nos. 9g Servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Brushless Motor 22XX or 28XX series</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>6-9 inch Propeller</span>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </div>
                 </div>
-
+ 
                 {/* What's Included Card */}
                 <div className="bg-white rounded-2xl border-t-4 border-t-[#d48a37] border border-gray-200 p-6 shadow-sm space-y-6">
                   <div className="flex items-center gap-2 border-b pb-3">
@@ -561,67 +700,216 @@ export default function ProductDetailsPage() {
                     </svg>
                     <h4 className="font-extrabold text-[#dd3333] text-base uppercase tracking-wider">Whats Included In The Kit</h4>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
-                    <div className="space-y-2">
-                      <p>• EPP Fuselage Middle Section</p>
-                      <p>• 2x EPP Printed Side Walls</p>
-                      <p>• EPP Printed Horizontal & Vertical Stabilizer</p>
-                      <p>• 2x 600mm EPP Wing Panels</p>
-                      <p>• 2MM Laser Cut Aeroply sheet</p>
-                      <p>• 3MM Laser Cut Aeroply sheet</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p>• 2X 600mm 5*1MM Carbon Fiber Strip</p>
-                      <p>• Pushrods 2x 600mm each</p>
-                      <p>• 2 Nos Linkage Connectors</p>
-                      <p>• Velcro</p>
-                      <p>• 5x Pushrod Guides</p>
-                      <p>• 3x Bamboo Skewers</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p>• 10x Rubber Bands</p>
-                      <p>• Landing Gear Set</p>
-                      <p>• 2x EPP Wheels</p>
-                      <p>• 50MM 5″ Heatshrink Tube</p>
-                      <p>• 17″ Landing Gear Wire</p>
-                      <p>• 4X Wheel Collars</p>
-                    </div>
-                  </div>
                   
-                  {/* Kit content images */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                    <div className="rounded-xl overflow-hidden border border-gray-200 aspect-video shadow-xs bg-gray-50">
-                      <img src="/src/assets/images/epp_trainer_kit_contents.png" alt="Kit Foam parts" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="rounded-xl overflow-hidden border border-gray-200 aspect-video shadow-xs bg-gray-50">
-                      <img src="/src/assets/images/epp_trainer_wooden_parts.png" alt="Kit wooden parts" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="rounded-xl overflow-hidden border border-gray-200 aspect-video shadow-xs bg-gray-50">
-                      <img src={productImages[0]} alt="Assembled Wing panel" className="w-full h-full object-cover" />
-                    </div>
-                  </div>
+                  {isViggen ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Fliteboard Pro (4 Nos)</p>
+                          <p className="pl-3">• Aeroply Parts</p>
+                          <p className="pl-6">o Thrust Vectoring Mount</p>
+                          <p className="pl-6">o FT-Elements Firewall</p>
+                          <p className="pl-6">o Control Horns (2)</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Pushrods (4pcs) 10cmx2, 40cmx2</p>
+                          <p>• Pushrod Connectors (2)</p>
+                          <p>• Velcro</p>
+                          <p>• Wire Set for Thrust Vectoring (3Pcs)</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Pushrod Guide Tube (2)</p>
+                          <p>• Posterboard Exhaust Tube</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Right Wing (Sheet A)" src="/src/assets/images/viggen_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_a.jpg", label: "Laser Cut Fliteboard Pro Right Wing (Sheet A)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Left Wing (Sheet B)" src="/src/assets/images/viggen_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_b.jpg", label: "Laser Cut Fliteboard Pro Left Wing (Sheet B)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" src="/src/assets/images/viggen_sheet_c_1.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_1.png", label: "Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" src="/src/assets/images/viggen_sheet_c_2.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_2.png", label: "Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" src="/src/assets/images/viggen_sheet_d.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_d.png", label: "Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" })} />
+                        <ImagePlaceholder label="Posterboard Exhaust Tube (Curved Template)" src="/src/assets/images/viggen_exhaust_template.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_exhaust_template.jpg", label: "Posterboard Exhaust Tube (Curved Template)" })} />
+                        <ImagePlaceholder label="Thrust Vectoring Mount & Hardware Kit" src="/src/assets/images/viggen_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_accessories.jpg", label: "Thrust Vectoring Mount & Hardware Kit" })} />
+                      </div>
+                    </>
+                  ) : isMustang ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C, D)</p>
+                          <p>• P-51D Mustang Scale Airframe Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Right Wing Panel & Vertical Stabilizer</p>
+                          <p>• Left Wing Panel & Horizontal Stabilizer</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Fuselage & Turtle Deck Parts</p>
+                          <p>• Power Pod Template Sheet</p>
+                          <p>• Scale Decals & Construction Guide</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+                        <ImagePlaceholder label="P-51D Mustang Sheet A (Right Wing / Vertical Fin)" src="/src/assets/images/mustang_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_a.jpg", label: "P-51D Mustang Sheet A (Right Wing / Vertical Fin)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" src="/src/assets/images/mustang_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_b.jpg", label: "P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet C (Fuselage / Turtle Deck)" src="/src/assets/images/mustang_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_c.png", label: "P-51D Mustang Sheet C (Fuselage / Turtle Deck)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet D (Power Pod)" src="/src/assets/images/mustang_sheet_d.png" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_d.png", label: "P-51D Mustang Sheet D (Power Pod)" })} />
+                      </div>
+                    </>
+                  ) : isSpitfire ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C)</p>
+                          <p>• Supermarine Spitfire Elliptical Wing Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Left Wing Panel & Power Pod Template</p>
+                          <p>• Right Wing Panel & Horizontal Stabilizer</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Fuselage & Tail Fin Parts</p>
+                          <p>• Curved Nose & Exhaust templates</p>
+                          <p>• Scale Decals, Hardware & Accessories Kit</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+                        <ImagePlaceholder label="Spitfire Sheet A (Left Wing / Power Pod)" src="/src/assets/images/spitfire_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_a.jpg", label: "Spitfire Sheet A (Left Wing / Power Pod)" })} />
+                        <ImagePlaceholder label="Spitfire Sheet B (Right Wing / Tail Fin)" src="/src/assets/images/spitfire_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_b.jpg", label: "Spitfire Sheet B (Right Wing / Tail Fin)" })} />
+                        <ImagePlaceholder label="Spitfire Sheet C (Fuselage)" src="/src/assets/images/spitfire_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_c.png", label: "Spitfire Sheet C (Fuselage)" })} />
+                        <ImagePlaceholder label="Spitfire Curved Nose & Exhaust Templates" src="/src/assets/images/spitfire_ex_temp.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_ex_temp.jpg", label: "Spitfire Curved Nose & Exhaust Templates" })} />
+                        <ImagePlaceholder label="Spitfire Hardware Accessories Pack" src="/src/assets/images/spitfire_acc.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_acc.jpg", label: "Spitfire Hardware Accessories Pack" })} />
+                      </div>
+                    </>
+                  ) : isGuineaPig ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C, D, E, F, G)</p>
+                          <p>• Heavy Duty Cargo Bay Ramp & Servos Tray</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Twin Motor Firewall Mounts</p>
+                          <p>• Dual Wing Panels & Stabilizers</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Control Horns, Pushrods & Accessories</p>
+                          <p>• Scale Utility Cargo Decals</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+                        <ImagePlaceholder label="Guinea Pig Sheet A" src="/src/assets/images/guinea_pig_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_a.jpg", label: "Guinea Pig Sheet A" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet B" src="/src/assets/images/guinea_pig_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_b.jpg", label: "Guinea Pig Sheet B" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet C" src="/src/assets/images/guinea_pig_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_c.png", label: "Guinea Pig Sheet C" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet D" src="/src/assets/images/guinea_pig_sheet_d.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_d.jpg", label: "Guinea Pig Sheet D" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet E" src="/src/assets/images/guinea_pig_sheet_e.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_e.png", label: "Guinea Pig Sheet E" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet F" src="/src/assets/images/guinea_pig_sheet_f.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_f.png", label: "Guinea Pig Sheet F" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet G" src="/src/assets/images/guinea_pig_sheet_g.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_g.jpg", label: "Guinea Pig Sheet G" })} />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• EPP Fuselage Middle Section</p>
+                          <p>• 2x EPP Printed Side Walls</p>
+                          <p>• EPP Printed Horizontal & Vertical Stabilizer</p>
+                          <p>• 2x 600mm EPP Wing Panels</p>
+                          <p>• 2MM Laser Cut Aeroply sheet</p>
+                          <p>• 3MM Laser Cut Aeroply sheet</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• 2X 600mm 5*1MM Carbon Fiber Strip</p>
+                          <p>• Pushrods 2x 600mm each</p>
+                          <p>• 2 Nos Linkage Connectors</p>
+                          <p>• Velcro</p>
+                          <p>• 5x Pushrod Guides</p>
+                          <p>• 3x Bamboo Skewers</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• 10x Rubber Bands</p>
+                          <p>• Landing Gear Set</p>
+                          <p>• 2x EPP Wheels</p>
+                          <p>• 50MM 5″ Heatshrink Tube</p>
+                          <p>• 17″ Landing Gear Wire</p>
+                          <p>• 4X Wheel Collars</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
+                        <ImagePlaceholder label="Simple Trainer Left Wing" src="/src/assets/images/trainer_left_wing.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_left_wing.png", label: "Simple Trainer Left Wing" })} />
+                        <ImagePlaceholder label="Simple Trainer Right Wing" src="/src/assets/images/trainer_right_wing.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_right_wing.png", label: "Simple Trainer Right Wing" })} />
+                        <ImagePlaceholder label="Simple Trainer Sheets A & B (Fuselage / Stabilizers)" src="/src/assets/images/trainer_sheets.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_sheets.png", label: "Simple Trainer Sheets A & B (Fuselage / Stabilizers)" })} />
+                        <ImagePlaceholder label="EPP Trainer Hardware & Accessories Kit" src="/src/assets/images/trainer_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/trainer_accessories.jpg", label: "EPP Trainer Hardware & Accessories Kit" })} />
+                      </div>
+                    </>
+                  )}
                 </div>
-
+ 
                 {/* Kit Options - Electronics */}
                 <div className="bg-[#fcfcfc] rounded-2xl border border-gray-200 p-6 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                   <div className="md:col-span-7 space-y-4">
                     <h4 className="font-extrabold text-[#dd3333] text-base uppercase tracking-wider border-b pb-2">Kit Options - Electronics</h4>
                     <p className="font-bold text-gray-800 text-sm">Optional Electronics Pack Includes :</p>
                     <ul className="space-y-2 text-xs sm:text-sm font-medium text-gray-700 pl-4 list-disc">
-                      <li>2 Nos. 9 gm Servos</li>
-                      <li>1 Nos. 30Amp Brushless ESC (Speed controller)</li>
-                      <li>1 Nos. DYS CF2822 1200Kv Brushless Motor</li>
-                      <li>1 Nos. 9×4.7 Propellor</li>
-                      <li>3 Nos. Male Bullet Connectors ( For Motor Leads )</li>
-                      <li>Heatshrink Tube Piece 4MM Red</li>
-                      <li>Heatshrink Tube Piece 4MM Black</li>
+                      {isViggen ? (
+                        <>
+                          <li>4 Nos. 9 gm Digital Servos</li>
+                          <li>1 Nos. 30Amp Brushless ESC (Speed controller)</li>
+                          <li>1 Nos. 2212 1400Kv Brushless Motor</li>
+                          <li>1 Nos. 8x4.5 or 9x4.7 Propellor</li>
+                          <li>Thrust Vectoring Metal Wires & Pushrod Connectors</li>
+                          <li>Heatshrink Tube and Custom Wire Harness</li>
+                        </>
+                      ) : isGuineaPig ? (
+                        <>
+                          <li>4 Nos. 9 gm Servos</li>
+                          <li>2 Nos. 30Amp Brushless ESCs (Speed controllers)</li>
+                          <li>2 Nos. 2212 1400Kv Brushless Motors</li>
+                          <li>2 Nos. 8x4.5 or 9x4.7 Propellors</li>
+                          <li>Servo Extension Cables & Y-Harness</li>
+                          <li>XT60 Battery Connectors & Bullet Connectors</li>
+                        </>
+                      ) : (
+                        <>
+                          <li>2 Nos. 9 gm Servos</li>
+                          <li>1 Nos. 30Amp Brushless ESC (Speed controller)</li>
+                          <li>1 Nos. DYS CF2822 1200Kv Brushless Motor</li>
+                          <li>1 Nos. 9×4.7 Propellor</li>
+                          <li>3 Nos. Male Bullet Connectors ( For Motor Leads )</li>
+                          <li>Heatshrink Tube Piece 4MM Red</li>
+                          <li>Heatshrink Tube Piece 4MM Black</li>
+                        </>
+                      )}
                     </ul>
                   </div>
-                  <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50">
-                    <img src="/src/assets/images/epp_trainer_electronics.png" alt="Optional electronics package" className="w-full h-full object-cover" />
+                  <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
+                    <img 
+                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
+                      alt="Optional electronics package" 
+                      className="max-w-full max-h-full object-contain" 
+                      onError={(e) => {
+                        // fallback to standard electronics image if viggen specific accessory photo is missing
+                        if (isViggen) {
+                          e.target.src = "/src/assets/images/epp_trainer_electronics.png";
+                        }
+                      }}
+                    />
                   </div>
                 </div>
-
+ 
                 {/* Build, Flying Levels & Expert Advice */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                   {/* Left Column: Progress bars */}
@@ -629,52 +917,52 @@ export default function ProductDetailsPage() {
                     {/* Build Level */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-xs sm:text-sm font-bold text-gray-800">
-                        <span>Build Level - EASY</span>
+                        <span>Build Level - {isViggen ? 'INTERMEDIATE' : (isMustang || isSpitfire) ? 'INTERMEDIATE' : 'EASY'}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
                         <div 
                           className="bg-[#5cb85c] h-full rounded-full" 
                           style={{ 
-                            width: animateProgress ? '85%' : '0%', 
+                            width: animateProgress ? (isViggen ? '60%' : isSpitfire ? '75%' : isMustang ? '70%' : '85%') : '0%', 
                             transition: 'width 1.2s ease-out' 
                           }}
                         ></div>
                       </div>
                     </div>
-
+ 
                     {/* Flying Level */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-xs sm:text-sm font-bold text-gray-800">
-                        <span>Flying Level - EASY</span>
+                        <span>Flying Level - {isViggen ? 'INTERMEDIATE / ADVANCED' : isSpitfire ? 'INTERMEDIATE / ADVANCED' : isMustang ? 'INTERMEDIATE' : 'EASY'}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
                         <div 
                           className="bg-[#5cb85c] h-full rounded-full" 
                           style={{ 
-                            width: animateProgress ? '90%' : '0%', 
+                            width: animateProgress ? (isViggen ? '50%' : isSpitfire ? '70%' : isMustang ? '65%' : '90%') : '0%', 
                             transition: 'width 1.2s ease-out 0.2s' 
                           }}
                         ></div>
                       </div>
                     </div>
-
+ 
                     {/* Cost Effective */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-xs sm:text-sm font-bold text-gray-800">
-                        <span>Cost Effective - ULTRA ECONOMICAL</span>
+                        <span>{isViggen ? 'Performance - HIGH SPEED JET' : isSpitfire ? 'Performance - SCALE FIGHTER' : isMustang ? 'Performance - SPORT WARBIRD' : 'Cost Effective - ULTRA ECONOMICAL'}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-3.5 overflow-hidden">
                         <div 
                           className="bg-[#5cb85c] h-full rounded-full" 
                           style={{ 
-                            width: animateProgress ? '95%' : '0%', 
+                            width: animateProgress ? (isViggen ? '95%' : isSpitfire ? '85%' : isMustang ? '80%' : '95%') : '0%', 
                             transition: 'width 1.2s ease-out 0.4s' 
                           }}
                         ></div>
                       </div>
                     </div>
                   </div>
-
+ 
                   {/* Right Column: Expert Advice Box */}
                   <div className="md:col-span-5 bg-red-50/50 border border-red-100 rounded-2xl p-5 shadow-xs flex gap-3.5">
                     <div className="w-10 h-10 rounded-full bg-[#dd3333] flex items-center justify-center text-white flex-shrink-0">
@@ -685,7 +973,14 @@ export default function ProductDetailsPage() {
                     <div className="space-y-2">
                       <h4 className="font-extrabold text-[#dd3333] text-sm uppercase tracking-wider">Expert Advice</h4>
                       <p className="text-gray-700 text-xs sm:text-sm italic font-medium leading-relaxed">
-                        "The VT-Simple Trainer is exceptionally easy to build, and fly. Ideal for the first time Builder and flier."
+                        {isViggen 
+                          ? '"The FT-Viggen is a phenomenal thrust-vectoring jet. Best suited for pilots who already have some building and multi-axis flight experience."'
+                          : isSpitfire 
+                          ? '"The Supermarine Spitfire features advanced elliptical wings. It handles incredibly smoothly in turns but requires active pilot management."'
+                          : isMustang 
+                          ? '"The P-51D Mustang is a classic scale warbird. Ideal for pilots looking to transition into scale sport models."'
+                          : '"The VT-Simple Trainer is exceptionally easy to build, and fly. Ideal for the first time Builder and flier."'
+                        }
                       </p>
                     </div>
                   </div>
@@ -934,6 +1229,41 @@ export default function ProductDetailsPage() {
           </button>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightbox && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-xs p-4 sm:p-6 transition-all duration-300"
+          onClick={() => setLightbox(null)}
+        >
+          {/* Close button */}
+          <button 
+            className="absolute top-6 right-6 z-50 p-2 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-full transition-all focus:outline-none shadow-md"
+            onClick={() => setLightbox(null)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Modal Container */}
+          <div 
+            className="relative max-w-4xl w-full max-h-[85vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl max-w-full">
+              <img 
+                src={lightbox.src} 
+                alt={lightbox.label} 
+                className="max-h-[70vh] w-auto max-w-full object-contain mx-auto"
+              />
+              <div className="p-4 bg-neutral-900 text-center border-t border-neutral-800">
+                <p className="text-white text-xs sm:text-sm font-bold uppercase tracking-wider">{lightbox.label}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

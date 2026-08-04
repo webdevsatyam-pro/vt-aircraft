@@ -155,6 +155,134 @@
     "whatsInTheBox": ["1x Spitfire Airframe", "Pre-installed Electronics (ESC, Motor, Servos)", "Propeller & Spinner", "User Manual"]
   },
   {
+    "id": "vt-guinea-pig",
+    "slug": "vt-guinea-pig",
+    "name": "FT-Guinea Pig",
+    "tagline": "Twin-motor cargo utility aircraft designed for heavy payloads.",
+    "price": 169.99,
+    "originalPrice": 189.99,
+    "badge": "Utility Cargo",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.8,
+    "reviewCount": 35,
+    "sku": "VT-AC-GUINEAPIG",
+    "summary": "Durable twin-engine cargo transport model, ideal for dropping parachutes, candy, or carrying cameras.",
+    "description": "The FT-Guinea Pig is a versatile twin-engine utility cargo plane. Built to carry payloads, it can easily handle cargo drops or FPV gear. The high wings and twin motors provide high lift and stability.",
+    "features": [
+      "Twin-engine lift and thrust",
+      "Generous internal cargo bay with functional ramp",
+      "Robust crash-resistant foam construction"
+    ],
+    "images": [
+      "/src/assets/images/guinea_pig.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1473 mm (58 in)",
+      "Flying Weight": "1000 g without battery",
+      "Motor": "2x 2212 Brushless Motors",
+      "ESC": "2x 30A ESC",
+      "Recommended Battery": "3S 2200-3000mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT-Guinea Pig Airframe Kit", "Control Horns & Pushrods", "Twin Firewall Mounts", "Decal Sheet"]
+  },
+  {
+    "id": "vt-storch",
+    "slug": "vt-storch",
+    "name": "FT-Storch",
+    "tagline": "Legendary scale STOL aircraft with short takeoff and landing physics.",
+    "price": 159.99,
+    "originalPrice": 179.99,
+    "badge": "Scale STOL",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 49,
+    "sku": "VT-AC-STORCH",
+    "summary": "Highly scale replica of the Fieseler Fi 156 Storch, offering incredible short-field performance and stable slow flight.",
+    "description": "Enjoy majestic scale flights with the FT-Storch. Featuring functional flaps and slats options, it can take off and land in extremely tight spaces, making it a joy to fly in small parks.",
+    "features": [
+      "Excellent scale details",
+      "Functional flap options for extreme STOL flights",
+      "Docile and forgiving slow-flight envelope"
+    ],
+    "images": [
+      "/src/assets/images/storch.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1460 mm (57.5 in)",
+      "Flying Weight": "850 g",
+      "Motor": "2215 Brushless Motor",
+      "ESC": "30A Brushless ESC",
+      "Recommended Battery": "3S 1300-2200mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT-Storch Airframe Kit", "Landing Gear Wire & Scale Wheels", "Control Horns & Pushrods", "User Manual"]
+  },
+  {
+    "id": "vt-explorer",
+    "slug": "vt-explorer",
+    "name": "FT-Explorer",
+    "tagline": "Pusher-prop modular trainer ideal for beginner pilots and FPV cameras.",
+    "price": 149.99,
+    "originalPrice": 169.99,
+    "badge": "Modular Pusher",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.7,
+    "reviewCount": 54,
+    "sku": "VT-AC-EXPLORER",
+    "summary": "Rear-mounted pusher propeller platform, keeping the motor and camera protected in case of rough landings.",
+    "description": "The FT-Explorer is a versatile, modular trainer aircraft. The pusher configuration shields the propeller and motor, making it extremely durable for beginners and a perfect choice for FPV setups.",
+    "features": [
+      "Pusher prop setup for motor protection",
+      "Modular nose design for camera mounts",
+      "Stable high-wing flight profile"
+    ],
+    "images": [
+      "/src/assets/images/explorer.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1420 mm (56 in)",
+      "Flying Weight": "800 g",
+      "Motor": "2212 Brushless Motor",
+      "ESC": "30A Brushless ESC",
+      "Recommended Battery": "3S 1300-2200mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT-Explorer Airframe Kit", "FPV Mounting Deck", "Control Horns & Pushrods", "User Manual"]
+  },
+  {
+    "id": "vt-spear",
+    "slug": "vt-spear",
+    "name": "FT-Spear",
+    "tagline": "High-speed FPV flying wing with huge internal payload compartment.",
+    "price": 139.99,
+    "originalPrice": 159.99,
+    "badge": "FPV Wing",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.8,
+    "reviewCount": 61,
+    "sku": "VT-AC-SPEAR",
+    "summary": "Fast, agile flying wing offering a massive battery bay and dedicated slots for action cameras.",
+    "description": "The FT-Spear is a delta flying wing designed for speed, agility, and long-range FPV. With a cavernous payload bay, you can carry multiple batteries, flight controllers, and cameras with ease.",
+    "features": [
+      "Massive internal battery/electronics bay",
+      "Extremely stable delta wing aerodynamics",
+      "Dedicated nose cutouts for cameras"
+    ],
+    "images": [
+      "/src/assets/images/spear.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1041 mm (41 in)",
+      "Flying Weight": "750 g",
+      "Motor": "2216 Brushless Motor",
+      "ESC": "30A-40A Brushless ESC",
+      "Recommended Battery": "3S/4S 2200-3300mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT-Spear Flying Wing Kit", "Cavernous Electronics Tray", "Control Horns & Pushrods", "Decal Set"]
+  },
+  {
     "id": "vt-trainer-spare-wing",
     "slug": "vt-trainer-spare-wing",
     "name": "VT-Simple Trainer Replacement Wing Assembly",

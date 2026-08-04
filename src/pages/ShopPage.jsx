@@ -27,9 +27,9 @@ export default function ShopPage() {
     }
   }, [searchFromUrl]);
 
-  // Combine products and accessories for full store experience
-  const allCatalogItems = [...productsData, ...accessoriesData];
-  const categories = ['Aircraft', 'Accessories', 'Batteries', 'Spare Parts', 'Chargers', 'Cases'];
+  // Filter only aircraft items (4 original + 4 new ones)
+  const allCatalogItems = productsData.filter((item) => item.category === 'Aircraft');
+  const categories = ['Aircraft'];
 
   // Filtering
   let items = allCatalogItems.filter((item) => {
@@ -77,7 +77,7 @@ export default function ShopPage() {
 
         {/* Catalog Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.slice(0, 4).map((item) => (
+          {items.map((item) => (
             <ProductCard key={item.id} product={item} />
           ))}
         </div>
