@@ -83,14 +83,17 @@ export default function ProductDetailsPage() {
   const isMustang = product.id === 'vt-lipo-battery-3s' || product.name.toLowerCase().includes('mustang');
   const isSpitfire = product.id === 'vt-6x-transmitter' || product.name.toLowerCase().includes('spitfire');
   const isGuineaPig = product.id === 'vt-guinea-pig' || product.name.toLowerCase().includes('guinea');
+  const isStorch = product.id === 'vt-storch' || product.name.toLowerCase().includes('storch');
+  const isExplorer = product.id === 'vt-explorer' || product.name.toLowerCase().includes('explorer');
+  const isSpear = product.id === 'vt-spear' || product.name.toLowerCase().includes('spear');
   const displayName = product.name;
   const displayDesc = product.summary || product.description;
 
   const powerPackLabel = isViggen ? 'Viggen Power Pack' : 'Trainer Power Pack';
-  const basePriceVal = isViggen ? 2499 : 1799;
-  const baseOriginalPriceVal = isViggen ? 2599 : 1999;
-  const packPriceVal = isViggen ? 5699 : 4699;
-  const packOriginalPriceVal = isViggen ? 5799 : 4899;
+  const basePriceVal = isViggen ? 1999 : (isMustang ? 1949 : (isSpitfire ? 1699 : (isGuineaPig ? 2599 : (isStorch ? 2599 : (isExplorer ? 2599 : (isSpear ? 1999 : 1449))))));
+  const baseOriginalPriceVal = isViggen ? 2499 : (isMustang ? 2399 : (isSpitfire ? 1999 : (isGuineaPig ? 2999 : (isStorch ? 2999 : (isExplorer ? 2999 : (isSpear ? 2499 : 1799))))));
+  const packPriceVal = isViggen ? 4999 : (isMustang ? 4199 : (isSpitfire ? 3999 : (isGuineaPig ? 8999 : (isStorch ? 5555 : (isExplorer ? 4999 : (isSpear ? 3999 : 2999))))));
+  const packOriginalPriceVal = isViggen ? 5499 : (isMustang ? 4699 : (isSpitfire ? 4499 : (isGuineaPig ? 9499 : (isStorch ? 5999 : (isExplorer ? 5499 : (isSpear ? 4499 : 3499))))));
 
   const formatINR = (amount) => `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
@@ -424,10 +427,11 @@ export default function ProductDetailsPage() {
                           <span className="text-2xl font-bold text-gray-900">{currentBasePriceStr}</span>
                         </>
                       ) : (
-                        <>
+                        <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-sm text-gray-400 line-through">{currentPackOriginalPriceStr}</span>
                           <span className="text-2xl font-bold text-gray-900">{currentPackPriceStr}</span>
-                        </>
+                          <span className="text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-sm uppercase tracking-wider">Out of Stock</span>
+                        </div>
                       )}
                     </div>
                   ) : (
@@ -470,25 +474,34 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* Order Now */}
-              <a
-                href={shopifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => {
-                  if (isAircraft) {
-                    if (!kitOption) {
-                      e.preventDefault();
-                      alert("Please select a Kit Option (Starter Kit or Airframe Kit) to proceed.");
-                    } else if (kitOption === 'airframe' && !electronicsOption) {
-                      e.preventDefault();
-                      alert("Please select an Electronics option (No Electronics or With Electronics) to proceed.");
+              {isAircraft && kitOption === 'airframe' && electronicsOption === 'with-electronics' ? (
+                <button
+                  disabled
+                  className="flex-1 h-11 px-6 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-center select-none bg-gray-400 text-white cursor-not-allowed"
+                >
+                  <span>Out of Stock</span>
+                </button>
+              ) : (
+                <a
+                  href={shopifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (isAircraft) {
+                      if (!kitOption) {
+                        e.preventDefault();
+                        alert("Please select a Kit Option (Starter Kit or Airframe Kit) to proceed.");
+                      } else if (kitOption === 'airframe' && !electronicsOption) {
+                        e.preventDefault();
+                        alert("Please select an Electronics option (No Electronics or With Electronics) to proceed.");
+                      }
                     }
-                  }
-                }}
-                className="flex-1 h-11 px-6 font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 text-center select-none bg-[#22252a] text-white hover:bg-black active:scale-95"
-              >
-                <span>Order Now</span>
-              </a>
+                  }}
+                  className="flex-1 h-11 px-6 font-bold text-xs uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 text-center select-none bg-[#22252a] text-white hover:bg-black active:scale-95"
+                >
+                  <span>Order Now</span>
+                </a>
+              )}
             </div>
 
             {/* Social Share Buttons */}

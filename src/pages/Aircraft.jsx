@@ -43,7 +43,7 @@ export default function Aircraft() {
                 to="/product/vt-simple-trainer-rtf"
                 className="px-6 py-3 bg-[#2563EB] hover:bg-blue-600 text-white font-semibold text-xs rounded-xl shadow-md transition"
               >
-                Order RTF Complete Kit (₹4,699.00)
+                Order RTF Complete Kit (₹2,999.00)
               </Link>
               <Link
                 to="/specifications"

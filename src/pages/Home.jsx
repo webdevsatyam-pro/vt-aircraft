@@ -135,7 +135,7 @@ export default function Home() {
                 <span className="text-xs font-semibold text-blue-300 uppercase tracking-widest">Flagship RC Aircraft</span>
                 <h2 className="text-2xl font-bold">VT-Simple Trainer RTF</h2>
                 <div className="flex items-center justify-between mt-2 pointer-events-auto">
-                  <span className="text-xl font-extrabold">₹4,699.00 <span className="text-xs text-gray-300 line-through font-normal">₹4,899.00</span></span>
+                  <span className="text-xl font-extrabold">₹2,999.00 <span className="text-xs text-gray-300 line-through font-normal">₹3,499.00</span></span>
                   <Link
                     to="/product/vt-simple-trainer-rtf"
                     className="px-4 py-2 bg-[#2563EB] text-white text-xs font-semibold rounded-xl hover:bg-blue-600 transition"
