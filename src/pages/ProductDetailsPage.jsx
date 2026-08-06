@@ -831,6 +831,89 @@ export default function ProductDetailsPage() {
                         <ImagePlaceholder label="Guinea Pig Sheet G" src="/src/assets/images/guinea_pig_sheet_g.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_g.jpg", label: "Guinea Pig Sheet G" })} />
                       </div>
                     </>
+                  ) : isStorch ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheet A, Sheet B, Wing Sheet, Fuselage Sheet)</p>
+                          <p>• FT-Storch Scale Airframe Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Wing Panels with Slats & Flaps Options</p>
+                          <p>• Horizontal & Vertical Stabilizers</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Landing Gear Wire & Scale Wheels</p>
+                          <p>• Control Horns, Pushrods & Scale Decals</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                        <ImagePlaceholder label="FT-Storch Sheet A (Slats / Dihedral Gauge)" src="/src/assets/images/storch_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_a.jpg", label: "FT-Storch Sheet A (Slats / Dihedral Gauge)" })} />
+                        <ImagePlaceholder label="FT-Storch Sheet B (Tail Stabilizers / Power Pod)" src="/src/assets/images/storch_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_b.jpg", label: "FT-Storch Sheet B (Tail Stabilizers / Power Pod)" })} />
+                        <ImagePlaceholder label="FT-Storch Wing Sheet" src="/src/assets/images/storch_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_wing.jpg", label: "FT-Storch Wing Sheet" })} />
+                        <ImagePlaceholder label="FT-Storch Fuselage Sheet A" src="/src/assets/images/storch_sheet_fuselage.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_fuselage.jpg", label: "FT-Storch Fuselage Sheet A" })} />
+                        <ImagePlaceholder label="FT-Storch Fuselage Sheet B" src="/src/assets/images/storch_sheet_c.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_c.jpg", label: "FT-Storch Fuselage Sheet B" })} />
+                        <ImagePlaceholder label="FT-Storch Accessories & Hardware Pack" src="/src/assets/images/storch_accessories.png" onClick={() => setLightbox({ src: "/src/assets/images/storch_accessories.png", label: "FT-Storch Accessories & Hardware Pack" })} />
+                      </div>
+                    </>
+                  ) : isExplorer ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets</p>
+                          <p>• FT-Explorer Modular Airframe Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Tail Boom & Stabilizers (Sheet D)</p>
+                          <p>• Wing Panels & Wing Spars</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• FPV Mounting Deck & Canopy</p>
+                          <p>• Control Horns, Pushrods & User Manual</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                        <ImagePlaceholder label="FT-Explorer Sheets A & B (Fuselage / Power Pod)" src="/src/assets/images/explorer_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_ab.jpg", label: "FT-Explorer Sheets A & B (Fuselage / Power Pod)" })} />
+                        <ImagePlaceholder label="FT-Explorer Sheet D (Tail / Stabilizers)" src="/src/assets/images/explorer_sheet_d.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_d.jpg", label: "FT-Explorer Sheet D (Tail / Stabilizers)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Spar Sheet" src="/src/assets/images/explorer_sheet_wing_spar.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_spar.png", label: "FT-Explorer Wing Spar Sheet" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel)" src="/src/assets/images/explorer_sheet_wing_left.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_left.png", label: "FT-Explorer Wing Sheet (Left Panel)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Right Panel)" src="/src/assets/images/explorer_sheet_wing_right.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_right.png", label: "FT-Explorer Wing Sheet (Right Panel)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel Alt)" src="/src/assets/images/explorer_sheet_wing_left_alt.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_left_alt.png", label: "FT-Explorer Wing Sheet (Left Panel Alt)" })} />
+                        <ImagePlaceholder label="FT-Explorer Decals & Stickers" src="/src/assets/images/explorer_decals.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_decals.jpg", label: "FT-Explorer Decals & Stickers" })} />
+                      </div>
+                    </>
+                  ) : isSpear ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheet B, C, E, F, Wing Cutouts)</p>
+                          <p>• FT-Spear Flying Wing Airframe Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Left & Right Elevons (Sheet B)</p>
+                          <p>• Left & Right Wing Joiners (Sheet C)</p>
+                          <p>• Left & Right Wings (Sheet E & F)</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Wooden Motor Mount & Battery Location Plate</p>
+                          <p>• Control Horns, Pushrods, Zip Ties & Velcro</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                        <ImagePlaceholder label="FT-Spear Wing Cutout Sheet" src="/src/assets/images/spear_sheet_wing_cutout.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_wing_cutout.jpg", label: "FT-Spear Wing Cutout Sheet" })} />
+                        <ImagePlaceholder label="FT-Spear Wing Joiner Sheet" src="/src/assets/images/spear_sheet_wing_joiner.png" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_wing_joiner.png", label: "FT-Spear Wing Joiner Sheet" })} />
+                        <ImagePlaceholder label="FT-Spear Sheets B & C (Elevons & Spars)" src="/src/assets/images/spear_sheet_bc.png" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_bc.png", label: "FT-Spear Sheets B & C (Elevons & Spars)" })} />
+                        <ImagePlaceholder label="FT-Spear Sheet E (Right Wing Panel)" src="/src/assets/images/spear_sheet_e.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_e.jpg", label: "FT-Spear Sheet E (Right Wing Panel)" })} />
+                        <ImagePlaceholder label="FT-Spear Sheet F (Left Wing Panel)" src="/src/assets/images/spear_sheet_f.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_f.jpg", label: "FT-Spear Sheet F (Left Wing Panel)" })} />
+                        <ImagePlaceholder label="FT-Spear Accessories & Hardware Pack" src="/src/assets/images/spear_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_accessories.jpg", label: "FT-Spear Accessories & Hardware Pack" })} />
+                      </div>
+                    </>
                   ) : (
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
@@ -910,7 +993,7 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
+                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
