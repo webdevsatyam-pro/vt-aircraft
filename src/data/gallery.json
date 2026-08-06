@@ -1,38 +1,38 @@
 [
   {
     "id": "gal-1",
-    "title": "Clear Sky In-Flight Stability",
-    "category": "In-Flight",
-    "image": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
-    "caption": "The VT-Simple Trainer maintaining level cruise with VT-Stabilize auto-gyro active."
+    "title": "FT-Spitfire Airframe Build",
+    "category": "Studio",
+    "image": "/src/assets/images/gallery_spitfire_foam.jpg",
+    "caption": "Fully assembled white foam board Spitfire scale airframe."
   },
   {
     "id": "gal-2",
-    "title": "Sleek Aerodynamic Airframe",
+    "title": "VT-Simple Trainer EPP",
     "category": "Studio",
-    "image": "/src/assets/images/trainer_ground.jpg",
-    "caption": "Precision-molded EPO foam body with high-contrast cobalt decals for maximum orientation visibility."
+    "image": "/src/assets/images/gallery_trainer_ground.jpg",
+    "caption": "The VT-Simple Trainer EPP model resting on the runway."
   },
   {
     "id": "gal-3",
-    "title": "High Angle Bank Turn",
-    "category": "Action",
-    "image": "/src/assets/images/trainer_sky.jpg",
-    "caption": "Smooth roll authority powered by pre-wired digital 9g micro servos."
+    "title": "EPP Trainer Level Flight",
+    "category": "In-Flight",
+    "image": "/src/assets/images/gallery_trainer_flight.jpg",
+    "caption": "EPP trainer soaring high in a clear blue sky."
   },
   {
     "id": "gal-4",
-    "title": "Sunset Touch-And-Go Practice",
-    "category": "In-Flight",
-    "image": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
-    "caption": "Durable tricycle landing gear engineered for soft grass field touch-and-go drills."
+    "title": "Aerobatic In-Flight Maneuver",
+    "category": "Action",
+    "image": "/src/assets/images/gallery_trainer_action.jpg",
+    "caption": "VT-Simple Trainer executing a banking turn over a field."
   },
   {
     "id": "gal-5",
-    "title": "Top-Loading Battery Compartment",
-    "category": "Details",
-    "image": "/src/assets/images/gallery_spitfire.jpg",
-    "caption": "Magnetic hatch release for swift battery swaps between flights."
+    "title": "FT-22 Raptor Jet",
+    "category": "Studio",
+    "image": "/src/assets/images/gallery_raptor.jpg",
+    "caption": "FT-22 Raptor park jet scale mockup on a wooden surface."
   },
   {
     "id": "gal-6",

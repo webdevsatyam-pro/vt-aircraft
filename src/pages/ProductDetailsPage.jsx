@@ -17,12 +17,12 @@ import trainerSky from '../assets/images/trainer_sky.jpg';
 import trainerGround from '../assets/images/trainer_ground.jpg';
 import superTrainerBanner from '../assets/images/super_trainer_banner.png';
 
-const ImagePlaceholder = ({ label, src, onClick }) => {
+const ImagePlaceholder = ({ label, src, onClick, aspect = 'aspect-[4/3]' }) => {
   const [error, setError] = useState(false);
   
   if (error || !src) {
     return (
-      <div className="flex flex-col items-center justify-center p-6 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl aspect-[4/3] text-center group hover:border-[#dd3333] transition-colors duration-250">
+      <div className={`flex flex-col items-center justify-center p-6 bg-gray-50 border-2 border-dashed border-gray-200 rounded-xl ${aspect} text-center group hover:border-[#dd3333] transition-colors duration-250`}>
         <svg className="w-8 h-8 text-gray-300 group-hover:text-[#dd3333] mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
@@ -37,7 +37,7 @@ const ImagePlaceholder = ({ label, src, onClick }) => {
       onClick={onClick}
       className="flex flex-col rounded-xl overflow-hidden border border-gray-200 shadow-xs bg-white group hover:border-[#dd3333] hover:shadow-md cursor-pointer transition-all duration-250"
     >
-      <div className="aspect-[4/3] overflow-hidden bg-gray-50 flex items-center justify-center p-2">
+      <div className={`${aspect} overflow-hidden bg-gray-50 flex items-center justify-center p-2`}>
         <img 
           src={src} 
           alt={label} 
@@ -86,14 +86,17 @@ export default function ProductDetailsPage() {
   const isStorch = product.id === 'vt-storch' || product.name.toLowerCase().includes('storch');
   const isExplorer = product.id === 'vt-explorer' || product.name.toLowerCase().includes('explorer');
   const isSpear = product.id === 'vt-spear' || product.name.toLowerCase().includes('spear');
+  const isRaptor = product.id === 'vt-raptor' || product.name.toLowerCase().includes('raptor');
+  const isOldFogey = product.id === 'vt-old-fogey' || product.name.toLowerCase().includes('fogey');
+  const isBaron = product.id === 'vt-bloody-baron' || product.name.toLowerCase().includes('baron');
   const displayName = product.name;
   const displayDesc = product.summary || product.description;
 
   const powerPackLabel = isViggen ? 'Viggen Power Pack' : 'Trainer Power Pack';
-  const basePriceVal = isViggen ? 1999 : (isMustang ? 1949 : (isSpitfire ? 1699 : (isGuineaPig ? 2599 : (isStorch ? 2599 : (isExplorer ? 2599 : (isSpear ? 1999 : 1449))))));
-  const baseOriginalPriceVal = isViggen ? 2499 : (isMustang ? 2399 : (isSpitfire ? 1999 : (isGuineaPig ? 2999 : (isStorch ? 2999 : (isExplorer ? 2999 : (isSpear ? 2499 : 1799))))));
-  const packPriceVal = isViggen ? 4999 : (isMustang ? 4199 : (isSpitfire ? 3999 : (isGuineaPig ? 8999 : (isStorch ? 5555 : (isExplorer ? 4999 : (isSpear ? 3999 : 2999))))));
-  const packOriginalPriceVal = isViggen ? 5499 : (isMustang ? 4699 : (isSpitfire ? 4499 : (isGuineaPig ? 9499 : (isStorch ? 5999 : (isExplorer ? 5499 : (isSpear ? 4499 : 3499))))));
+  const basePriceVal = isViggen ? 1999 : (isMustang ? 1949 : (isSpitfire ? 1699 : (isGuineaPig ? 2599 : (isStorch ? 2599 : (isExplorer ? 2599 : (isSpear ? 1999 : (isRaptor ? 1599 : (isOldFogey ? 1599 : (isBaron ? 1699 : 1449)))))))));
+  const baseOriginalPriceVal = isViggen ? 2499 : (isMustang ? 2399 : (isSpitfire ? 1999 : (isGuineaPig ? 2999 : (isStorch ? 2999 : (isExplorer ? 2999 : (isSpear ? 2499 : (isRaptor ? 1999 : (isOldFogey ? 1999 : (isBaron ? 1999 : 1799)))))))));
+  const packPriceVal = isViggen ? 4999 : (isMustang ? 4199 : (isSpitfire ? 3999 : (isGuineaPig ? 8999 : (isStorch ? 5555 : (isExplorer ? 4999 : (isSpear ? 3999 : (isRaptor ? 3999 : (isOldFogey ? 3599 : (isBaron ? 3599 : 2999)))))))));
+  const packOriginalPriceVal = isViggen ? 5499 : (isMustang ? 4699 : (isSpitfire ? 4499 : (isGuineaPig ? 9499 : (isStorch ? 5999 : (isExplorer ? 5499 : (isSpear ? 4499 : (isRaptor ? 4499 : (isOldFogey ? 3999 : (isBaron ? 3999 : 3499)))))))));
 
   const formatINR = (amount) => `₹${amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
@@ -914,6 +917,83 @@ export default function ProductDetailsPage() {
                         <ImagePlaceholder label="FT-Spear Accessories & Hardware Pack" src="/src/assets/images/spear_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_accessories.jpg", label: "FT-Spear Accessories & Hardware Pack" })} />
                       </div>
                     </>
+                  ) : isRaptor ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheets A & B, Wing Panel & Elevon Sheet)</p>
+                          <p>• FT-22 Raptor Fuselage & Canopy Parts</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Vertical Stabilizers & Tail Fins</p>
+                          <p>• Main Wing Panel & Elevons</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Wooden Control Horns & Firewall Mount</p>
+                          <p>• Pushrods, Linkages, Velcro & Decals</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="space-y-6 pt-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                          <ImagePlaceholder label="FT-22 Raptor Sheets A & B (Fuselage & Canopy)" src="/src/assets/images/raptor_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/raptor_sheet_ab.jpg", label: "FT-22 Raptor Sheets A & B (Fuselage & Canopy)" })} />
+                          <ImagePlaceholder label="FT-22 Raptor Wing & Elevon Sheet" src="/src/assets/images/raptor_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/raptor_sheet_wing.jpg", label: "FT-22 Raptor Wing & Elevon Sheet" })} />
+                        </div>
+                        <div className="w-full">
+                          <ImagePlaceholder label="FT-22 Raptor Accessories & Hardware Kit" src="/src/assets/images/raptor_accessories.png" onClick={() => setLightbox({ src: "/src/assets/images/raptor_accessories.png", label: "FT-22 Raptor Accessories & Hardware Kit" })} aspect="aspect-[3/1]" />
+                        </div>
+                      </div>
+                    </>
+                  ) : isOldFogey ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Power Pod, Wing, Fuselage)</p>
+                          <p>• Old Fogey Vintage Fuselage Walls & Cowl</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Vintage-style High-Dihedral Wing Panel</p>
+                          <p>• Power Pod Module (00 Power Pod Sheet)</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Wooden Firewalls & Control Horns</p>
+                          <p>• Foam wheels, metal pushrods, skewers, rubber bands & velcro</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+                        <ImagePlaceholder label="Old Fogey Power Pod Sheet" src="/src/assets/images/fogey_sheet_powerpod.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_powerpod.jpg", label: "Old Fogey Power Pod Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Wing Sheet" src="/src/assets/images/fogey_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_wing.jpg", label: "Old Fogey Wing Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Fuselage Sheet" src="/src/assets/images/fogey_sheet_fuselage.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_fuselage.jpg", label: "Old Fogey Fuselage Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Accessories & Hardware Kit" src="/src/assets/images/fogey_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_accessories.jpg", label: "Old Fogey Accessories & Hardware Kit" })} />
+                      </div>
+                    </>
+                  ) : isBaron ? (
+                    <>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
+                        <div className="space-y-2">
+                          <p>• Laser Cut Fliteboard Sheets (Sheets A & B, Sheets C & D, Wing Sheet)</p>
+                          <p>• Bloody Baron Fuselage & Control Surfaces</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Horizontal & Vertical Stabilizers (Sheet D)</p>
+                          <p>• Main Wing Panel (Wing Sheet) & Wing Doublers (Sheet B)</p>
+                        </div>
+                        <div className="space-y-2">
+                          <p>• Wooden Control Horns & Firewall Motor Mount</p>
+                          <p>• Pushrods, Linkages, Velcro & Accessories</p>
+                        </div>
+                      </div>
+                      
+                      {/* Kit content images */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                        <ImagePlaceholder label="Bloody Baron Sheets A & B (Fuselage & Doublers)" src="/src/assets/images/baron_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_ab.jpg", label: "Bloody Baron Sheets A & B (Fuselage & Doublers)" })} />
+                        <ImagePlaceholder label="Bloody Baron Sheets C & D (Power Pod & Stabilizers)" src="/src/assets/images/baron_sheet_cd.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_cd.jpg", label: "Bloody Baron Sheets C & D (Power Pod & Stabilizers)" })} />
+                        <ImagePlaceholder label="Bloody Baron Wing Panel Sheet" src="/src/assets/images/baron_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_wing.jpg", label: "Bloody Baron Wing Panel Sheet" })} />
+                      </div>
+                    </>
                   ) : (
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
@@ -993,7 +1073,7 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
+                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {

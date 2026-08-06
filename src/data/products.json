@@ -283,6 +283,102 @@
     "whatsInTheBox": ["1x FT-Spear Flying Wing Kit", "Cavernous Electronics Tray", "Control Horns & Pushrods", "Decal Set"]
   },
   {
+    "id": "vt-raptor",
+    "slug": "vt-raptor",
+    "name": "FT-22 Raptor",
+    "tagline": "Tactical foam board park jet with fighter jet looks and easy handling.",
+    "price": 3999,
+    "originalPrice": 4499,
+    "badge": "Tactical Jet",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 42,
+    "sku": "VT-AC-RAPTOR",
+    "summary": "Highly maneuverable replica of the F-22 Raptor fighter jet, offering excellent park jet performance.",
+    "description": "Experience jet fighter aerobatics with the FT-22 Raptor. Constructed from durable foam board, it is incredibly easy to build and fly, offering amazing slow-speed control and high-speed passes.",
+    "features": [
+      "Scale F-22 Raptor stealth appearance",
+      "Exceptional bank-and-yank maneuverability",
+      "Wide speed envelope from slow to fast flights"
+    ],
+    "images": [
+      "/src/assets/images/raptor.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "635 mm (25 in)",
+      "Flying Weight": "500 g",
+      "Motor": "2206-2208 Brushless Motor",
+      "ESC": "20A-30A Brushless ESC",
+      "Recommended Battery": "3S 800-1300mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT-22 Raptor Airframe Kit", "Control Horns & Pushrods", "Laser Cut Firewall", "User Manual"]
+  },
+  {
+    "id": "vt-old-fogey",
+    "slug": "vt-old-fogey",
+    "name": "Old Fogey",
+    "tagline": "Vintage-style slow flyer with nostalgic looks and slow stable flight.",
+    "price": 3599,
+    "originalPrice": 3999,
+    "badge": "Vintage Flyer",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 38,
+    "sku": "VT-AC-FOGEY",
+    "summary": "Classic high-dihedral vintage flyer that can literally fly at walking speed. Perfect for backyard flying.",
+    "description": "Enjoy the charm of classic aviation with the Old Fogey. Designed for slow and stable flights, this model features massive wings with huge dihedral, making it incredibly self-righting and forgiving. Ideal for flying in small fields, parks, or even backyards on calm days.",
+    "features": [
+      "Vintage old-timer styling",
+      "Extremely slow and stable flight physics",
+      "Highly crash-resistant and easy-to-build foam construction"
+    ],
+    "images": [
+      "/src/assets/images/old_fogey.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1016 mm (40 in)",
+      "Flying Weight": "450 g",
+      "Motor": "2204-2206 Brushless Motor",
+      "ESC": "12A-20A Brushless ESC",
+      "Recommended Battery": "3S 500-1000mAh LiPo"
+    },
+    "whatsInTheBox": ["1x Old Fogey Airframe Kit", "Control Horns & Pushrods", "Laser Cut Firewall", "User Manual"]
+  },
+  {
+    "id": "vt-bloody-baron",
+    "slug": "vt-bloody-baron",
+    "name": "Bloody Baron",
+    "tagline": "High-performance sport flyer and combat aircraft with vertical climb capability.",
+    "price": 3599,
+    "originalPrice": 3999,
+    "badge": "Sport Flyer",
+    "category": "Aircraft",
+    "inStock": true,
+    "rating": 4.9,
+    "reviewCount": 45,
+    "sku": "VT-AC-BARON",
+    "summary": "Extremely versatile 4-channel sport flyer and streamer combat plane with wide speed range.",
+    "description": "Constructed from laser-cut foam board, the Bloody Baron is a compact, high-performance sport flyer. It can be built as a simple 3-channel trainer or a fully aerobatic 4-channel beast. Excellent for streamer combat, it offers vertical climbs and tight loops.",
+    "features": [
+      "Versatile 3 or 4-channel setup option",
+      "Streamer combat ready structure",
+      "Wide flight envelope with great high-speed and vertical performance"
+    ],
+    "images": [
+      "/src/assets/images/bloody_baron.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "737 mm (29 in)",
+      "Flying Weight": "400 g",
+      "Motor": "2208-2212 Brushless Motor",
+      "ESC": "20A-30A Brushless ESC",
+      "Recommended Battery": "3S 800-1300mAh LiPo"
+    },
+    "whatsInTheBox": ["1x Bloody Baron Airframe Kit", "Control Horns & Pushrods", "Laser Cut Firewall", "User Manual"]
+  },
+  {
     "id": "vt-trainer-spare-wing",
     "slug": "vt-trainer-spare-wing",
     "name": "VT-Simple Trainer Replacement Wing Assembly",

@@ -73,3 +73,33 @@
   display: inline-block;
   animation: marquee 20s linear infinite;
 }
+
+/* Animated rotating gradient border button */
+.animated-border-container {
+  position: relative;
+  overflow: hidden;
+  padding: 2px; /* Border thickness */
+  border-radius: 12px;
+  display: inline-flex;
+  z-index: 0;
+}
+
+.animated-border-bg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, #2563EB, #60A5FA, #f43f5e, #e11d48, #2563EB);
+  animation: rotate-border 3s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

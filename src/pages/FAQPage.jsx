@@ -68,6 +68,24 @@ export default function FAQPage() {
         </div>
       </section>
 
+      {/* Contact Queries Callout Banner */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="space-y-1">
+            <h3 className="font-extrabold text-sm sm:text-base text-amber-950 uppercase tracking-wide">Have Any Queries or Questions?</h3>
+            <p className="text-xs sm:text-sm text-amber-900 font-medium">
+              Call us directly to talk and get instant support for your RC plane build!
+            </p>
+          </div>
+          <a
+            href="tel:+918004787983"
+            className="px-6 py-3 bg-[#1F3A5F] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-extrabold rounded-2xl flex items-center gap-2 transition duration-200 shadow-md active:scale-95 whitespace-nowrap"
+          >
+            <span>Call +91 80047 87983</span>
+          </a>
+        </div>
+      </section>
+
       {/* Accordion List */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
         {filteredFaqs.map((faq, index) => {

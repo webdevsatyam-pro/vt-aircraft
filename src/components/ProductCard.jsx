@@ -43,13 +43,13 @@ export default function ProductCard({ product }) {
           <div>
             <span className="text-lg font-bold text-gray-900">
               {product.category === 'Aircraft'
-                ? (product.id?.includes('pnp') ? '₹1,999.00' : (product.id === 'vt-lipo-battery-3s' ? '₹4,199.00' : (product.id === 'vt-6x-transmitter' ? '₹3,999.00' : (product.id === 'vt-guinea-pig' ? '₹8,999.00' : (product.id === 'vt-storch' ? '₹5,555.00' : (product.id === 'vt-explorer' ? '₹4,999.00' : (product.id === 'vt-spear' ? '₹3,999.00' : '₹2,999.00')))))))
+                ? `₹${product.price.toLocaleString('en-IN')}.00`
                 : `₹${Math.round(product.price * 80).toLocaleString('en-IN')}.00`}
             </span>
             {product.originalPrice && (
               <span className="text-xs text-gray-400 line-through ml-2">
                 {product.category === 'Aircraft'
-                  ? (product.id?.includes('pnp') ? '₹2,499.00' : (product.id === 'vt-lipo-battery-3s' ? '₹4,699.00' : (product.id === 'vt-6x-transmitter' ? '₹4,499.00' : (product.id === 'vt-guinea-pig' ? '₹9,499.00' : (product.id === 'vt-storch' ? '₹5,999.00' : (product.id === 'vt-explorer' ? '₹5,499.00' : (product.id === 'vt-spear' ? '₹4,499.00' : '₹3,499.00')))))))
+                  ? `₹${product.originalPrice.toLocaleString('en-IN')}.00`
                   : `₹${Math.round(product.originalPrice * 80).toLocaleString('en-IN')}.00`}
               </span>
             )}

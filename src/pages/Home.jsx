@@ -188,19 +188,35 @@ export default function Home() {
             <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Choose Your Setup</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">VT-Simple Trainer Lineup</h2>
           </div>
-          <Link
-            to="/shop"
-            className="text-xs font-semibold text-[#2563EB] hover:text-[#1F3A5F] flex items-center gap-1 transition"
-          >
-            <span>View All Products & Spares</span>
-            <ChevronRight className="w-4 h-4" />
-          </Link>
+          <div className="animated-border-container w-full sm:w-auto">
+            <div className="animated-border-bg"></div>
+            <Link
+              to="/shop"
+              className="px-5 py-2.5 bg-[#1F3A5F] hover:bg-[#11223F] text-white text-xs font-bold uppercase tracking-wider rounded-[10px] flex items-center justify-center gap-1.5 transition-all duration-200 w-full sm:w-auto relative z-10"
+            >
+              <span>View All Products & Spares</span>
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+
+        <div className="flex justify-center pt-4">
+          <div className="animated-border-container w-full sm:w-auto p-[3px] rounded-[18px]">
+            <div className="animated-border-bg"></div>
+            <Link
+              to="/shop"
+              className="px-8 py-3.5 bg-[#1F3A5F] hover:bg-[#11223F] text-white text-sm sm:text-base font-extrabold rounded-[15px] flex items-center justify-center gap-2.5 transition-all duration-200 w-full sm:w-auto relative z-10"
+            >
+              <span>Explore All Products & Spares</span>
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -274,7 +290,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryData.slice(0, 3).map((item) => (
-            <div key={item.id} className="group relative rounded-2xl overflow-hidden border border-gray-200 aspect-4/3 bg-gray-100 shadow-xs">
+            <Link 
+              key={item.id} 
+              to={`/gallery?photo=${item.id}`}
+              className="group relative rounded-2xl overflow-hidden border border-gray-200 aspect-4/3 bg-gray-100 shadow-xs block cursor-pointer hover:shadow-lg transition-shadow duration-300 card-hover"
+            >
               <img
                 src={item.image}
                 alt={item.title}
@@ -284,7 +304,7 @@ export default function Home() {
                 <span className="text-[10px] font-bold text-blue-300 uppercase">{item.category}</span>
                 <h3 className="font-semibold text-sm">{item.title}</h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -407,6 +427,22 @@ export default function Home() {
           <Link to="/faq" className="text-xs font-semibold text-[#2563EB] hover:underline">
             View All Frequently Asked Questions →
           </Link>
+        </div>
+
+        {/* Contact Queries Callout Banner */}
+        <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left mt-8">
+          <div className="space-y-1">
+            <h3 className="font-extrabold text-sm sm:text-base text-amber-950 uppercase tracking-wide">Have Any Queries or Questions?</h3>
+            <p className="text-xs sm:text-sm text-amber-900 font-medium">
+              Call us directly to talk and get instant support for your RC plane build!
+            </p>
+          </div>
+          <a
+            href="tel:+918004787983"
+            className="px-6 py-3 bg-[#1F3A5F] hover:bg-[#2563EB] text-white text-xs sm:text-sm font-extrabold rounded-2xl flex items-center gap-2 transition duration-200 shadow-md active:scale-95 whitespace-nowrap"
+          >
+            <span>Call +91 80047 87983</span>
+          </a>
         </div>
       </section>
 

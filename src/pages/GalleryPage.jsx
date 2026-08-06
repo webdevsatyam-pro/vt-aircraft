@@ -23,6 +23,17 @@ export default function GalleryPage() {
     };
   }, [selectedImage]);
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const photoId = searchParams.get('photo');
+    if (photoId) {
+      const item = galleryData.find((g) => g.id === photoId);
+      if (item) {
+        setSelectedImage(item);
+      }
+    }
+  }, []);
+
   const categories = ['All', 'In-Flight', 'Studio', 'Action', 'Details'];
 
   const filteredGallery = selectedCategory === 'All'
