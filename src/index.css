@@ -90,7 +90,7 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, #2563EB, #60A5FA, #f43f5e, #e11d48, #2563EB);
+  background: conic-gradient(from 0deg, #2563EB, #60A5FA, transparent 40%, transparent);
   animation: rotate-border 3s linear infinite;
   z-index: -1;
 }
@@ -98,8 +98,22 @@
 @keyframes rotate-border {
   0% {
     transform: rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+  65% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  95% {
+    transform: rotate(0deg);
+    opacity: 0;
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(0deg);
+    opacity: 1;
   }
 }

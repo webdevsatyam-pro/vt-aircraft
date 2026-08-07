@@ -93,8 +93,8 @@ export default function ProductDetailsPage() {
   const displayDesc = product.summary || product.description;
 
   const powerPackLabel = isViggen ? 'Viggen Power Pack' : 'Trainer Power Pack';
-  const basePriceVal = isViggen ? 1999 : (isMustang ? 1949 : (isSpitfire ? 1699 : (isGuineaPig ? 2599 : (isStorch ? 2599 : (isExplorer ? 2599 : (isSpear ? 1999 : (isRaptor ? 1599 : (isOldFogey ? 1599 : (isBaron ? 1699 : 1449)))))))));
-  const baseOriginalPriceVal = isViggen ? 2499 : (isMustang ? 2399 : (isSpitfire ? 1999 : (isGuineaPig ? 2999 : (isStorch ? 2999 : (isExplorer ? 2999 : (isSpear ? 2499 : (isRaptor ? 1999 : (isOldFogey ? 1999 : (isBaron ? 1999 : 1799)))))))));
+  const basePriceVal = isViggen ? 2149 : (isMustang ? 2099 : (isSpitfire ? 1749 : (isGuineaPig ? 2599 : (isStorch ? 2599 : (isExplorer ? 2599 : (isSpear ? 1999 : (isRaptor ? 1499 : (isOldFogey ? 1599 : (isBaron ? 1749 : 1399)))))))));
+  const baseOriginalPriceVal = isViggen ? 2649 : (isMustang ? 2599 : (isSpitfire ? 2149 : (isGuineaPig ? 2999 : (isStorch ? 2999 : (isExplorer ? 2999 : (isSpear ? 2499 : (isRaptor ? 1899 : (isOldFogey ? 1999 : (isBaron ? 2149 : 1749)))))))));
   const packPriceVal = isViggen ? 4999 : (isMustang ? 4199 : (isSpitfire ? 3999 : (isGuineaPig ? 8999 : (isStorch ? 5555 : (isExplorer ? 4999 : (isSpear ? 3999 : (isRaptor ? 3999 : (isOldFogey ? 3599 : (isBaron ? 3599 : 2999)))))))));
   const packOriginalPriceVal = isViggen ? 5499 : (isMustang ? 4699 : (isSpitfire ? 4499 : (isGuineaPig ? 9499 : (isStorch ? 5999 : (isExplorer ? 5499 : (isSpear ? 4499 : (isRaptor ? 4499 : (isOldFogey ? 3999 : (isBaron ? 3999 : 3499)))))))));
 
@@ -198,7 +198,7 @@ export default function ProductDetailsPage() {
         } else {
           container.scrollBy({ left: 344, behavior: 'smooth' }); // w-80 (320px) + gap-6 (24px) = 344px
         }
-      }, window.innerWidth < 768 ? 4000 : 1000); // Autoscroll every 4 seconds on mobile, 1 second on desktop
+      }, window.innerWidth < 768 ? 2000 : 1000); // Autoscroll every 2 seconds on mobile, 1 second on desktop
     };
 
     startAutoScroll();
@@ -293,10 +293,21 @@ export default function ProductDetailsPage() {
           <div className="space-y-4">
             <h1 className="text-3xl font-bold text-gray-900 leading-tight">{displayName}</h1>
             
-            {/* Top Pricing Display */}
-            <div className="text-xl font-bold text-gray-900">
-               {isAircraft ? currentPriceRangeStr : `₹${Math.round((product.price || 0) * quantity * 80).toLocaleString('en-IN')}.00`}
-            </div>
+            <div className="flex items-baseline gap-3">
+               {isAircraft ? (
+                 <>
+                   <span className="text-3xl font-extrabold text-gray-900">{currentBasePriceStr}</span>
+                   <span className="text-sm text-gray-400 line-through font-normal">{currentBaseOriginalPriceStr}</span>
+                 </>
+               ) : (
+                 <>
+                   <span className="text-3xl font-extrabold text-[#1F3A5F]">₹{Math.round((product.price || 0) * quantity * 80).toLocaleString('en-IN')}.00</span>
+                   {product.originalPrice && (
+                     <span className="text-sm text-gray-400 line-through font-normal">₹{Math.round((product.originalPrice || 0) * quantity * 80).toLocaleString('en-IN')}.00</span>
+                   )}
+                 </>
+               )}
+             </div>
 
             <p className="text-sm text-gray-700 leading-relaxed font-normal">
               {displayDesc}
