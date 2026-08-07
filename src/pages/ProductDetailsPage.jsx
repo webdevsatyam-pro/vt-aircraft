@@ -15,7 +15,7 @@ import videosData from '../data/videos.json';
 import eppKitContents from '../assets/images/epp_trainer_kit_contents.png';
 import trainerSky from '../assets/images/trainer_sky.jpg';
 import trainerGround from '../assets/images/trainer_ground.jpg';
-import superTrainerBanner from '../assets/images/super_trainer_banner.png';
+import rcFlightZoneBanner from '../assets/images/rc_flight_zone_banner.png';
 
 const ImagePlaceholder = ({ label, src, onClick, aspect = 'aspect-[4/3]' }) => {
   const [error, setError] = useState(false);
@@ -563,7 +563,6 @@ export default function ProductDetailsPage() {
             {[
               { id: 'description', label: 'Description' },
               { id: 'shipping', label: 'Shipping & Delivery' },
-              { id: 'warranty', label: '1-Year Warranty' },
               { id: 'reviews', label: `Reviews (${productReviews.length})` }
             ].map((tab) => (
               <button
@@ -591,8 +590,8 @@ export default function ProductDetailsPage() {
                   <p className="text-gray-700 text-sm font-medium leading-relaxed">{displayDesc}</p>
                   <div className="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
                     <img 
-                      src={superTrainerBanner} 
-                      alt="Super Trainer EPP Banner" 
+                      src={rcFlightZoneBanner} 
+                      alt="Rc Flight Zone Banner" 
                       className="w-full h-auto object-cover max-h-[400px]"
                     />
                   </div>
@@ -1234,14 +1233,6 @@ export default function ProductDetailsPage() {
                     <p className="text-xs text-gray-500">1-2 Business Days (₹2,400.00)</p>
                   </div>
                 </div>
-              </div>
-            )}
-
-            {activeTab === 'warranty' && (
-              <div className="space-y-3">
-                <h3 className="text-base font-bold text-gray-900">1-Year Factory Limited Warranty</h3>
-                <p>Every Rc Flight Zone product is covered against manufacturer defects in electronics, servos, brushless motor, ESC, and radio transmitter for 12 months from delivery.</p>
-                <p>In addition, our <strong>Lifetime Flight Support</strong> grants you free telephone or chat consultation with master RC technicians to troubleshoot setup or repairs.</p>
               </div>
             )}
 
