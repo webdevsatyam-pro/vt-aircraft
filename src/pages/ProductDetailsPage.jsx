@@ -121,6 +121,24 @@ export default function ProductDetailsPage() {
 
   const carouselRef = React.useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const interactionTimeoutRef = React.useRef(null);
+
+  const handleInteractionStart = () => {
+    setIsUserInteracting(true);
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current);
+    }
+  };
+
+  const handleInteractionEnd = () => {
+    if (interactionTimeoutRef.current) {
+      clearTimeout(interactionTimeoutRef.current);
+    }
+    interactionTimeoutRef.current = setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 4000); // Resume auto scroll after 4 seconds of inactivity
+  };
 
   React.useEffect(() => {
     if (product) {
@@ -172,7 +190,7 @@ export default function ProductDetailsPage() {
 
     const startAutoScroll = () => {
       intervalId = setInterval(() => {
-        if (isHovered) return;
+        if (isHovered || isUserInteracting) return;
         
         const maxScroll = container.scrollWidth - container.clientWidth;
         if (container.scrollLeft >= maxScroll - 10) {
@@ -180,7 +198,7 @@ export default function ProductDetailsPage() {
         } else {
           container.scrollBy({ left: 344, behavior: 'smooth' }); // w-80 (320px) + gap-6 (24px) = 344px
         }
-      }, 1000); // Autoscroll every 1 second
+      }, window.innerWidth < 768 ? 4000 : 1000); // Autoscroll every 4 seconds on mobile, 1 second on desktop
     };
 
     startAutoScroll();
@@ -188,7 +206,7 @@ export default function ProductDetailsPage() {
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [isHovered, isCarouselInView, relatedProducts.length]);
+  }, [isHovered, isCarouselInView, isUserInteracting, relatedProducts.length]);
 
   const [animateProgress, setAnimateProgress] = useState(false);
 
@@ -602,21 +620,307 @@ export default function ProductDetailsPage() {
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-150 space-y-4">
                     <h4 className="text-center font-bold text-[#dd3333] text-base uppercase tracking-wider border-b pb-2">Specifications</h4>
                     <ul className="space-y-3 text-xs sm:text-sm font-medium text-gray-700">
-                      <li className="flex justify-between border-b pb-1">
-                        <span>Wingspan:</span>
-                        <span className="font-bold text-gray-900">{isViggen ? '1100 mm (43.3 in)' : isMustang ? '980 mm (38.5 in)' : isSpitfire ? '1000 mm (39.4 in)' : '1200 mm'}</span>
-                      </li>
-                      <li className="flex justify-between border-b pb-1">
-                        <span>All-Up-Weight:</span>
-                        <span className="font-bold text-gray-900">{isViggen ? '510 g (18.0 oz)' : isMustang ? '450 g (15.9 oz)' : isSpitfire ? '480 g (16.9 oz)' : '~500 g'}</span>
-                      </li>
-                      <li className="flex justify-between pb-1">
-                        <span>CG Location:</span>
-                        <span className="font-bold text-gray-900">{isViggen ? 'Refer to Viggen Assembly Manual' : isMustang ? 'Refer to Mustang Assembly Manual' : isSpitfire ? 'Refer to Spitfire Assembly Manual' : '60 mm from Leading Edge (at Spar)'}</span>
-                      </li>
+                      {isViggen ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">25.5 inches (700mm)</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without battery:</span>
+                            <span className="font-bold text-gray-900">600gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">5.25in/133mm from Leading edge of rudder</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 90 – 120 EXPO: 400</span>
+                          </li>
+                        </>
+                      ) : isMustang ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">1020mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">750gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">550gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">815mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">2.75in/70mm from the leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 160 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isSpitfire ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">1085mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">700gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">500gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">845mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">2.75in/68mm from the leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 100 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isGuineaPig ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">58in/1473mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">1750gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">1400gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">48in/1220mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">50mm from the leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 160 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isStorch ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">1462mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">1000 gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">800gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">965mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">2in/50mm from the leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 160 Expo: 300</span>
+                          </li>
+                        </>
+                      ) : isExplorer ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">57in/1448mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">850 gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">650gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">36.5in/927mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wing Area:</span>
+                            <span className="font-bold text-gray-900">460 in² / 29.7 dm²</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">2.25in/57mm from leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wing Loading (WL):</span>
+                            <span className="font-bold text-gray-900">7.54 oz./ft² / 23 g/dm²</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Aileron: 12°, Elevator: 12°, Rudder: 12°</span>
+                          </li>
+                        </>
+                      ) : isSpear ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">41 inches (1041mm)</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">850 gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">600gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">20in/500mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">76-89mm in front of firewall</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 160 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isRaptor ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">25.5in/650mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">450gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">350gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">35in/890mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">400mm from the nose</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 200 – 400 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isOldFogey ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">1410mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">550gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">425gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">775mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">76-89mm from the leading edge of the wing</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Elevons: 120 EXPO: 300</span>
+                          </li>
+                        </>
+                      ) : isBaron ? (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">29.25in/762mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>AUW:</span>
+                            <span className="font-bold text-gray-900">550gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Weight Without Battery:</span>
+                            <span className="font-bold text-gray-900">420gms</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Length:</span>
+                            <span className="font-bold text-gray-900">24in/610mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wing Area:</span>
+                            <span className="font-bold text-gray-900">243.89 in² / 15.7 dm²</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">2.3in/58.7mm from leading edge of wing</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wing Loading (WL):</span>
+                            <span className="font-bold text-gray-900">10.06 oz./ft² / 32.5 g/dm²</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wing Cube Loading (WCL):</span>
+                            <span className="font-bold text-gray-900">8.2</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>Control Throws:</span>
+                            <span className="font-bold text-gray-900">Aileron: 20° Expo: 300, Elevator: 20° Expo: 300, Rudder: 20° Expo: 300</span>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>Wingspan:</span>
+                            <span className="font-bold text-gray-900">1200 mm</span>
+                          </li>
+                          <li className="flex justify-between border-b pb-1">
+                            <span>All-Up-Weight:</span>
+                            <span className="font-bold text-gray-900">~500 g</span>
+                          </li>
+                          <li className="flex justify-between pb-1">
+                            <span>CG Location:</span>
+                            <span className="font-bold text-gray-900">60 mm from Leading Edge (at Spar)</span>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </div>
- 
+
                   {/* Right Column: Recommended Equipment */}
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-150 space-y-4">
                     <h4 className="text-center font-bold text-[#dd3333] text-base uppercase tracking-wider border-b pb-2">Recommended Equipment</h4>
@@ -625,54 +929,238 @@ export default function ProductDetailsPage() {
                         <>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>4-6 Channel Radio System (Tx-Rx)</span>
+                            <span>EDF: 1000-1200 Watts. Minimum thrust 1100gms.</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>3S 1300-1500mAh LiPo Battery</span>
+                            <span>ESC: 75-90Amps</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>20A-30A Brushless ESC</span>
+                            <span>Motor: 2300kv-2800kv Motor</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>4 Nos. 9g Digital Micro Servos</span>
+                            <span>ESC: 40-60 amps</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>2212 1400KV Brushless Motor</span>
+                            <span>Battery: 2200-3300 mAH 4s</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>6-9 inch Propeller</span>
+                            <span>Servos: (2) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>For Thrust Vectoring Use Metal gear servos.</span>
                           </li>
                         </>
-                      ) : (isMustang || isSpitfire) ? (
+                      ) : isMustang ? (
                         <>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>4+ Channel Radio Transmitter & Receiver</span>
+                            <span>MOTOR: Min Thrust 700gms.</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>3S 1000-1300mAh LiPo Battery</span>
+                            <span>ESC: 20-30 amp</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>30A Brushless ESC</span>
+                            <span>BATTERY: 1000-2200 mAH 3s</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>4 Nos. 9g Micro Servos</span>
+                            <span>SERVOS: (4) 9 gram servos</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>2212 Brushless Motor</span>
+                            <span>PROP: 8×4.5-9×4.7</span>
+                          </li>
+                        </>
+                      ) : isSpitfire ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: Min Thrust 810gms.</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-[#dd3333]">•</span>
-                            <span>{isSpitfire ? 'Scale 3-Blade Propeller & Spinner' : 'Scale 2-Blade Propeller & Spinner'}</span>
+                            <span>ESC: 18-30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 1800-2200 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (4) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×6-9×4.7</span>
+                          </li>
+                        </>
+                      ) : isGuineaPig ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: Min 900gm Thrust</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 18-30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 2200-5000 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (4-5) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×4.5 – 10×5</span>
+                          </li>
+                        </>
+                      ) : isStorch ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: Min Thrust 900gms.</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 2200 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (4-6) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×4.5-10×4.7</span>
+                          </li>
+                        </>
+                      ) : isExplorer ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: 2826 1400kv 200Wmin.</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 2200 mAH 3s (min)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: 9 gram X2 Trainer / X4 Sport</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8 X 5 / 9 X 6</span>
+                          </li>
+                        </>
+                      ) : isSpear ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: 1400kv Motor</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 2200-3300 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (2) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×4.7 / 9 X 4.7 Pusher</span>
+                          </li>
+                        </>
+                      ) : isRaptor ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: 1400kv Motor</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 20-30 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 1000- 1300 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (2) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×4.7 / 9 X 4.7</span>
+                          </li>
+                        </>
+                      ) : isOldFogey ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: 1200kv Motor</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 20 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 500-1000 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: (2) 9 gram servos</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×4.5 – 9×4.7</span>
+                          </li>
+                        </>
+                      ) : isBaron ? (
+                        <>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Motor: FC 2822-1200KV</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>ESC: 20 amp</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Battery: 1000 mAH 3s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Servos: 9 gram X 2 (X 3 with Rudder)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-[#dd3333]">•</span>
+                            <span>Prop: 8×6 – 9×6</span>
                           </li>
                         </>
                       ) : (
@@ -721,10 +1209,10 @@ export default function ProductDetailsPage() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
                           <p>• Fliteboard Pro (4 Nos)</p>
-                          <p className="pl-3">• Aeroply Parts</p>
-                          <p className="pl-6">o Thrust Vectoring Mount</p>
-                          <p className="pl-6">o FT-Elements Firewall</p>
-                          <p className="pl-6">o Control Horns (2)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Thrust Vectoring Mount</p>
+                          <p>• FT-Elements Firewall</p>
+                          <p>• Control Horns (2)</p>
                         </div>
                         <div className="space-y-2">
                           <p>• Pushrods (4pcs) 10cmx2, 40cmx2</p>
@@ -756,17 +1244,27 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C, D)</p>
-                          <p>• P-51D Mustang Scale Airframe Parts</p>
+                          <p>• Fliteboard Pro (4 Nos)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (4)</p>
+                          <p>• Landing Gear Strip (2)</p>
+                          <p>• Pushrods (4pcs) (10cmx2, 20cmx2)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Right Wing Panel & Vertical Stabilizer</p>
-                          <p>• Left Wing Panel & Horizontal Stabilizer</p>
+                          <p>• Pushrod Connectors (4)</p>
+                          <p>• Landing Gear Wire 2Pcs (20cm x2)</p>
+                          <p>• Wheels (2Pcs)</p>
+                          <p>• Wheel Collars (4)</p>
+                          <p>• Bamboo Skewers (3 Short)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Fuselage & Turtle Deck Parts</p>
-                          <p>• Power Pod Template Sheet</p>
-                          <p>• Scale Decals & Construction Guide</p>
+                          <p>• Posterboard Turtle Deck</p>
+                          <p>• Back Posterboard Canopy</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Datasheet</p>
                         </div>
                       </div>
                       
@@ -782,17 +1280,23 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C)</p>
-                          <p>• Supermarine Spitfire Elliptical Wing Parts</p>
+                          <p>• Fliteboard Pro (3 Nos)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Simple Motor Mount</p>
+                          <p>• Control Horns (4)</p>
+                          <p>• Pushrods (4pcs)(40cmx2 , 10cmx2)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Left Wing Panel & Power Pod Template</p>
-                          <p>• Right Wing Panel & Horizontal Stabilizer</p>
+                          <p>• Pushrod Connectors(4)</p>
+                          <p>• Rubber Bands (4)</p>
+                          <p>• Bamboo Skewers (3 Short)</p>
+                          <p>• ABS/Posterboard parts (2)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Fuselage & Tail Fin Parts</p>
-                          <p>• Curved Nose & Exhaust templates</p>
-                          <p>• Scale Decals, Hardware & Accessories Kit</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -809,16 +1313,28 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheet A, B, C, D, E, F, G)</p>
-                          <p>• Heavy Duty Cargo Bay Ramp & Servos Tray</p>
+                          <p>• Fliteboard Pro</p>
+                          <p>• Laser Cut Fliteboard Pro Sheets (7 Nos)</p>
+                          <p>• Aeroply</p>
+                          <p>• Motor Mounts x2</p>
+                          <p>• Control Horns (4)</p>
+                          <p>• Landing Gear Wire (20cmx2)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Twin Motor Firewall Mounts</p>
-                          <p>• Dual Wing Panels & Stabilizers</p>
+                          <p>• MDF Parts</p>
+                          <p>• Spar Reinforcement x2</p>
+                          <p>• Nose LG Reinforcement x2</p>
+                          <p>• Battery Tray</p>
+                          <p>• Pushrods (4pcs)(15cmx2,10cmx2)</p>
+                          <p>• Pushrod Connectors(4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Control Horns, Pushrods & Accessories</p>
-                          <p>• Scale Utility Cargo Decals</p>
+                          <p>• Bamboo Stick (6 long + 3 Short)</p>
+                          <p>• Paper knife</p>
+                          <p>• Battery Strap x2</p>
+                          <p>• Rubber Bands (4)</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -837,16 +1353,28 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheet A, Sheet B, Wing Sheet, Fuselage Sheet)</p>
-                          <p>• FT-Storch Scale Airframe Parts</p>
+                          <p>• Laser Cut Fliteboard Pro Sheets (6 Nos)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (4)</p>
+                          <p>• Horizontal Tail reinforcement</p>
+                          <p>• Wing Spar (2Pcs)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Wing Panels with Slats & Flaps Options</p>
-                          <p>• Horizontal & Vertical Stabilizers</p>
+                          <p>• Landing Gear reinforcement (3Pcs)</p>
+                          <p>• Pushrods (4pcs)(15cmx3, 25cmx1)</p>
+                          <p>• Pushrod Connectors (4)</p>
+                          <p>• Landing Gear Wire 4Pcs (37cmx4)</p>
+                          <p>• EPP Foam Wheel Set (2Pcs)</p>
+                          <p>• Wheel Collars (4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Landing Gear Wire & Scale Wheels</p>
-                          <p>• Control Horns, Pushrods & Scale Decals</p>
+                          <p>• Rubber Bands (4)</p>
+                          <p>• Bamboo Skewers (2 Long + 3 Short)</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -864,16 +1392,22 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets</p>
-                          <p>• FT-Explorer Modular Airframe Parts</p>
+                          <p>• Laser-cut foam sheets ( 9 Sheets)</p>
+                          <p>• MDF Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Tail Boom & Stabilizers (Sheet D)</p>
-                          <p>• Wing Panels & Wing Spars</p>
+                          <p>• Pushrods (4pcs) 75cm, 65cm, 16cmx2</p>
+                          <p>• Rubber Bands (4Pcs)</p>
+                          <p>• Battery Strap</p>
+                          <p>• Bamboo Skewers (3 long)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• FPV Mounting Deck & Canopy</p>
-                          <p>• Control Horns, Pushrods & User Manual</p>
+                          <p>• Pushrod guides (3)</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -892,17 +1426,24 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheet B, C, E, F, Wing Cutouts)</p>
-                          <p>• FT-Spear Flying Wing Airframe Parts</p>
+                          <p>• Fliteboard Pro (6 Nos)</p>
+                          <p>• Pushrods (2pcs 20cm each)</p>
+                          <p>• Pushrod Connectors (2)</p>
+                          <p>• Zipties (4)</p>
+                          <p>• Aeroply Parts</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Left & Right Elevons (Sheet B)</p>
-                          <p>• Left & Right Wing Joiners (Sheet C)</p>
-                          <p>• Left & Right Wings (Sheet E & F)</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (2)</p>
+                          <p>• Camera Pod Parts (4)</p>
+                          <p>• Canopy Lock sets (4Pcs)</p>
+                          <p>• Spar</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Wooden Motor Mount & Battery Location Plate</p>
-                          <p>• Control Horns, Pushrods, Zip Ties & Velcro</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -920,16 +1461,21 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheets A & B, Wing Panel & Elevon Sheet)</p>
-                          <p>• FT-22 Raptor Fuselage & Canopy Parts</p>
+                          <p>• Fliteboard Pro (3 Nos)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Vertical Stabilizers & Tail Fins</p>
-                          <p>• Main Wing Panel & Elevons</p>
+                          <p>• Pushrods (2pcs) ~29cm ea</p>
+                          <p>• Pushrod Connectors (2)</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Wooden Control Horns & Firewall Mount</p>
-                          <p>• Pushrods, Linkages, Velcro & Decals</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
+                          <p>• ABS Canopy cover</p>
                         </div>
                       </div>
                       
@@ -948,16 +1494,26 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Power Pod, Wing, Fuselage)</p>
-                          <p>• Old Fogey Vintage Fuselage Walls & Cowl</p>
+                          <p>• Laser Cut Fliteboard Lite Sheets (4 Nos)</p>
+                          <p>• Laser Cut AlphaBoard Sheet (1 Nos)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (2)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Vintage-style High-Dihedral Wing Panel</p>
-                          <p>• Power Pod Module (00 Power Pod Sheet)</p>
+                          <p>• Pushrods (2pcs) (50Cm length)</p>
+                          <p>• Pushrod Connectors (2)</p>
+                          <p>• Pushrod Guides (2 Long)</p>
+                          <p>• Bamboo Sticks (1 long + 3 short)</p>
+                          <p>• EPP Foam Wheel Set (2 pcs)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Wooden Firewalls & Control Horns</p>
-                          <p>• Foam wheels, metal pushrods, skewers, rubber bands & velcro</p>
+                          <p>• Wheel Collars (4)</p>
+                          <p>• Landing gear wire (15in)</p>
+                          <p>• Velcro</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Data Sheet</p>
                         </div>
                       </div>
                       
@@ -973,16 +1529,23 @@ export default function ProductDetailsPage() {
                     <>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 text-xs sm:text-sm font-medium text-gray-700">
                         <div className="space-y-2">
-                          <p>• Laser Cut Fliteboard Sheets (Sheets A & B, Sheets C & D, Wing Sheet)</p>
-                          <p>• Bloody Baron Fuselage & Control Surfaces</p>
+                          <p>• Fliteboard Pro</p>
+                          <p>• Precision Laser-cut Fliteboard Pro sheets (4 Nos.)</p>
+                          <p>• Aeroply Parts</p>
+                          <p>• Motor Mount</p>
+                          <p>• Control Horns (4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Horizontal & Vertical Stabilizers (Sheet D)</p>
-                          <p>• Main Wing Panel (Wing Sheet) & Wing Doublers (Sheet B)</p>
+                          <p>• Pushrods (4pcs) (30cm, 20cm, 16cmx2)</p>
+                          <p>• Pushrod Linkage Connector (4pcs)</p>
+                          <p>• Velcro</p>
+                          <p>• Bamboo Skewers (4)</p>
                         </div>
                         <div className="space-y-2">
-                          <p>• Wooden Control Horns & Firewall Motor Mount</p>
-                          <p>• Pushrods, Linkages, Velcro & Accessories</p>
+                          <p>• Pushrod guide</p>
+                          <p>• Paper knife</p>
+                          <p>• Decals</p>
+                          <p>• Datasheet</p>
                         </div>
                       </div>
                       
@@ -1358,6 +1921,8 @@ export default function ProductDetailsPage() {
             ref={carouselRef}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={handleInteractionStart}
+            onTouchEnd={handleInteractionEnd}
             className="flex gap-6 overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory scroll-smooth"
             style={{
               scrollbarWidth: 'none',
