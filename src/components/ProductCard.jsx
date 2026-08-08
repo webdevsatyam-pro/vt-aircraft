@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
         <img
           src={mainImage}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500 ease-out"
           loading="lazy"
         />
       </Link>

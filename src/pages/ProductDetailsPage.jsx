@@ -262,7 +262,7 @@ export default function ProductDetailsPage() {
             <img
               src={selectedImage}
               alt={displayName}
-              className="w-full h-full object-cover transition-transform duration-200 ease-out"
+              className="w-full h-full object-contain transition-transform duration-200 ease-out p-2"
               style={{
                 transform: isZoomed ? 'scale(2.2)' : 'scale(1)',
                 transformOrigin: isZoomed ? `${zoomPos.x}% ${zoomPos.y}%` : 'center center'
@@ -277,11 +277,11 @@ export default function ProductDetailsPage() {
                 <button
                   key={idx}
                   onClick={() => setSelectedImage(img)}
-                  className={`relative w-24 h-20 rounded-lg overflow-hidden border flex-shrink-0 transition ${
+                  className={`relative w-24 h-20 rounded-lg overflow-hidden border flex-shrink-0 transition bg-white ${
                     selectedImage === img ? 'border-gray-900 ring-1 ring-gray-900' : 'border-gray-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={img} alt="" className="w-full h-full object-contain p-1" />
                 </button>
               ))}
             </div>
@@ -1646,7 +1646,7 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
+                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isSpitfire ? "/src/assets/images/spitfire_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
