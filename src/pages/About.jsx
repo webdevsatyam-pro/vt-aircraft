@@ -6,8 +6,8 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function About() {
   useSEO({
-    title: 'About Rc Flight Zone | Our Engineering Legacy',
-    description: 'Learn about Rc Flight Zone, our aerospace engineering team, and our mission to make RC flight accessible, safe, and enjoyable for everyone.'
+    title: 'About Rc Plane Zone | Our Engineering Legacy',
+    description: 'Learn about Rc Plane Zone, our aerospace engineering team, and our mission to make RC flight accessible, safe, and enjoyable for everyone.'
   });
 
   return (
@@ -17,9 +17,9 @@ export default function About() {
       {/* Hero Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Engineering Confidence In Flight</span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900">The Story Behind Rc Flight Zone</h1>
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900">The Story Behind Rc Plane Zone</h1>
         <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Founded by aeronautical engineers and veteran AMA flight instructors, Rc Flight Zone was created to solve one simple problem: eliminating the fear of crashing for new RC pilots.
+          Founded by aeronautical engineers and veteran AMA flight instructors, Rc Plane Zone was created to solve one simple problem: eliminating the fear of crashing for new RC pilots.
         </p>
       </section>
 
@@ -78,7 +78,7 @@ export default function About() {
           <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-slate-700">
             <img
               src="/src/assets/images/vt_trainer_action_1784882915807.jpg"
-              alt="Rc Flight Zone Hangar"
+              alt="Rc Plane Zone Hangar"
               className="w-full h-64 object-cover"
             />
           </div>

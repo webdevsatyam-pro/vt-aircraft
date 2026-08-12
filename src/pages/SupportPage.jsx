@@ -6,7 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function SupportPage() {
   useSEO({
-    title: 'Support Center & Manual Downloads | Rc Flight Zone',
+    title: 'Support Center & Manual Downloads | Rc Plane Zone',
     description: 'Access the VT-Simple Trainer instruction manual, register your factory warranty, or open a pilot technical support ticket.'
   });
 

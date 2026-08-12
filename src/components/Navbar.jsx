@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Menu, X, Plane, ChevronRight } from 'lucide-react';
-import rcLogo from '../assets/images/rc-logo.jpg';
+import rcLogo from '../assets/images/rc-plane-zone-logo.jpg';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,10 +71,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 group">
-            <img src={rcLogo} alt="Rc Flight Zone Logo" className="w-9 h-9 rounded-xl object-cover shadow-md group-hover:scale-105 transition-transform duration-300" />
+            <img src={rcLogo} alt="Rc Plane Zone Logo" className="w-9 h-9 rounded-xl object-cover shadow-md group-hover:scale-105 transition-transform duration-300" />
             <div className="flex flex-col">
               <span className="font-extrabold tracking-tight text-gray-900 text-lg leading-none">
-                RC <span className="text-[#2563EB]">FLIGHT ZONE</span>
+                RC <span className="text-[#2563EB]">PLANE ZONE</span>
               </span>
               <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase mt-0.5 hidden sm:block">
                 FLY MORE. BUILD MORE. EXPLORE MORE
@@ -175,8 +175,8 @@ export default function Navbar() {
           <div>
             <div className="flex items-center justify-between pb-6 border-b border-gray-100 mb-6">
               <Link to="/" onClick={() => { setMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-2">
-                <img src={rcLogo} alt="Rc Flight Zone Logo" className="w-8 h-8 rounded-lg object-cover" />
-                <span className="font-bold text-gray-900 text-base">Rc Flight Zone</span>
+                <img src={rcLogo} alt="Rc Plane Zone Logo" className="w-8 h-8 rounded-lg object-cover" />
+                <span className="font-bold text-gray-900 text-base">Rc Plane Zone</span>
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}

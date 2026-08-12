@@ -107,7 +107,7 @@ export default function ProductDetailsPage() {
   const currentPriceRangeStr = `${formatINR(basePriceVal * quantity)} – ${formatINR(packPriceVal * quantity)}`;
 
   useSEO({
-    title: `${displayName} | Rc Flight Zone`,
+    title: `${displayName} | Rc Plane Zone`,
     description: product.summary || product.description,
     image: selectedImage,
     jsonLd: generateProductSchema(product)
@@ -262,7 +262,7 @@ export default function ProductDetailsPage() {
             <img
               src={selectedImage}
               alt={displayName}
-              className="w-full h-full object-contain transition-transform duration-200 ease-out p-2"
+              className="w-full h-full object-cover transition-transform duration-200 ease-out"
               style={{
                 transform: isZoomed ? 'scale(2.2)' : 'scale(1)',
                 transformOrigin: isZoomed ? `${zoomPos.x}% ${zoomPos.y}%` : 'center center'
@@ -620,7 +620,7 @@ export default function ProductDetailsPage() {
                   <div className="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
                     <img 
                       src={rcFlightZoneBanner} 
-                      alt="Rc Flight Zone Banner" 
+                      alt="Rc Plane Zone Banner" 
                       className="w-full h-auto object-cover max-h-[400px]"
                     />
                   </div>

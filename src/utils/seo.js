@@ -13,7 +13,7 @@ export const generateProductSchema = (product) => {
     "sku": product.sku || product.id,
     "brand": {
       "@type": "Brand",
-      "name": "Rc Flight Zone"
+      "name": "Rc Plane Zone"
     },
     "offers": {
       "@type": "Offer",
@@ -25,7 +25,7 @@ export const generateProductSchema = (product) => {
       "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       "seller": {
         "@type": "Organization",
-        "name": "Rc Flight Zone"
+        "name": "Rc Plane Zone"
       }
     },
     "aggregateRating": {
@@ -69,7 +69,7 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Rc Flight Zone",
+    "name": "Rc Plane Zone",
     "url": "https://rcflightzone.com",
     "logo": "https://rcflightzone.com/images/logo.png",
     "slogan": "Learn to Fly with Confidence",

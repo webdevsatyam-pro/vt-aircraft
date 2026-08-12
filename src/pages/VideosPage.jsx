@@ -7,7 +7,7 @@ import videosData from '../data/videos.json';
 
 export default function VideosPage() {
   useSEO({
-    title: 'Flight Videos & Tutorials | Rc Flight Zone',
+    title: 'Flight Videos & Tutorials | Rc Plane Zone',
     description: 'Watch flight video demonstrations, maiden flight guides, and gyro setup tutorials for the VT-Simple Trainer RC plane.'
   });
 
@@ -27,7 +27,7 @@ export default function VideosPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
         <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Aviation Video Vault</span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Rc Flight Zone Video Library</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Rc Plane Zone Video Library</h1>
         <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">
           Learn takeoff routines, flight trimming, and gyro mode selection directly from our master pilots.
         </p>

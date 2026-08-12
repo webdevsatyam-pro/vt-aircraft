@@ -16,7 +16,7 @@ import faqsData from '../data/faqs.json';
 
 export default function Home() {
   useSEO({
-    title: 'Rc Flight Zone | Premium RC Aircraft & VT-Simple Trainer',
+    title: 'Rc Plane Zone | Premium RC Aircraft & VT-Simple Trainer',
     description: 'Explore high-performance, crash-resistant RC planes, trainer aircraft, accessories, and replacement parts. Shop premium RC gear engineered for everyone.'
   });
 
@@ -225,7 +225,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Engineered For Excellence</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Why Beginners Choose Rc Flight Zone</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Why Beginners Choose Rc Plane Zone</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

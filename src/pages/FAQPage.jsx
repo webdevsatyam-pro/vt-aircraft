@@ -7,7 +7,7 @@ import faqsData from '../data/faqs.json';
 
 export default function FAQPage() {
   useSEO({
-    title: 'Frequently Asked Questions (FAQ) | Rc Flight Zone',
+    title: 'Frequently Asked Questions (FAQ) | Rc Plane Zone',
     description: 'Find answers to common questions about VT-Simple Trainer assembly, gyro flight modes, battery charging, repairs, and warranty.',
     jsonLd: generateFAQSchema(faqsData)
   });

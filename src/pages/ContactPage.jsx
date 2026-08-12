@@ -6,8 +6,8 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function ContactPage() {
   useSEO({
-    title: 'Contact Us | Rc Flight Zone Hangar',
-    description: 'Get in touch with the Rc Flight Zone team for sales inquiries, dealer opportunities, and pilot support.'
+    title: 'Contact Us | Rc Plane Zone Hangar',
+    description: 'Get in touch with the Rc Plane Zone team for sales inquiries, dealer opportunities, and pilot support.'
   });
 
   const { addToast } = useToast();
@@ -31,7 +31,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
         <span className="text-xs font-semibold text-[#2563EB] uppercase tracking-wider">Reach Out To Us</span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Contact Rc Flight Zone</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Contact Rc Plane Zone</h1>
         <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto">
           Have questions about the VT-Simple Trainer, wholesale dealer inquiries, or custom flight orders?
         </p>
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl text-center space-y-2">
               <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto" />
               <h3 className="font-bold text-emerald-900 text-sm">Message Delivered!</h3>
-              <p className="text-xs text-emerald-700">Thank you for writing to Rc Flight Zone. We will respond within 24 hours.</p>
+              <p className="text-xs text-emerald-700">Thank you for writing to Rc Plane Zone. We will respond within 24 hours.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">

@@ -5,7 +5,7 @@ import { useSEO } from '../hooks/useSEO';
 
 export default function NotFoundPage() {
   useSEO({
-    title: '404 - Altitude Lost | Rc Flight Zone',
+    title: '404 - Altitude Lost | Rc Plane Zone',
     description: 'The requested flight vector could not be located on our radar.'
   });
 
