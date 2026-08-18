@@ -1,6 +1,6 @@
 {
-  "name": "Rc Plane Zone",
-  "description": "Premium RC Aircraft website for Rc Plane Zone - Learn to Fly with Confidence",
+  "name": "Rc Plane Hub",
+  "description": "Premium RC Aircraft website for Rc Plane Hub - Learn to Fly with Confidence",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

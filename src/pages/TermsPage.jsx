@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function TermsPage() {
   useSEO({
-    title: 'Terms of Service | Rc Plane Zone',
-    description: 'Rc Plane Zone Terms & Conditions for RC aircraft sales and flight operations safety.'
+    title: 'Terms of Service | Rc Plane Hub',
+    description: 'Rc Plane Hub Terms & Conditions for RC aircraft sales and flight operations safety.'
   });
 
   return (
@@ -17,13 +17,13 @@ export default function TermsPage() {
         <p>Last Updated: January 2026</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">1. Operating Regulations & Safety</h2>
-        <p>Purchasers of Rc Plane Zone products are responsible for operating radio-controlled aircraft in compliance with local aviation authorities (such as FAA in the United States, EASA in Europe, or equivalent regional bodies). Flight should take place in open airfields away from crowds, power lines, and airports.</p>
+        <p>Purchasers of Rc Plane Hub products are responsible for operating radio-controlled aircraft in compliance with local aviation authorities (such as FAA in the United States, EASA in Europe, or equivalent regional bodies). Flight should take place in open airfields away from crowds, power lines, and airports.</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">2. Warranty Coverage</h2>
-        <p>Rc Plane Zone guarantees factory defect coverage for 12 months. Damage resulting from pilot error, intentional misuse, or unauthorized hardware modifications is excluded from warranty replacements.</p>
+        <p>Rc Plane Hub guarantees factory defect coverage for 12 months. Damage resulting from pilot error, intentional misuse, or unauthorized hardware modifications is excluded from warranty replacements.</p>
 
         <h2 className="text-base font-bold text-gray-900 pt-2">3. Limitation of Liability</h2>
-        <p>Rc Plane Zone shall not be liable for incidental or consequential damages arising from the operation or crash of radio-controlled models.</p>
+        <p>Rc Plane Hub shall not be liable for incidental or consequential damages arising from the operation or crash of radio-controlled models.</p>
       </section>
     </div>
   );

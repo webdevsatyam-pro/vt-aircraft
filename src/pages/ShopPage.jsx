@@ -10,8 +10,8 @@ import accessoriesData from '../data/accessories.json';
 
 export default function ShopPage() {
   useSEO({
-    title: 'Shop RC Aircraft & Gear | Rc Plane Zone Store',
-    description: 'Browse the full store catalog of Rc Plane Zone: RTF planes, PNP packages, batteries, radios, replacement wings, and flight simulators.'
+    title: 'Shop RC Aircraft & Gear | Rc Plane Hub Store',
+    description: 'Browse the full store catalog of Rc Plane Hub: RTF planes, PNP packages, batteries, radios, replacement wings, and flight simulators.'
   });
 
   const [searchParams] = useSearchParams();

@@ -107,7 +107,7 @@ export default function ProductDetailsPage() {
   const currentPriceRangeStr = `${formatINR(basePriceVal * quantity)} – ${formatINR(packPriceVal * quantity)}`;
 
   useSEO({
-    title: `${displayName} | Rc Plane Zone`,
+    title: `${displayName} | Rc Plane Hub`,
     description: product.summary || product.description,
     image: selectedImage,
     jsonLd: generateProductSchema(product)
@@ -620,7 +620,7 @@ export default function ProductDetailsPage() {
                   <div className="w-full rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
                     <img 
                       src={rcFlightZoneBanner} 
-                      alt="Rc Plane Zone Banner" 
+                      alt="Rc Plane Hub Banner" 
                       className="w-full h-auto object-cover max-h-[400px]"
                     />
                   </div>

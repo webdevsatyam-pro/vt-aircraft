@@ -6,8 +6,8 @@ import trainingData from '../data/training.json';
 
 export default function TrainingPage() {
   useSEO({
-    title: 'Flight Academy & Training Manual | Rc Plane Zone',
-    description: 'Master radio control flying step-by-step with the Rc Plane Zone Flight Academy: pre-flight safety checklists, trimming, pattern flying, and landing procedures.'
+    title: 'Flight Academy & Training Manual | Rc Plane Hub',
+    description: 'Master radio control flying step-by-step with the Rc Plane Hub Flight Academy: pre-flight safety checklists, trimming, pattern flying, and landing procedures.'
   });
 
   const [checkedItems, setCheckedItems] = useState({});
