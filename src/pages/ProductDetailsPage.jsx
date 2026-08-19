@@ -16,6 +16,37 @@ import eppKitContents from '../assets/images/epp_trainer_kit_contents.png';
 import trainerSky from '../assets/images/trainer_sky.jpg';
 import trainerGround from '../assets/images/trainer_ground.jpg';
 import rcFlightZoneBanner from '../assets/images/rc_flight_zone_banner.png';
+import mustangSheetA from '../assets/images/mustang_sheet_a_new.jpg';
+import mustangSheetB from '../assets/images/mustang_sheet_b_new.jpg';
+import mustangSheetC from '../assets/images/mustang_sheet_c_new.png';
+import mustangSheetD from '../assets/images/mustang_sheet_d_new.png';
+import mustangElectronics from '../assets/images/mustang_electronics_new.jpg';
+import spitfireSheetA from '../assets/images/spitfire_sheet_a_new.jpg';
+import spitfireSheetB from '../assets/images/spitfire_sheet_b_new.jpg';
+import spitfireSheetC from '../assets/images/spitfire_sheet_c_new.png';
+import spitfireExTemp from '../assets/images/spitfire_ex_temp_new.jpg';
+import spitfireAcc from '../assets/images/spitfire_acc_new.jpg';
+import spitfireElectronics from '../assets/images/spitfire_electronics_new.jpg';
+import guineaPigSheetA from '../assets/images/guinea_pig_sheet_a_new.jpg';
+import guineaPigSheetB from '../assets/images/guinea_pig_sheet_b_new.jpg';
+import guineaPigSheetC from '../assets/images/guinea_pig_sheet_c_new.png';
+import guineaPigSheetD from '../assets/images/guinea_pig_sheet_d_new.png';
+import guineaPigSheetE from '../assets/images/guinea_pig_sheet_e_new.png';
+import guineaPigSheetF from '../assets/images/guinea_pig_sheet_f_new.png';
+import guineaPigSheetG from '../assets/images/guinea_pig_sheet_g_new.jpg';
+import guineaPigElectronics from '../assets/images/guinea_pig_electronics_new.jpg';
+import storchSheetA from '../assets/images/storch_sheet_a_new.png';
+import storchSheetB from '../assets/images/storch_sheet_b_new.jpg';
+import storchSheetWing from '../assets/images/storch_sheet_wing_new.jpg';
+import storchSheetFuselage from '../assets/images/storch_sheet_fuselage_new.jpg';
+import storchSheetC from '../assets/images/storch_sheet_c_new.jpg';
+import storchElectronics from '../assets/images/storch_electronics_new.jpg';
+import explorerSheetAB from '../assets/images/explorer_sheet_ab_new.jpg';
+import explorerSheetD from '../assets/images/explorer_sheet_d_new.jpg';
+import explorerSheetWingSpar from '../assets/images/explorer_sheet_wing_spar_new.png';
+import explorerSheetWingLeft from '../assets/images/explorer_sheet_wing_left_new.png';
+import explorerSheetWingRight from '../assets/images/explorer_sheet_wing_right_new.png';
+import explorerSheetWingLeftAlt from '../assets/images/explorer_sheet_wing_left_alt_new.png';
 
 const ImagePlaceholder = ({ label, src, onClick, aspect = 'aspect-[4/3]' }) => {
   const [error, setError] = useState(false);
@@ -436,7 +467,7 @@ export default function ProductDetailsPage() {
                     <li>4MM Heatshrink Tube Piece Black</li>
                   </ul>
                   <div className="rounded-xl overflow-hidden border border-gray-200 shadow-xs bg-gray-50 aspect-video flex items-center justify-center p-1">
-                    <img src="/src/assets/images/epp_trainer_electronics.png" alt="Optional electronics package" className="w-full h-full object-contain" />
+                    <img src="/src/assets/images/epp_trainer_electronics.jpg?v=2" alt="Optional electronics package" className="w-full h-full object-contain" />
                   </div>
                 </div>
               </div>
@@ -1242,13 +1273,13 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Right Wing (Sheet A)" src="/src/assets/images/viggen_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_a.jpg", label: "Laser Cut Fliteboard Pro Right Wing (Sheet A)" })} />
-                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Left Wing (Sheet B)" src="/src/assets/images/viggen_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_b.jpg", label: "Laser Cut Fliteboard Pro Left Wing (Sheet B)" })} />
-                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" src="/src/assets/images/viggen_sheet_c_1.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_1.png", label: "Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" })} />
-                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" src="/src/assets/images/viggen_sheet_c_2.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_2.png", label: "Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" })} />
-                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" src="/src/assets/images/viggen_sheet_d.png" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_d.png", label: "Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" })} />
-                        <ImagePlaceholder label="Posterboard Exhaust Tube (Curved Template)" src="/src/assets/images/viggen_exhaust_template.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_exhaust_template.jpg", label: "Posterboard Exhaust Tube (Curved Template)" })} />
-                        <ImagePlaceholder label="Thrust Vectoring Mount & Hardware Kit" src="/src/assets/images/viggen_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/viggen_accessories.jpg", label: "Thrust Vectoring Mount & Hardware Kit" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Right Wing (Sheet A)" src="/src/assets/images/viggen_sheet_a.jpg?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_a.jpg?v=2", label: "Laser Cut Fliteboard Pro Right Wing (Sheet A)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet B (Fuselage)" src="/src/assets/images/viggen_sheet_b.jpg?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_b.jpg?v=2", label: "Laser Cut Fliteboard Pro Sheet B (Fuselage)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" src="/src/assets/images/viggen_sheet_c_1.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_1.png?v=2", label: "Laser Cut Fliteboard Pro Sheet C (Fuselage Top / Canopy)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" src="/src/assets/images/viggen_sheet_c_2.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_c_2.png?v=2", label: "Laser Cut Fliteboard Pro Sheet C (Nose Module / Battery Box)" })} />
+                        <ImagePlaceholder label="Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" src="/src/assets/images/viggen_sheet_d.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_sheet_d.png?v=2", label: "Laser Cut Fliteboard Pro Sheet D (Motor Mount Backplate)" })} />
+                        <ImagePlaceholder label="Posterboard Exhaust Tube (Curved Template)" src="/src/assets/images/viggen_exhaust_template.jpg?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_exhaust_template.jpg?v=2", label: "Posterboard Exhaust Tube (Curved Template)" })} />
+                        <ImagePlaceholder label="Thrust Vectoring Mount & Hardware Kit" src="/src/assets/images/viggen_accessories.jpg?v=2" onClick={() => setLightbox({ src: "/src/assets/images/viggen_accessories.jpg?v=2", label: "Thrust Vectoring Mount & Hardware Kit" })} />
                       </div>
                     </>
                   ) : isMustang ? (
@@ -1281,10 +1312,10 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
-                        <ImagePlaceholder label="P-51D Mustang Sheet A (Right Wing / Vertical Fin)" src="/src/assets/images/mustang_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_a.jpg", label: "P-51D Mustang Sheet A (Right Wing / Vertical Fin)" })} />
-                        <ImagePlaceholder label="P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" src="/src/assets/images/mustang_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_b.jpg", label: "P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" })} />
-                        <ImagePlaceholder label="P-51D Mustang Sheet C (Fuselage / Turtle Deck)" src="/src/assets/images/mustang_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_c.png", label: "P-51D Mustang Sheet C (Fuselage / Turtle Deck)" })} />
-                        <ImagePlaceholder label="P-51D Mustang Sheet D (Power Pod)" src="/src/assets/images/mustang_sheet_d.png" onClick={() => setLightbox({ src: "/src/assets/images/mustang_sheet_d.png", label: "P-51D Mustang Sheet D (Power Pod)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet A (Right Wing / Vertical Fin)" src={`${mustangSheetA}?v=3`} onClick={() => setLightbox({ src: `${mustangSheetA}?v=3`, label: "P-51D Mustang Sheet A (Right Wing / Vertical Fin)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" src={`${mustangSheetB}?v=3`} onClick={() => setLightbox({ src: `${mustangSheetB}?v=3`, label: "P-51D Mustang Sheet B (Left Wing / Horizontal Stab)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet C (Fuselage / Turtle Deck)" src={`${mustangSheetC}?v=3`} onClick={() => setLightbox({ src: `${mustangSheetC}?v=3`, label: "P-51D Mustang Sheet C (Fuselage / Turtle Deck)" })} />
+                        <ImagePlaceholder label="P-51D Mustang Sheet D (Power Pod)" src={`${mustangSheetD}?v=3`} onClick={() => setLightbox({ src: `${mustangSheetD}?v=3`, label: "P-51D Mustang Sheet D (Power Pod)" })} />
                       </div>
                     </>
                   ) : isSpitfire ? (
@@ -1313,11 +1344,11 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-                        <ImagePlaceholder label="Spitfire Sheet A (Left Wing / Power Pod)" src="/src/assets/images/spitfire_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_a.jpg", label: "Spitfire Sheet A (Left Wing / Power Pod)" })} />
-                        <ImagePlaceholder label="Spitfire Sheet B (Right Wing / Tail Fin)" src="/src/assets/images/spitfire_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_b.jpg", label: "Spitfire Sheet B (Right Wing / Tail Fin)" })} />
-                        <ImagePlaceholder label="Spitfire Sheet C (Fuselage)" src="/src/assets/images/spitfire_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_sheet_c.png", label: "Spitfire Sheet C (Fuselage)" })} />
-                        <ImagePlaceholder label="Spitfire Curved Nose & Exhaust Templates" src="/src/assets/images/spitfire_ex_temp.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_ex_temp.jpg", label: "Spitfire Curved Nose & Exhaust Templates" })} />
-                        <ImagePlaceholder label="Spitfire Hardware Accessories Pack" src="/src/assets/images/spitfire_acc.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spitfire_acc.jpg", label: "Spitfire Hardware Accessories Pack" })} />
+                        <ImagePlaceholder label="Spitfire Sheet A (Left Wing / Power Pod)" src={spitfireSheetA} onClick={() => setLightbox({ src: spitfireSheetA, label: "Spitfire Sheet A (Left Wing / Power Pod)" })} />
+                        <ImagePlaceholder label="Spitfire Sheet B (Right Wing / Tail Fin)" src={spitfireSheetB} onClick={() => setLightbox({ src: spitfireSheetB, label: "Spitfire Sheet B (Right Wing / Tail Fin)" })} />
+                        <ImagePlaceholder label="Spitfire Sheet C (Fuselage)" src={spitfireSheetC} onClick={() => setLightbox({ src: spitfireSheetC, label: "Spitfire Sheet C (Fuselage)" })} />
+                        <ImagePlaceholder label="Spitfire Curved Nose & Exhaust Templates" src={spitfireExTemp} onClick={() => setLightbox({ src: spitfireExTemp, label: "Spitfire Curved Nose & Exhaust Templates" })} />
+                        <ImagePlaceholder label="Spitfire Hardware Accessories Pack" src={spitfireAcc} onClick={() => setLightbox({ src: spitfireAcc, label: "Spitfire Hardware Accessories Pack" })} />
                       </div>
                     </>
                   ) : isGuineaPig ? (
@@ -1351,13 +1382,13 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-                        <ImagePlaceholder label="Guinea Pig Sheet A" src="/src/assets/images/guinea_pig_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_a.jpg", label: "Guinea Pig Sheet A" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet B" src="/src/assets/images/guinea_pig_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_b.jpg", label: "Guinea Pig Sheet B" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet C" src="/src/assets/images/guinea_pig_sheet_c.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_c.png", label: "Guinea Pig Sheet C" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet D" src="/src/assets/images/guinea_pig_sheet_d.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_d.jpg", label: "Guinea Pig Sheet D" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet E" src="/src/assets/images/guinea_pig_sheet_e.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_e.png", label: "Guinea Pig Sheet E" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet F" src="/src/assets/images/guinea_pig_sheet_f.png" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_f.png", label: "Guinea Pig Sheet F" })} />
-                        <ImagePlaceholder label="Guinea Pig Sheet G" src="/src/assets/images/guinea_pig_sheet_g.jpg" onClick={() => setLightbox({ src: "/src/assets/images/guinea_pig_sheet_g.jpg", label: "Guinea Pig Sheet G" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet A" src={guineaPigSheetA} onClick={() => setLightbox({ src: guineaPigSheetA, label: "Guinea Pig Sheet A" })} />
+                         <ImagePlaceholder label="Guinea Pig Sheet B" src={guineaPigSheetB} onClick={() => setLightbox({ src: guineaPigSheetB, label: "Guinea Pig Sheet B" })} />
+                         <ImagePlaceholder label="Guinea Pig Sheet C" src={guineaPigSheetC} onClick={() => setLightbox({ src: guineaPigSheetC, label: "Guinea Pig Sheet C" })} />
+                         <ImagePlaceholder label="Guinea Pig Sheet D" src={guineaPigSheetD} onClick={() => setLightbox({ src: guineaPigSheetD, label: "Guinea Pig Sheet D" })} />
+                         <ImagePlaceholder label="Guinea Pig Sheet E" src={guineaPigSheetE} onClick={() => setLightbox({ src: guineaPigSheetE, label: "Guinea Pig Sheet E" })} />
+                         <ImagePlaceholder label="Guinea Pig Sheet F" src={guineaPigSheetF} onClick={() => setLightbox({ src: guineaPigSheetF, label: "Guinea Pig Sheet F" })} />
+                        <ImagePlaceholder label="Guinea Pig Sheet G" src={guineaPigSheetG} onClick={() => setLightbox({ src: guineaPigSheetG, label: "Guinea Pig Sheet G" })} />
                       </div>
                     </>
                   ) : isStorch ? (
@@ -1391,11 +1422,11 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <ImagePlaceholder label="FT-Storch Sheet A (Slats / Dihedral Gauge)" src="/src/assets/images/storch_sheet_a.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_a.jpg", label: "FT-Storch Sheet A (Slats / Dihedral Gauge)" })} />
-                        <ImagePlaceholder label="FT-Storch Sheet B (Tail Stabilizers / Power Pod)" src="/src/assets/images/storch_sheet_b.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_b.jpg", label: "FT-Storch Sheet B (Tail Stabilizers / Power Pod)" })} />
-                        <ImagePlaceholder label="FT-Storch Wing Sheet" src="/src/assets/images/storch_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_wing.jpg", label: "FT-Storch Wing Sheet" })} />
-                        <ImagePlaceholder label="FT-Storch Fuselage Sheet A" src="/src/assets/images/storch_sheet_fuselage.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_fuselage.jpg", label: "FT-Storch Fuselage Sheet A" })} />
-                        <ImagePlaceholder label="FT-Storch Fuselage Sheet B" src="/src/assets/images/storch_sheet_c.jpg" onClick={() => setLightbox({ src: "/src/assets/images/storch_sheet_c.jpg", label: "FT-Storch Fuselage Sheet B" })} />
+                        <ImagePlaceholder label="FT-Storch Sheet A (Slats / Dihedral Gauge)" src={storchSheetA} onClick={() => setLightbox({ src: storchSheetA, label: "FT-Storch Sheet A (Slats / Dihedral Gauge)" })} />
+                        <ImagePlaceholder label="FT-Storch Sheet B (Tail Stabilizers / Power Pod)" src={storchSheetB} onClick={() => setLightbox({ src: storchSheetB, label: "FT-Storch Sheet B (Tail Stabilizers / Power Pod)" })} />
+                        <ImagePlaceholder label="FT-Storch Wing Sheet" src={storchSheetWing} onClick={() => setLightbox({ src: storchSheetWing, label: "FT-Storch Wing Sheet" })} />
+                        <ImagePlaceholder label="FT-Storch Fuselage Sheet A" src={storchSheetFuselage} onClick={() => setLightbox({ src: storchSheetFuselage, label: "FT-Storch Fuselage Sheet A" })} />
+                        <ImagePlaceholder label="FT-Storch Fuselage Sheet B" src={storchSheetC} onClick={() => setLightbox({ src: storchSheetC, label: "FT-Storch Fuselage Sheet B" })} />
                         <ImagePlaceholder label="FT-Storch Accessories & Hardware Pack" src="/src/assets/images/storch_accessories.png" onClick={() => setLightbox({ src: "/src/assets/images/storch_accessories.png", label: "FT-Storch Accessories & Hardware Pack" })} />
                       </div>
                     </>
@@ -1424,12 +1455,12 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <ImagePlaceholder label="FT-Explorer Sheets A & B (Fuselage / Power Pod)" src="/src/assets/images/explorer_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_ab.jpg", label: "FT-Explorer Sheets A & B (Fuselage / Power Pod)" })} />
-                        <ImagePlaceholder label="FT-Explorer Sheet D (Tail / Stabilizers)" src="/src/assets/images/explorer_sheet_d.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_d.jpg", label: "FT-Explorer Sheet D (Tail / Stabilizers)" })} />
-                        <ImagePlaceholder label="FT-Explorer Wing Spar Sheet" src="/src/assets/images/explorer_sheet_wing_spar.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_spar.png", label: "FT-Explorer Wing Spar Sheet" })} />
-                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel)" src="/src/assets/images/explorer_sheet_wing_left.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_left.png", label: "FT-Explorer Wing Sheet (Left Panel)" })} />
-                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Right Panel)" src="/src/assets/images/explorer_sheet_wing_right.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_right.png", label: "FT-Explorer Wing Sheet (Right Panel)" })} />
-                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel Alt)" src="/src/assets/images/explorer_sheet_wing_left_alt.png" onClick={() => setLightbox({ src: "/src/assets/images/explorer_sheet_wing_left_alt.png", label: "FT-Explorer Wing Sheet (Left Panel Alt)" })} />
+                        <ImagePlaceholder label="FT-Explorer Sheets A & B (Fuselage / Power Pod)" src={explorerSheetAB} onClick={() => setLightbox({ src: explorerSheetAB, label: "FT-Explorer Sheets A & B (Fuselage / Power Pod)" })} />
+                        <ImagePlaceholder label="FT-Explorer Sheet D (Tail / Stabilizers)" src={explorerSheetD} onClick={() => setLightbox({ src: explorerSheetD, label: "FT-Explorer Sheet D (Tail / Stabilizers)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Spar Sheet" src={explorerSheetWingSpar} onClick={() => setLightbox({ src: explorerSheetWingSpar, label: "FT-Explorer Wing Spar Sheet" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel)" src={explorerSheetWingLeft} onClick={() => setLightbox({ src: explorerSheetWingLeft, label: "FT-Explorer Wing Sheet (Left Panel)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Right Panel)" src={explorerSheetWingRight} onClick={() => setLightbox({ src: explorerSheetWingRight, label: "FT-Explorer Wing Sheet (Right Panel)" })} />
+                        <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel Alt)" src={explorerSheetWingLeftAlt} onClick={() => setLightbox({ src: explorerSheetWingLeftAlt, label: "FT-Explorer Wing Sheet (Left Panel Alt)" })} />
                         <ImagePlaceholder label="FT-Explorer Decals & Stickers" src="/src/assets/images/explorer_decals.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_decals.jpg", label: "FT-Explorer Decals & Stickers" })} />
                       </div>
                     </>
@@ -1598,10 +1629,10 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
-                        <ImagePlaceholder label="Simple Trainer Left Wing" src="/src/assets/images/trainer_left_wing.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_left_wing.png", label: "Simple Trainer Left Wing" })} />
-                        <ImagePlaceholder label="Simple Trainer Right Wing" src="/src/assets/images/trainer_right_wing.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_right_wing.png", label: "Simple Trainer Right Wing" })} />
-                        <ImagePlaceholder label="Simple Trainer Sheets A & B (Fuselage / Stabilizers)" src="/src/assets/images/trainer_sheets.png" onClick={() => setLightbox({ src: "/src/assets/images/trainer_sheets.png", label: "Simple Trainer Sheets A & B (Fuselage / Stabilizers)" })} />
-                        <ImagePlaceholder label="EPP Trainer Hardware & Accessories Kit" src="/src/assets/images/trainer_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/trainer_accessories.jpg", label: "EPP Trainer Hardware & Accessories Kit" })} />
+                        <ImagePlaceholder label="Simple Trainer Left Wing" src="/src/assets/images/trainer_left_wing.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/trainer_left_wing.png?v=2", label: "Simple Trainer Left Wing" })} />
+                        <ImagePlaceholder label="Simple Trainer Right Wing" src="/src/assets/images/trainer_right_wing.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/trainer_right_wing.png?v=2", label: "Simple Trainer Right Wing" })} />
+                        <ImagePlaceholder label="Simple Trainer Sheets A & B (Fuselage / Stabilizers)" src="/src/assets/images/trainer_sheets.png?v=2" onClick={() => setLightbox({ src: "/src/assets/images/trainer_sheets.png?v=2", label: "Simple Trainer Sheets A & B (Fuselage / Stabilizers)" })} />
+                        <ImagePlaceholder label="EPP Trainer Hardware & Accessories Kit" src="/src/assets/images/trainer_accessories.jpg?v=2" onClick={() => setLightbox({ src: "/src/assets/images/trainer_accessories.jpg?v=2", label: "EPP Trainer Hardware & Accessories Kit" })} />
                       </div>
                     </>
                   )}
@@ -1646,13 +1677,13 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_accessories.png" : isMustang ? "/src/assets/images/mustang_electronics.jpg" : isSpitfire ? "/src/assets/images/spitfire_electronics.jpg" : isGuineaPig ? "/src/assets/images/guinea_pig_electronics.jpg" : isStorch ? "/src/assets/images/storch_electronics.jpg" : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.png"} 
+                      src={isViggen ? "/src/assets/images/viggen_electronics.jpg" : isMustang ? mustangElectronics : isSpitfire ? spitfireElectronics : isGuineaPig ? guineaPigElectronics : isStorch ? storchElectronics : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.jpg?v=2"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
                         // fallback to standard electronics image if viggen specific accessory photo is missing
                         if (isViggen) {
-                          e.target.src = "/src/assets/images/epp_trainer_electronics.png";
+                          e.target.src = "/src/assets/images/epp_trainer_electronics.jpg?v=2";
                         }
                       }}
                     />

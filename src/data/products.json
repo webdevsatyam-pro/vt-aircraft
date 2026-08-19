@@ -69,7 +69,7 @@
       "Reinforced fuselage and carbon-fiber spar"
     ],
     "images": [
-      "/src/assets/images/ft_viggen.jpg"
+      "/src/assets/images/ft_viggen.jpg?v=2"
     ],
     "specHighlights": {
       "Wingspan": "1100 mm (43.3 in)",
@@ -207,7 +207,7 @@
       "Docile and forgiving slow-flight envelope"
     ],
     "images": [
-      "/src/assets/images/storch.jpg"
+      "/src/assets/images/storch_new.jpg"
     ],
     "specHighlights": {
       "Wingspan": "1460 mm (57.5 in)",
@@ -239,7 +239,7 @@
       "Stable high-wing flight profile"
     ],
     "images": [
-      "/src/assets/images/explorer.jpg"
+      "/src/assets/images/explorer_new.jpg"
     ],
     "specHighlights": {
       "Wingspan": "1420 mm (56 in)",
