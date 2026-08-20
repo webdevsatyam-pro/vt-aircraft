@@ -63,6 +63,9 @@ import fogeyUser4 from '../assets/images/fogey_user_4.jpg';
 import baronUser1 from '../assets/images/baron_user_2.jpg';
 import baronUser2 from '../assets/images/baron_user_1.jpg';
 import baronUser3 from '../assets/images/baron_user_3.jpg';
+import storchAccessories from '../assets/images/storch_accessories.png';
+import explorerDecals from '../assets/images/explorer_decals.jpg';
+import explorerElectronics from '../assets/images/explorer_electronics.jpg';
 
 
 const ImagePlaceholder = ({ label, src, onClick, aspect = 'aspect-[4/3]' }) => {
@@ -1444,7 +1447,7 @@ export default function ProductDetailsPage() {
                         <ImagePlaceholder label="FT-Storch Wing Sheet" src={storchSheetWing} onClick={() => setLightbox({ src: storchSheetWing, label: "FT-Storch Wing Sheet" })} />
                         <ImagePlaceholder label="FT-Storch Fuselage Sheet A" src={storchSheetFuselage} onClick={() => setLightbox({ src: storchSheetFuselage, label: "FT-Storch Fuselage Sheet A" })} />
                         <ImagePlaceholder label="FT-Storch Fuselage Sheet B" src={storchSheetC} onClick={() => setLightbox({ src: storchSheetC, label: "FT-Storch Fuselage Sheet B" })} />
-                        <ImagePlaceholder label="FT-Storch Accessories & Hardware Pack" src="/src/assets/images/storch_accessories.png" onClick={() => setLightbox({ src: "/src/assets/images/storch_accessories.png", label: "FT-Storch Accessories & Hardware Pack" })} />
+                        <ImagePlaceholder label="FT-Storch Accessories & Hardware Pack" src={storchAccessories} onClick={() => setLightbox({ src: storchAccessories, label: "FT-Storch Accessories & Hardware Pack" })} />
                       </div>
                     </>
                   ) : isExplorer ? (
@@ -1478,7 +1481,7 @@ export default function ProductDetailsPage() {
                         <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel)" src={explorerSheetWingLeft} onClick={() => setLightbox({ src: explorerSheetWingLeft, label: "FT-Explorer Wing Sheet (Left Panel)" })} />
                         <ImagePlaceholder label="FT-Explorer Wing Sheet (Right Panel)" src={explorerSheetWingRight} onClick={() => setLightbox({ src: explorerSheetWingRight, label: "FT-Explorer Wing Sheet (Right Panel)" })} />
                         <ImagePlaceholder label="FT-Explorer Wing Sheet (Left Panel Alt)" src={explorerSheetWingLeftAlt} onClick={() => setLightbox({ src: explorerSheetWingLeftAlt, label: "FT-Explorer Wing Sheet (Left Panel Alt)" })} />
-                        <ImagePlaceholder label="FT-Explorer Decals & Stickers" src="/src/assets/images/explorer_decals.jpg" onClick={() => setLightbox({ src: "/src/assets/images/explorer_decals.jpg", label: "FT-Explorer Decals & Stickers" })} />
+                        <ImagePlaceholder label="FT-Explorer Decals & Stickers" src={explorerDecals} onClick={() => setLightbox({ src: explorerDecals, label: "FT-Explorer Decals & Stickers" })} />
                       </div>
                     </>
                   ) : isSpear ? (
@@ -1694,7 +1697,7 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_electronics.jpg" : isMustang ? mustangElectronics : isSpitfire ? spitfireElectronics : isGuineaPig ? guineaPigElectronics : isStorch ? storchElectronics : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics_user.jpg" : isRaptor ? "/src/assets/images/raptor_electronics_user.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics_user.jpg" : isBaron ? "/src/assets/images/baron_electronics_user.jpg" : "/src/assets/images/epp_trainer_electronics.jpg?v=2"} 
+                      src={isViggen ? "/src/assets/images/viggen_electronics.jpg" : isMustang ? mustangElectronics : isSpitfire ? spitfireElectronics : isGuineaPig ? guineaPigElectronics : isStorch ? storchElectronics : isExplorer ? explorerElectronics : isSpear ? "/src/assets/images/spear_electronics_user.jpg" : isRaptor ? "/src/assets/images/raptor_electronics_user.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics_user.jpg" : isBaron ? "/src/assets/images/baron_electronics_user.jpg" : "/src/assets/images/epp_trainer_electronics.jpg?v=2"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
