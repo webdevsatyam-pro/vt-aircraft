@@ -56,14 +56,20 @@ export default function ProductCard({ product }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href={shopifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-2 bg-[#1F3A5F] hover:bg-[#2563EB] text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors duration-200 shadow-xs active:scale-95"
-            >
-              <span>Order Now</span>
-            </a>
+            {product.inStock !== false ? (
+              <a
+                href={shopifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-[#1F3A5F] hover:bg-[#2563EB] text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors duration-200 shadow-xs active:scale-95"
+              >
+                <span>Order Now</span>
+              </a>
+            ) : (
+              <span className="px-3.5 py-2 bg-red-100 text-red-700 text-xs font-semibold rounded-xl flex items-center cursor-not-allowed">
+                Out of Stock
+              </span>
+            )}
           </div>
         </div>
       </div>

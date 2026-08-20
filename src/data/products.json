@@ -437,5 +437,59 @@
       "OS Support": "Windows 10/11, macOS 12+"
     },
     "whatsInTheBox": ["USB Simulator Dongle", "Software Setup Card"]
+  },
+  {
+    "id": "vt-f16",
+    "slug": "vt-f16",
+    "name": "FT F-16 Aircraft",
+    "tagline": "Scale F-16 fighting falcon model with high performance jet flight dynamics.",
+    "price": 2899,
+    "originalPrice": 3499,
+    "badge": "Scale Jet",
+    "category": "Aircraft",
+    "inStock": false,
+    "rating": 4.8,
+    "reviewCount": 42,
+    "sku": "VT-AC-F16",
+    "summary": "F-16 fighter jet replica built from durable Fliteboard Pro, optimized for stable high speed flight and sport maneuvers.",
+    "description": "Experience jet flight thrills with the FT F-16. This pusher-prop jet is designed for speed and maneuverability while maintaining docile slow flight characteristics.",
+    "images": [
+      "/src/assets/images/f16.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "900 mm",
+      "Flying Weight": "750 g",
+      "Motor": "2216 2000KV Brushless Motor",
+      "ESC": "40A Brushless ESC",
+      "Recommended Battery": "3S/4S 1800-2200mAh LiPo"
+    },
+    "whatsInTheBox": ["1x FT F-16 Airframe Kit", "Control Horns & Pushrods", "Decal Set", "User Manual"]
+  },
+  {
+    "id": "vt-sbach342",
+    "slug": "vt-sbach342",
+    "name": "Sbach 342 PNP",
+    "tagline": "High performance 3D aerobatic scale model built for precise maneuvers.",
+    "price": 3199,
+    "originalPrice": 3799,
+    "badge": "3D Aerobatic",
+    "category": "Aircraft",
+    "inStock": false,
+    "rating": 4.9,
+    "reviewCount": 38,
+    "sku": "VT-AC-SBACH",
+    "summary": "The Sbach 342 is a high-performance aerobatic airplane, designed for extreme 3D flight maneuvers and precision aerobatics.",
+    "description": "Engineered for pure performance, the Sbach 342 PNP offers unlimited vertical vertical climb and exceptional agility. Crafted from robust foam and reinforced for high-G maneuvers.",
+    "images": [
+      "/src/assets/images/sbach.jpg"
+    ],
+    "specHighlights": {
+      "Wingspan": "1000 mm",
+      "Flying Weight": "850 g",
+      "Motor": "2216 1250KV Brushless Motor",
+      "ESC": "40A Brushless ESC",
+      "Recommended Battery": "3S 1500-2200mAh LiPo"
+    },
+    "whatsInTheBox": ["1x Sbach 342 Airframe Kit", "Pre-installed Brushless Motor", "Pre-installed 40A ESC", "Pre-installed Servos", "User Manual"]
   }
 ]

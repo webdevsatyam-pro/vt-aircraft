@@ -557,7 +557,7 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* Order Now */}
-              {isAircraft && kitOption === 'airframe' && electronicsOption === 'with-electronics' ? (
+              {product.inStock === false || (isAircraft && kitOption === 'airframe' && electronicsOption === 'with-electronics') ? (
                 <button
                   disabled
                   className="flex-1 h-11 px-6 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 text-center select-none bg-gray-400 text-white cursor-not-allowed"
