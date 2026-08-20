@@ -47,6 +47,23 @@ import explorerSheetWingSpar from '../assets/images/explorer_sheet_wing_spar_new
 import explorerSheetWingLeft from '../assets/images/explorer_sheet_wing_left_new.png';
 import explorerSheetWingRight from '../assets/images/explorer_sheet_wing_right_new.png';
 import explorerSheetWingLeftAlt from '../assets/images/explorer_sheet_wing_left_alt_new.png';
+import spearSheet1 from '../assets/images/spear_user_3.jpg';
+import spearSheet2 from '../assets/images/spear_user_1.jpg';
+import spearSheetE from '../assets/images/spear_user_2.jpg';
+import spearSheetF from '../assets/images/spear_user_4.png';
+import spearAccessories from '../assets/images/spear_user_5.jpg';
+import spearSheet6 from '../assets/images/spear_user_6.png';
+import raptorUser1 from '../assets/images/raptor_user_2.jpg';
+import raptorUser2 from '../assets/images/raptor_user_3.jpg';
+import raptorUser3 from '../assets/images/raptor_user_1.jpg';
+import fogeyUser1 from '../assets/images/fogey_user_1.jpg';
+import fogeyUser2 from '../assets/images/fogey_user_2.jpg';
+import fogeyUser3 from '../assets/images/fogey_user_3.jpg';
+import fogeyUser4 from '../assets/images/fogey_user_4.jpg';
+import baronUser1 from '../assets/images/baron_user_2.jpg';
+import baronUser2 from '../assets/images/baron_user_1.jpg';
+import baronUser3 from '../assets/images/baron_user_3.jpg';
+
 
 const ImagePlaceholder = ({ label, src, onClick, aspect = 'aspect-[4/3]' }) => {
   const [error, setError] = useState(false);
@@ -1491,12 +1508,12 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <ImagePlaceholder label="FT-Spear Wing Cutout Sheet" src="/src/assets/images/spear_sheet_wing_cutout.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_wing_cutout.jpg", label: "FT-Spear Wing Cutout Sheet" })} />
-                        <ImagePlaceholder label="FT-Spear Wing Joiner Sheet" src="/src/assets/images/spear_sheet_wing_joiner.png" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_wing_joiner.png", label: "FT-Spear Wing Joiner Sheet" })} />
-                        <ImagePlaceholder label="FT-Spear Sheets B & C (Elevons & Spars)" src="/src/assets/images/spear_sheet_bc.png" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_bc.png", label: "FT-Spear Sheets B & C (Elevons & Spars)" })} />
-                        <ImagePlaceholder label="FT-Spear Sheet E (Right Wing Panel)" src="/src/assets/images/spear_sheet_e.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_e.jpg", label: "FT-Spear Sheet E (Right Wing Panel)" })} />
-                        <ImagePlaceholder label="FT-Spear Sheet F (Left Wing Panel)" src="/src/assets/images/spear_sheet_f.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_sheet_f.jpg", label: "FT-Spear Sheet F (Left Wing Panel)" })} />
-                        <ImagePlaceholder label="FT-Spear Accessories & Hardware Pack" src="/src/assets/images/spear_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/spear_accessories.jpg", label: "FT-Spear Accessories & Hardware Pack" })} />
+                        <ImagePlaceholder label="FT-Spear Fuselage & Spar Sheet" src={spearSheet1} onClick={() => setLightbox({ src: spearSheet1, label: "FT-Spear Fuselage & Spar Sheet" })} />
+                        <ImagePlaceholder label="FT-Spear Wing Cutouts & Elevons Sheet" src={spearSheet2} onClick={() => setLightbox({ src: spearSheet2, label: "FT-Spear Wing Cutouts & Elevons Sheet" })} />
+                        <ImagePlaceholder label="FT-Spear Sheet E (Right Wing Panel)" src={spearSheetE} onClick={() => setLightbox({ src: spearSheetE, label: "FT-Spear Sheet E (Right Wing Panel)" })} />
+                        <ImagePlaceholder label="FT-Spear Sheet F (Left Wing Panel)" src={spearSheetF} onClick={() => setLightbox({ src: spearSheetF, label: "FT-Spear Sheet F (Left Wing Panel)" })} />
+                        <ImagePlaceholder label="FT-Spear Accessories & Hardware Pack" src={spearAccessories} onClick={() => setLightbox({ src: spearAccessories, label: "FT-Spear Accessories & Hardware Pack" })} />
+                        <ImagePlaceholder label="FT-Spear Elevon & Spar Sheet" src={spearSheet6} onClick={() => setLightbox({ src: spearSheet6, label: "FT-Spear Elevon & Spar Sheet" })} />
                       </div>
                     </>
                   ) : isRaptor ? (
@@ -1524,11 +1541,11 @@ export default function ProductDetailsPage() {
                       {/* Kit content images */}
                       <div className="space-y-6 pt-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                          <ImagePlaceholder label="FT-22 Raptor Sheets A & B (Fuselage & Canopy)" src="/src/assets/images/raptor_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/raptor_sheet_ab.jpg", label: "FT-22 Raptor Sheets A & B (Fuselage & Canopy)" })} />
-                          <ImagePlaceholder label="FT-22 Raptor Wing & Elevon Sheet" src="/src/assets/images/raptor_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/raptor_sheet_wing.jpg", label: "FT-22 Raptor Wing & Elevon Sheet" })} />
+                          <ImagePlaceholder label="FT-22 Raptor Sheets A & B (Fuselage & Canopy)" src={raptorUser1} onClick={() => setLightbox({ src: raptorUser1, label: "FT-22 Raptor Sheets A & B (Fuselage & Canopy)" })} />
+                          <ImagePlaceholder label="FT-22 Raptor Wing & Elevon Sheet" src={raptorUser2} onClick={() => setLightbox({ src: raptorUser2, label: "FT-22 Raptor Wing & Elevon Sheet" })} />
                         </div>
                         <div className="w-full">
-                          <ImagePlaceholder label="FT-22 Raptor Accessories & Hardware Kit" src="/src/assets/images/raptor_accessories.png" onClick={() => setLightbox({ src: "/src/assets/images/raptor_accessories.png", label: "FT-22 Raptor Accessories & Hardware Kit" })} aspect="aspect-[3/1]" />
+                          <ImagePlaceholder label="FT-22 Raptor Accessories & Hardware Kit" src={raptorUser3} onClick={() => setLightbox({ src: raptorUser3, label: "FT-22 Raptor Accessories & Hardware Kit" })} aspect="aspect-[3/1]" />
                         </div>
                       </div>
                     </>
@@ -1561,10 +1578,10 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
-                        <ImagePlaceholder label="Old Fogey Power Pod Sheet" src="/src/assets/images/fogey_sheet_powerpod.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_powerpod.jpg", label: "Old Fogey Power Pod Sheet" })} />
-                        <ImagePlaceholder label="Old Fogey Wing Sheet" src="/src/assets/images/fogey_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_wing.jpg", label: "Old Fogey Wing Sheet" })} />
-                        <ImagePlaceholder label="Old Fogey Fuselage Sheet" src="/src/assets/images/fogey_sheet_fuselage.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_sheet_fuselage.jpg", label: "Old Fogey Fuselage Sheet" })} />
-                        <ImagePlaceholder label="Old Fogey Accessories & Hardware Kit" src="/src/assets/images/fogey_accessories.jpg" onClick={() => setLightbox({ src: "/src/assets/images/fogey_accessories.jpg", label: "Old Fogey Accessories & Hardware Kit" })} />
+                        <ImagePlaceholder label="Old Fogey Power Pod Sheet" src={fogeyUser2} onClick={() => setLightbox({ src: fogeyUser2, label: "Old Fogey Power Pod Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Wing Sheet" src={fogeyUser3} onClick={() => setLightbox({ src: fogeyUser3, label: "Old Fogey Wing Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Fuselage Sheet" src={fogeyUser1} onClick={() => setLightbox({ src: fogeyUser1, label: "Old Fogey Fuselage Sheet" })} />
+                        <ImagePlaceholder label="Old Fogey Accessories & Hardware Kit" src={fogeyUser4} onClick={() => setLightbox({ src: fogeyUser4, label: "Old Fogey Accessories & Hardware Kit" })} />
                       </div>
                     </>
                   ) : isBaron ? (
@@ -1593,9 +1610,9 @@ export default function ProductDetailsPage() {
                       
                       {/* Kit content images */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
-                        <ImagePlaceholder label="Bloody Baron Sheets A & B (Fuselage & Doublers)" src="/src/assets/images/baron_sheet_ab.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_ab.jpg", label: "Bloody Baron Sheets A & B (Fuselage & Doublers)" })} />
-                        <ImagePlaceholder label="Bloody Baron Sheets C & D (Power Pod & Stabilizers)" src="/src/assets/images/baron_sheet_cd.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_cd.jpg", label: "Bloody Baron Sheets C & D (Power Pod & Stabilizers)" })} />
-                        <ImagePlaceholder label="Bloody Baron Wing Panel Sheet" src="/src/assets/images/baron_sheet_wing.jpg" onClick={() => setLightbox({ src: "/src/assets/images/baron_sheet_wing.jpg", label: "Bloody Baron Wing Panel Sheet" })} />
+                        <ImagePlaceholder label="Bloody Baron Sheets A & B (Fuselage & Doublers)" src={baronUser1} onClick={() => setLightbox({ src: baronUser1, label: "Bloody Baron Sheets A & B (Fuselage & Doublers)" })} />
+                        <ImagePlaceholder label="Bloody Baron Sheets C & D (Power Pod & Stabilizers)" src={baronUser2} onClick={() => setLightbox({ src: baronUser2, label: "Bloody Baron Sheets C & D (Power Pod & Stabilizers)" })} />
+                        <ImagePlaceholder label="Bloody Baron Wing Panel Sheet" src={baronUser3} onClick={() => setLightbox({ src: baronUser3, label: "Bloody Baron Wing Panel Sheet" })} />
                       </div>
                     </>
                   ) : (
@@ -1677,7 +1694,7 @@ export default function ProductDetailsPage() {
                   </div>
                   <div className="md:col-span-5 rounded-xl overflow-hidden border border-gray-200 shadow-sm aspect-4/3 bg-gray-50 flex items-center justify-center p-2">
                     <img 
-                      src={isViggen ? "/src/assets/images/viggen_electronics.jpg" : isMustang ? mustangElectronics : isSpitfire ? spitfireElectronics : isGuineaPig ? guineaPigElectronics : isStorch ? storchElectronics : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics.jpg" : isRaptor ? "/src/assets/images/raptor_electronics.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics.jpg" : isBaron ? "/src/assets/images/baron_electronics.jpg" : "/src/assets/images/epp_trainer_electronics.jpg?v=2"} 
+                      src={isViggen ? "/src/assets/images/viggen_electronics.jpg" : isMustang ? mustangElectronics : isSpitfire ? spitfireElectronics : isGuineaPig ? guineaPigElectronics : isStorch ? storchElectronics : isExplorer ? "/src/assets/images/explorer_electronics.jpg" : isSpear ? "/src/assets/images/spear_electronics_user.jpg" : isRaptor ? "/src/assets/images/raptor_electronics_user.jpg" : isOldFogey ? "/src/assets/images/fogey_electronics_user.jpg" : isBaron ? "/src/assets/images/baron_electronics_user.jpg" : "/src/assets/images/epp_trainer_electronics.jpg?v=2"} 
                       alt="Optional electronics package" 
                       className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
