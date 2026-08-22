@@ -15,10 +15,10 @@ export function TransitionProvider({ children }) {
     // Navigate immediately so there is no boring delay!
     navigate(targetUrl);
 
-    // Reset animation state after the plane completes its flight (1500ms)
+    // Reset animation state after the plane completes its flight (3500ms)
     setTimeout(() => {
       setIsAnimating(false);
-    }, 1500);
+    }, 3500);
   };
 
   return (
@@ -33,11 +33,11 @@ export function TransitionProvider({ children }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.15, 0.15, 0] }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.5 }}
+              transition={{ duration: 3.5 }}
               className="absolute inset-0 bg-blue-500/5 pointer-events-none"
             />
 
-            {/* Flying Jet from Bottom-Right to Top-Left */}
+            {/* Flying Jet from Bottom-Right to Top-Left with a Loop-the-Loop Circle */}
             <motion.div
               style={{
                 position: 'absolute',
@@ -46,13 +46,15 @@ export function TransitionProvider({ children }) {
               }}
               initial={{ x: '10vw', y: '10vh', rotate: -45, scale: 1.3 }}
               animate={{ 
-                x: '-120vw', 
-                y: '-120vh', 
-                scale: [1.3, 1.6, 1.3]
+                x: ['10vw', '-40vw', '-65vw', '-65vw', '-40vw', '-40vw', '-70vw', '-130vw'],
+                y: ['10vh', '-30vh', '-30vh', '-65vh', '-65vh', '-40vh', '-70vh', '-130vh'],
+                rotate: [-45, -90, -180, -270, -360, -405, -405, -405],
+                scale: [1.3, 1.6, 1.6, 1.6, 1.6, 1.6, 1.4, 1.3]
               }}
               transition={{ 
-                duration: 1.5, 
-                ease: [0.25, 1, 0.5, 1], // super smooth cubic-bezier curve
+                duration: 3.5, 
+                times: [0, 0.22, 0.38, 0.54, 0.7, 0.78, 0.88, 1],
+                ease: "easeInOut",
               }}
               className="flex items-center text-[#2563EB]"
             >

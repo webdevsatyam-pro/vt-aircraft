@@ -5,7 +5,7 @@
     "category": "Flight Demos",
     "duration": "04:15",
     "thumbnail": "/src/assets/images/vt_trainer_hero_1784882888882.jpg",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "videoUrl": "/src/assets/images/my-flights.mp4",
     "description": "Watch our lead pilot showcase takeoff, basic maneuvers, panic recovery function, and landings in 10 mph winds."
   },
   {
@@ -13,8 +13,8 @@
     "title": "Unboxing & 8-Minute Tool-Free Assembly Guide",
     "category": "Tutorials",
     "duration": "08:30",
-    "thumbnail": "/src/assets/images/vt_trainer_studio_1784882902062.jpg",
-    "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "thumbnail": "/src/assets/images/thumbnail_assembly.jpg",
+    "videoUrl": "/src/assets/images/plane-hub.mp4",
     "description": "Step-by-step unboxing, wing mounting, battery connection, and transmitter binding tutorial."
   },
   {
@@ -22,7 +22,7 @@
     "title": "Understanding VT-Stabilize Gyro & Flight Modes",
     "category": "Training",
     "duration": "06:12",
-    "thumbnail": "/src/assets/images/vt_trainer_action_1784882915807.jpg",
+    "thumbnail": "/src/assets/images/thumbnail_gyro.jpg",
     "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     "description": "Learn how Beginner, Intermediate, and Expert flight modes work and when to transition as your skill progresses."
   },
