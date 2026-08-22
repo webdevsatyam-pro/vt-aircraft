@@ -36,37 +36,51 @@
   },
   {
     "id": "gal-6",
-    "title": "Low Altitude Aerobatic Loop",
+    "title": "FT F-16 Fighter Jet",
     "category": "Action",
-    "image": "/src/assets/images/gallery_jet.jpg",
-    "caption": "Expert Mode unlocks full acrobatic freedom for loops, rolls, and stall turns."
+    "image": "/src/assets/images/gallery_f16.jpg",
+    "caption": "Scale F-16 fighting falcon model with high performance jet flight dynamics."
   },
   {
     "id": "gal-7",
     "title": "FT-Guinea Pig Cargo Utility",
     "category": "Studio",
-    "image": "/src/assets/images/guinea_pig.jpg",
+    "image": "/src/assets/images/gallery_guinea_pig.jpg",
     "caption": "Twin-motor cargo plane designed for high payload capacity and transport missions."
   },
   {
     "id": "gal-8",
     "title": "FT-Storch STOL Aircraft",
     "category": "Action",
-    "image": "/src/assets/images/storch.jpg",
+    "image": "/src/assets/images/gallery_storch.jpg",
     "caption": "Scale replica of the Fieseler Fi 156 Storch, optimized for short field takeoff and landing."
   },
   {
     "id": "gal-9",
     "title": "FT-Explorer Pusher Trainer",
     "category": "Studio",
-    "image": "/src/assets/images/explorer.jpg",
+    "image": "/src/assets/images/gallery_explorer.jpg",
     "caption": "Rear-propeller pusher configuration shielding the motor and camera mount."
   },
   {
     "id": "gal-10",
     "title": "FT-Spear Flying Wing",
     "category": "Action",
-    "image": "/src/assets/images/spear.jpg",
+    "image": "/src/assets/images/gallery_spear.jpg",
     "caption": "High-speed delta wing FPV platform with cavernous electronics compartment."
+  },
+  {
+    "id": "gal-11",
+    "title": "Sbach 342 PNP",
+    "category": "Action",
+    "image": "/src/assets/images/gallery_sbach.jpg",
+    "caption": "High performance 3D aerobatic scale model built for precise maneuvers."
+  },
+  {
+    "id": "gal-12",
+    "title": "FT F-16 Fighter Jet Setup",
+    "category": "Studio",
+    "image": "/src/assets/images/gallery_f16_2.jpg",
+    "caption": "Scale F-16 fighting falcon model sitting ready on the turf."
   }
 ]

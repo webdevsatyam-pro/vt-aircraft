@@ -283,6 +283,7 @@ export default function ProductDetailsPage() {
   }, [activeTab]);
 
   const shopifyUrl = product.shopifyUrl || `https://your-shopify-store.myshopify.com/products/${product.slug || product.id}`;
+  const showDetailedSections = product.id !== 'vt-f16' && product.id !== 'vt-sbach342';
 
   return (
     <div className="space-y-12 pb-16">
@@ -635,7 +636,8 @@ export default function ProductDetailsPage() {
 
 
       {/* Detailed Tabs Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {showDetailedSections && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs">
           
           {/* Tab Navigation Buttons */}
@@ -1888,10 +1890,11 @@ export default function ProductDetailsPage() {
 
           </div>
         </div>
-      </section>
+        </section>
+      )}
 
       {/* Build & Assembly Video Section */}
-      {product.category === 'Aircraft' && (
+      {showDetailedSections && product.category === 'Aircraft' && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 pt-6">
           <div className="border-t border-gray-200 pt-10">
             <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">

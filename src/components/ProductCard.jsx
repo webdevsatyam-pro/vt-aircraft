@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RatingStars from './RatingStars';
+import { usePlaneTransition } from '../context/TransitionContext';
 
 export default function ProductCard({ product }) {
   const mainImage = Array.isArray(product.images) ? product.images[0] : (product.image || '/src/assets/images/vt_trainer_hero_1784882888882.jpg');
   const shopifyUrl = product.shopifyUrl || `https://your-shopify-store.myshopify.com/products/${product.slug || product.id}`;
+  const { triggerPlaneTransition } = usePlaneTransition();
+  const productUrl = `/product/${product.slug || product.id}`;
+
+  const handleNavigate = (e) => {
+    e.preventDefault();
+    triggerPlaneTransition(productUrl);
+  };
 
   return (
     <div className="group relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full card-hover">
@@ -16,7 +24,7 @@ export default function ProductCard({ product }) {
       )}
 
       {/* Product Image Link */}
-      <Link to={`/product/${product.slug || product.id}`} className="relative block aspect-4/3 bg-gray-50 overflow-hidden">
+      <Link to={productUrl} onClick={handleNavigate} className="relative block aspect-4/3 bg-gray-50 overflow-hidden">
         <img
           src={mainImage}
           alt={product.name}
@@ -32,7 +40,7 @@ export default function ProductCard({ product }) {
           <RatingStars rating={product.rating || 4.9} count={product.reviewCount} />
         </div>
 
-        <Link to={`/product/${product.slug || product.id}`} className="group-hover:text-[#2563EB] transition-colors">
+        <Link to={productUrl} onClick={handleNavigate} className="group-hover:text-[#2563EB] transition-colors">
           <h3 className="font-semibold text-gray-900 text-base mb-1 line-clamp-1">{product.name}</h3>
         </Link>
 
