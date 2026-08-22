@@ -9,13 +9,16 @@ export default function ProductCard({ product }) {
   const { triggerPlaneTransition } = usePlaneTransition();
   const productUrl = `/product/${product.slug || product.id}`;
 
-  const handleNavigate = (e) => {
-    e.preventDefault();
+  const handleCardClick = (e) => {
+    // Avoid double triggering if clicking nested elements that might trigger it
     triggerPlaneTransition(productUrl);
   };
 
   return (
-    <div className="group relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full card-hover">
+    <div 
+      onClick={handleCardClick}
+      className="cursor-pointer group relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full card-hover"
+    >
       {/* Badge */}
       {product.badge && (
         <div className="absolute top-3 left-3 z-10 bg-[#1F3A5F] text-white text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-xs">
@@ -23,15 +26,15 @@ export default function ProductCard({ product }) {
         </div>
       )}
 
-      {/* Product Image Link */}
-      <Link to={productUrl} onClick={handleNavigate} className="relative block aspect-4/3 bg-gray-50 overflow-hidden">
+      {/* Product Image */}
+      <div className="relative block aspect-4/3 bg-gray-50 overflow-hidden">
         <img
           src={mainImage}
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
           loading="lazy"
         />
-      </Link>
+      </div>
 
       {/* Product Information */}
       <div className="p-5 flex flex-col flex-1">
@@ -40,9 +43,9 @@ export default function ProductCard({ product }) {
           <RatingStars rating={product.rating || 4.9} count={product.reviewCount} />
         </div>
 
-        <Link to={productUrl} onClick={handleNavigate} className="group-hover:text-[#2563EB] transition-colors">
+        <div className="group-hover:text-[#2563EB] transition-colors">
           <h3 className="font-semibold text-gray-900 text-base mb-1 line-clamp-1">{product.name}</h3>
-        </Link>
+        </div>
 
         <p className="text-gray-500 text-xs line-clamp-2 mb-4 flex-1">{product.tagline || product.summary}</p>
 
@@ -69,12 +72,18 @@ export default function ProductCard({ product }) {
                 href={shopifyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => {
+                  e.stopPropagation(); // Stop clicking "Order Now" from navigating to product details page
+                }}
                 className="px-3.5 py-2 bg-[#1F3A5F] hover:bg-[#2563EB] text-white text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors duration-200 shadow-xs active:scale-95"
               >
                 <span>Order Now</span>
               </a>
             ) : (
-              <span className="px-3.5 py-2 bg-red-100 text-red-700 text-xs font-semibold rounded-xl flex items-center cursor-not-allowed">
+              <span 
+                onClick={(e) => e.stopPropagation()}
+                className="px-3.5 py-2 bg-red-100 text-red-700 text-xs font-semibold rounded-xl flex items-center cursor-not-allowed"
+              >
                 Out of Stock
               </span>
             )}
