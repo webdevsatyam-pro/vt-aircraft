@@ -3,14 +3,16 @@
   "name": "Rc Plane Hub - Premium RC Flight Platform",
   "icons": [
     {
-      "src": "/src/assets/images/rc-logo.jpg",
-      "type": "image/jpeg",
-      "sizes": "192x192"
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
-      "src": "/src/assets/images/rc-plane-zone-logo.jpg",
-      "type": "image/jpeg",
-      "sizes": "512x512"
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
   "start_url": "/",
