@@ -1,0 +1,21 @@
+{
+  "short_name": "RcPlaneHub",
+  "name": "Rc Plane Hub - Premium RC Flight Platform",
+  "icons": [
+    {
+      "src": "/src/assets/images/rc-logo.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/assets/images/rc-plane-zone-logo.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#1F3A5F",
+  "theme_color": "#1F3A5F",
+  "display": "standalone",
+  "orientation": "portrait"
+}
