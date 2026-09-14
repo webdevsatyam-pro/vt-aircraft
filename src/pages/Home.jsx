@@ -258,6 +258,7 @@ export default function Home() {
                 High-density resilient foam absorbs tough grass landings and is 100% glue-repairable on the field.
               </p>
             </div>
+            
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-3">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#2563EB] flex items-center justify-center font-bold">
