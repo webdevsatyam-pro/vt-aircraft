@@ -30,6 +30,9 @@ import mustangStarterKit from "../assets/images/mustang_starter_kit.jpg";
 import guineaPigStarterKit from "../assets/images/guinea_pig_starter_kit.jpg";
 import storchStarterKit from "../assets/images/storch_starter_kit.jpg";
 import explorerStarterKit from "../assets/images/explorer_starter_kit.jpg";
+import spearStarterKit from "../assets/images/spear_starter_kit.jpg";
+import raptorStarterKit from "../assets/images/raptor_starter_kit.jpg";
+import baronStarterKit from "../assets/images/baron_starter_kit.jpg";
 import trainerSky from "../assets/images/trainer_sky.jpg";
 import trainerGround from "../assets/images/trainer_ground.jpg";
 import rcFlightZoneBanner from "../assets/images/rc_flight_zone_banner.png";
@@ -666,7 +669,7 @@ export default function ProductDetailsPage() {
                       servo extensions, connectors)
                     </li>
                   </ul>
-                  <div className="rounded-xl overflow-hidden border border-gray-200 shadow-xs aspect-square flex items-center justify-center">
+                  <div className="rounded-xl overflow-hidden border border-gray-200 shadow-xs aspect-square flex items-center justify-center p-2 bg-gray-50">
                     <img
                       src={
                         isViggen
@@ -679,10 +682,16 @@ export default function ProductDetailsPage() {
                                 ? storchStarterKit
                                 : isExplorer
                                   ? explorerStarterKit
-                                  : starterKitComponents
+                                  : isSpear
+                                    ? spearStarterKit
+                                    : isRaptor || isOldFogey
+                                      ? raptorStarterKit
+                                      : isBaron
+                                        ? baronStarterKit
+                                        : starterKitComponents
                       }
                       alt="Starter Kit Components"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>
