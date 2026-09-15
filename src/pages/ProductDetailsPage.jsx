@@ -198,6 +198,10 @@ export default function ProductDetailsPage() {
   const isBaron =
     product.id === "vt-bloody-baron" ||
     product.name.toLowerCase().includes("baron");
+  const isSimpleTrainer =
+    product.id === "vt-simple-trainer-rtf" ||
+    product.name.toLowerCase().includes("simple trainer") ||
+    product.name.toLowerCase().includes("trainer");
   const displayName = product.name;
   const displayDesc = product.summary || product.description;
 
@@ -245,11 +249,11 @@ export default function ProductDetailsPage() {
                       ? 2149
                       : 1749;
   const packPriceVal = isViggen
-    ? 4999
+    ? 10449
     : isMustang
-      ? 4199
+      ? 10499
       : isSpitfire
-        ? 3999
+        ? 9999
         : isGuineaPig
           ? 8999
           : isStorch
@@ -264,13 +268,15 @@ export default function ProductDetailsPage() {
                     ? 3599
                     : isBaron
                       ? 3599
-                      : 2999;
+                      : isSimpleTrainer
+                        ? 9499
+                        : 9499;
   const packOriginalPriceVal = isViggen
-    ? 5499
+    ? 11449
     : isMustang
-      ? 4699
+      ? 11499
       : isSpitfire
-        ? 4499
+        ? 10999
         : isGuineaPig
           ? 9499
           : isStorch
@@ -285,7 +291,9 @@ export default function ProductDetailsPage() {
                     ? 3999
                     : isBaron
                       ? 3999
-                      : 3499;
+                      : isSimpleTrainer
+                        ? 10499
+                        : 10499;
 
   const formatINR = (amount) =>
     `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -516,14 +524,35 @@ export default function ProductDetailsPage() {
 
             <div className="flex items-baseline gap-3">
               {isAircraft ? (
-                <>
-                  <span className="text-3xl font-extrabold text-gray-900">
-                    {currentBasePriceStr}
-                  </span>
-                  <span className="text-sm text-gray-400 line-through font-normal">
-                    {currentBaseOriginalPriceStr}
-                  </span>
-                </>
+                kitOption === "starter" ? (
+                  <>
+                    <span className="text-3xl font-extrabold text-gray-900">
+                      {currentPackPriceStr}
+                    </span>
+                    <span className="text-sm text-gray-400 line-through font-normal">
+                      {currentPackOriginalPriceStr}
+                    </span>
+                  </>
+                ) : kitOption === "airframe" &&
+                  electronicsOption === "with-electronics" ? (
+                  <>
+                    <span className="text-3xl font-extrabold text-gray-900">
+                      {currentPackPriceStr}
+                    </span>
+                    <span className="text-sm text-gray-400 line-through font-normal">
+                      {currentPackOriginalPriceStr}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-3xl font-extrabold text-gray-900">
+                      {currentBasePriceStr}
+                    </span>
+                    <span className="text-sm text-gray-400 line-through font-normal">
+                      {currentBaseOriginalPriceStr}
+                    </span>
+                  </>
+                )
               ) : (
                 <>
                   <span className="text-3xl font-extrabold text-[#1F3A5F]">
