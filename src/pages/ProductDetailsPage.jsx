@@ -198,6 +198,13 @@ export default function ProductDetailsPage() {
   const isBaron =
     product.id === "vt-bloody-baron" ||
     product.name.toLowerCase().includes("baron");
+  const isF16 =
+    product.id === "vt-f16" ||
+    product.name.toLowerCase().includes("f-16") ||
+    product.name.toLowerCase().includes("f16");
+  const isSbach =
+    product.id === "vt-sbach342" ||
+    product.name.toLowerCase().includes("sbach");
   const isSimpleTrainer =
     product.id === "vt-simple-trainer-rtf" ||
     product.name.toLowerCase().includes("simple trainer") ||
@@ -226,7 +233,11 @@ export default function ProductDetailsPage() {
                     ? 1599
                     : isBaron
                       ? 1749
-                      : 1399;
+                      : isF16
+                        ? 2899
+                        : isSbach
+                          ? 3199
+                          : 1399;
   const baseOriginalPriceVal = isViggen
     ? 2649
     : isMustang
@@ -247,7 +258,11 @@ export default function ProductDetailsPage() {
                     ? 1999
                     : isBaron
                       ? 2149
-                      : 1749;
+                      : isF16
+                        ? 3499
+                        : isSbach
+                          ? 3799
+                          : 1749;
   const packPriceVal = isViggen
     ? 10449
     : isMustang
@@ -255,22 +270,26 @@ export default function ProductDetailsPage() {
       : isSpitfire
         ? 9999
         : isGuineaPig
-          ? 8999
+          ? 11999
           : isStorch
-            ? 5555
+            ? 10999
             : isExplorer
-              ? 4999
+              ? 11999
               : isSpear
-                ? 3999
+                ? 10499
                 : isRaptor
-                  ? 3999
+                  ? 8999
                   : isOldFogey
-                    ? 3599
+                    ? 10299
                     : isBaron
-                      ? 3599
-                      : isSimpleTrainer
-                        ? 9499
-                        : 9499;
+                      ? 9799
+                      : isF16
+                        ? 9449
+                        : isSbach
+                          ? 10499
+                          : isSimpleTrainer
+                            ? 9499
+                            : 9499;
   const packOriginalPriceVal = isViggen
     ? 11449
     : isMustang
@@ -278,22 +297,26 @@ export default function ProductDetailsPage() {
       : isSpitfire
         ? 10999
         : isGuineaPig
-          ? 9499
+          ? 12999
           : isStorch
-            ? 5999
+            ? 11999
             : isExplorer
-              ? 5499
+              ? 12999
               : isSpear
-                ? 4499
+                ? 11499
                 : isRaptor
-                  ? 4499
+                  ? 9999
                   : isOldFogey
-                    ? 3999
+                    ? 11299
                     : isBaron
-                      ? 3999
-                      : isSimpleTrainer
-                        ? 10499
-                        : 10499;
+                      ? 10799
+                      : isF16
+                        ? 10449
+                        : isSbach
+                          ? 11499
+                          : isSimpleTrainer
+                            ? 10499
+                            : 10499;
 
   const formatINR = (amount) =>
     `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -305,6 +328,66 @@ export default function ProductDetailsPage() {
   const currentPackPriceStr = formatINR(packPriceVal * quantity);
   const currentPackOriginalPriceStr = formatINR(
     packOriginalPriceVal * quantity,
+  );
+  const withElectronicsPriceVal = isViggen
+    ? 3299
+    : isMustang
+      ? 3199
+      : isSpitfire
+        ? 2799
+        : isGuineaPig
+          ? 3799
+          : isStorch
+            ? 3799
+            : isExplorer
+              ? 3749
+              : isSpear
+                ? 3299
+                : isRaptor
+                  ? 2799
+                  : isOldFogey
+                    ? 2699
+                    : isBaron
+                      ? 2799
+                      : isF16
+                        ? 3999
+                        : isSbach
+                          ? 4149
+                          : isSimpleTrainer
+                            ? 2799
+                            : packPriceVal;
+  const withElectronicsOriginalPriceVal = isViggen
+    ? 3799
+    : isMustang
+      ? 3699
+      : isSpitfire
+        ? 3299
+        : isGuineaPig
+          ? 4299
+          : isStorch
+            ? 4299
+            : isExplorer
+              ? 4249
+              : isSpear
+                ? 3799
+                : isRaptor
+                  ? 3299
+                  : isOldFogey
+                    ? 3199
+                    : isBaron
+                      ? 3299
+                      : isF16
+                        ? 4499
+                        : isSbach
+                          ? 4649
+                          : isSimpleTrainer
+                            ? 3299
+                            : packOriginalPriceVal;
+  const currentWithElectronicsPriceStr = formatINR(
+    withElectronicsPriceVal * quantity,
+  );
+  const currentWithElectronicsOriginalPriceStr = formatINR(
+    withElectronicsOriginalPriceVal * quantity,
   );
   const currentPriceRangeStr = `${formatINR(basePriceVal * quantity)} – ${formatINR(packPriceVal * quantity)}`;
 
@@ -537,10 +620,10 @@ export default function ProductDetailsPage() {
                   electronicsOption === "with-electronics" ? (
                   <>
                     <span className="text-3xl font-extrabold text-gray-900">
-                      {currentPackPriceStr}
+                      {currentWithElectronicsPriceStr}
                     </span>
                     <span className="text-sm text-gray-400 line-through font-normal">
-                      {currentPackOriginalPriceStr}
+                      {currentWithElectronicsOriginalPriceStr}
                     </span>
                   </>
                 ) : (
@@ -793,10 +876,10 @@ export default function ProductDetailsPage() {
                       ) : (
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-sm text-gray-400 line-through">
-                            {currentPackOriginalPriceStr}
+                            {currentWithElectronicsOriginalPriceStr}
                           </span>
                           <span className="text-2xl font-bold text-gray-900">
-                            {currentPackPriceStr}
+                            {currentWithElectronicsPriceStr}
                           </span>
                           <span className="text-xs font-bold text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-sm uppercase tracking-wider">
                             Out of Stock
